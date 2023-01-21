@@ -1,0 +1,30 @@
+{
+  "name": "gu-server",
+  "version": "1.0.0",
+  "description": "The web server for web app called 'GJU-Upholders'",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bishnoipk01/gju-upholders.git"
+  },
+  "type": "module",
+  "author": "Pankaj Bishnoi",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bishnoipk01/gju-upholders/issues"
+  },
+  "homepage": "https://github.com/bishnoipk01/gju-upholders#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.0",
+    "neo4j-driver": "^5.4.0"
+  }
+}
