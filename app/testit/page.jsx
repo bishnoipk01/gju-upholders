@@ -1,16 +1,15 @@
 import Image from 'next/image';
+import { executeRead } from '@/utils/neo4j';
 
-export default function TestIt({ name, image }) {
-  return (
-    <button className='flex items-center text-sm font-medium text-gray-900 rounded-full hover:text-blue-600 md-mr-0 p-3 focus:border-gray focus:border-2'>
-      <Image
-        className='w-8 h-8 mr-2 rounded-full'
-        src={image}
-        alt='user photo'
-        width={50}
-        height={50}
-      />
-      <span className='text-sm'>{name}</span>
-    </button>
-  );
+const getdates = async () => {
+  const query = `MATCH (n:Temp) RETURN n.created AS date`;
+  const results = await executeRead(query);
+  const data = results[0].get('date');
+  return data;
+};
+
+export default async function TestIt() {
+  const data = await getdates();
+  console.log(data);
+  return <p>{data.year.low}</p>;
 }

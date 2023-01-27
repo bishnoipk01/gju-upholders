@@ -47,7 +47,7 @@ export default function NavBar() {
                 <span className='sr-only'>Open user menu</span>
                 <Image
                   className='w-8 h-8 mr-2 rounded-full'
-                  src='https://flowbite.com/docs/images/people/profile-picture-3.jpg'
+                  src='/user/user.png'
                   alt='user photo'
                   width={50}
                   height={50}

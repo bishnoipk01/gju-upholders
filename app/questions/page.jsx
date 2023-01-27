@@ -1,11 +1,13 @@
 'use client';
+import ErrorCard from '@/components/errorCard';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 
 const getQuestions = async () => {
   try {
-    const res = await fetch('/api/questions/get-all');
+    const res = await fetch('/api/questions/get-all', { cache: `no-cache` });
     const questions = await res.json();
+    if (res.status !== 200) return null;
     return questions.data;
   } catch (err) {
     console.log(err);
@@ -22,13 +24,14 @@ export default function Questions() {
     []
   );
   return (
-    <section className='container mx-auto'>
+    <section className='container mx-auto mt-4'>
       <div className='flex justify-between'>
         <h1 className='heading-3'>All Questions</h1>
         <Link href={'/questions/new-question'} className='btn-1'>
           Ask a Question
         </Link>
       </div>
+      {ques ? '' : <ErrorCard message={`\tUnable to load data try again..`} />}
       {ques.map((question) => {
         return (
           <Link

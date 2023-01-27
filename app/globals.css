@@ -7,7 +7,7 @@
 }
 
 .heading-2 {
-    @apply text-4xl font-normal leading-normal my-2 text-violet-800;
+    @apply text-3xl font-normal leading-normal my-2 text-gray-800;
 }
 
 

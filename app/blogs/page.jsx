@@ -1,4 +1,5 @@
 'use client';
+import ErrorCard from '@/components/errorCard';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 
@@ -23,9 +24,11 @@ export default function Blogs() {
   );
   return (
     <section className='container mx-auto'>
-      <div className='flex justify-between bg-red-100 p-2 rounded mb-4'>
+      <div className='flex justify-between bg-green-100 p-2 rounded mb-4'>
         <h1 className='heading-2'>Blogs</h1>
       </div>
+      {blog.length ? '' : <ErrorCard message={'\tNo data found'} />}
+
       {blog?.map((blog) => {
         return (
           <Link
