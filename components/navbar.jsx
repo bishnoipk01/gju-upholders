@@ -1,6 +1,10 @@
+"use client";
+import { useSession, signOut } from "next-auth/react";
+
 import Image from "next/image";
 import Link from "next/link";
 export default function NavBar() {
+  const { data: session } = useSession();
   return (
     <nav className="bg-white border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-900 mb-10">
       <div className="container flex flex-wrap items-center justify-between mx-auto h-full">
@@ -17,12 +21,18 @@ export default function NavBar() {
           </span>
         </Link>
         <div className="flex md:order-2">
-          <Link
-            href={"/register"}
-            className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-3 md:mr-0 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-          >
-            Get started
-          </Link>
+          {session?.user ? (
+            <button className="btn" onClick={signOut}>
+              Logout
+            </button>
+          ) : (
+            <Link
+              href={"/user/login"}
+              className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-3 md:mr-0 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+            >
+              Get started
+            </Link>
+          )}
           <button
             data-collapse-toggle="navbar-cta"
             type="button"

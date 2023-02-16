@@ -1,3 +1,4 @@
+"use client";
 import Header from "@/components/header";
 import HomeBlog from "@/components/HomeBlogs";
 import Link from "next/link";

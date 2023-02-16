@@ -1,6 +1,6 @@
-import dotenv from "dotenv";
+// import dotenv from "dotenv";
 
-dotenv.config();
+// dotenv.config();
 
 export const API_URI = process.env.API_URI;
 export const DB = process.env.DB_URI;
