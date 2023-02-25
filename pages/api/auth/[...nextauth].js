@@ -9,7 +9,7 @@ export const authOptions = {
       async authorize(credentials, req) {
         // Add logic here to look up the user from the credentials supplied
         const { email, password } = credentials;
-        const result = await fetch('http://localhost:8000/api/users/login', {
+        const result = await fetch('http://localhost:3000/api/users/login', {
           method: 'post',
           body: JSON.stringify({ email, password }),
           headers: { 'content-type': 'application/json' },

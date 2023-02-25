@@ -27,7 +27,7 @@ export default function BlogHeader({ image, writer, date, blogTitle }) {
           </div>
         </div>
       </address>
-      <h1 className='heading-2'>{blogTitle}</h1>
+      <h1 className='heading-1'>{blogTitle}</h1>
     </section>
   );
 }

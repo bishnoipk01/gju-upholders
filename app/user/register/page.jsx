@@ -12,7 +12,7 @@ export default function Register() {
 
   async function RegisterUser() {
     if (password !== matchPass) return alert('Password does not match!');
-    const res = await fetch('http://localhost:8000/api/users/register', {
+    const res = await fetch('/api/users/register', {
       method: 'post',
       body: JSON.stringify({ name, email, password }),
       headers: { 'content-type': 'application/json' },

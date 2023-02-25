@@ -14,8 +14,7 @@ export default async function getQuestion(req, res) {
     const { answer, userId } = req.body;
     const query = `MATCH(u:User {id:$uId})
                 MATCH(q:Question {id: $qId})
-                MERGE((u)-[r:ANSWER]->(q))
-                SET r.answer = $answer
+                MERGE((u)-[r:ANSWER {id:randomUuid(), answer:$answer}]->(q))
                 RETURN r.answer AS ans;
   `;
     const params = { uId: userId, qId: id, answer };

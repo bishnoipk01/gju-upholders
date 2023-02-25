@@ -19,6 +19,7 @@ export default function QuestionById({ params }) {
   const { data: session } = useSession();
   const [question, setQuestion] = useState({});
   const [answers, setAnswers] = useState([]);
+  const [state, setState] = useState('ok');
   useEffect(
     () => async () => {
       const data1 = await getQuestion(params.id);
@@ -26,10 +27,13 @@ export default function QuestionById({ params }) {
       setQuestion(data1);
       setAnswers(data2);
     },
-    [params.id]
+    [params.id, state]
   );
   // refresh the page
-  const refreshPage = () => router.refresh();
+  const refreshPage = () => {
+    setState('refresh');
+    router.refresh();
+  };
 
   async function postAnswer(e) {
     const answer = e.target.answer.value;
@@ -39,8 +43,9 @@ export default function QuestionById({ params }) {
       headers: { 'content-type': 'application/json' },
     });
     if (res.ok) {
-      alert('answer posted successfully!');
       refreshPage();
+      alert('answer posted successfully!');
+      e.target.answer.value = '';
     } else alert('some error occurred.. try again');
   }
 
@@ -51,10 +56,10 @@ export default function QuestionById({ params }) {
         <p>{question.description}</p>
       </div>
       <div>
-        <h1 className='heading-2'>Answers</h1>
+        <h1 className='heading-2 '>Answers</h1>
         {answers.map((ans) => (
           <div key={ans.id} className='border-2 border-green-300 my-6'>
-            <h1 className='heading-2'>{ans.answer}</h1>
+            <h1 className='heading-3'>{ans.answer}</h1>
             <h1>{ans.user}</h1>
           </div>
         ))}
