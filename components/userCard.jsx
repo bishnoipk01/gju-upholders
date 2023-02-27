@@ -1,6 +1,6 @@
 import Image from 'next/image';
 
-export default function TestIt({ name, image }) {
+export default function UserCard({ name, image }) {
   return (
     <button className='flex items-center text-sm font-medium text-gray-900 rounded-full hover:text-blue-600 md-mr-0 p-3 focus:border-gray focus:border-2'>
       <Image

@@ -2,6 +2,7 @@
 import { useSession } from 'next-auth/react';
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
+import UserCard from '@/components/userCard';
 
 const getQuestion = async (id) => {
   const res = await fetch(`/api/questions/${id}`);
@@ -51,20 +52,23 @@ export default function QuestionById({ params }) {
 
   return (
     <section className='container mx-auto'>
-      <div className='border-2 border-cyan-400 p-6'>
+      <div className=' p-6 bg-slate-100'>
         <h1 className='heading-2'>{question.title}</h1>
         <p>{question.description}</p>
       </div>
       <div>
         <h1 className='heading-2 '>Answers</h1>
         {answers.map((ans) => (
-          <div key={ans.id} className='border-2 border-green-300 my-6'>
+          <div key={ans.id} className='bg-stone-100 shadow-sm p-2 rounded my-6'>
             <h1 className='heading-3'>{ans.answer}</h1>
-            <h1>{ans.user}</h1>
+            <UserCard
+              name={ans.user}
+              image='https://flowbite.com/docs/images/people/profile-picture-3.jpg'
+            />
           </div>
         ))}
       </div>
-      <div className='border-2 border-red-400'>
+      <div className=''>
         <h1 className='heading-2'>Your answer</h1>
         <form
           action='#'
