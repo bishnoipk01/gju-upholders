@@ -3,6 +3,7 @@ import { useSession } from 'next-auth/react';
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import UserCard from '@/components/userCard';
+import parseDate from '@/utils/js-date';
 
 const getQuestion = async (id) => {
   const res = await fetch(`/api/questions/${id}`);
@@ -52,11 +53,14 @@ export default function QuestionById({ params }) {
 
   return (
     <section className='container mx-auto'>
-      <div className=' p-6 bg-slate-100'>
+      <div className=' p-6 bg-slate-100 relative'>
         <h1 className='text-3xl font-medium text-neutral-600'>
           {question.title}
         </h1>
         <p>{question.description}</p>
+        <p className='absolute right-6 bottom-2 text-slate-700'>
+          <span className='text-slate-500'> Asked on {question.createdAt}</span>
+        </p>
       </div>
       <div>
         <h1 className='heading-2 '>Answers</h1>
@@ -65,7 +69,10 @@ export default function QuestionById({ params }) {
             <h1 className='text-2xl font-normal text-neutral-600'>
               {ans.answer}
             </h1>
-            <UserCard name={ans.user} image='/user/user.png' />
+            <div className='flex align-bottom w-1/2 mr-4 text-sm text-gray-400 mt-4'>
+              <UserCard name={ans.user} image='/user/user.png' />
+              <span className='pt-4'>answered {ans.createdAt}</span>
+            </div>
           </div>
         ))}
       </div>

@@ -1,3 +1,4 @@
+import parseDate from '@/utils/js-date';
 import { executeRead, executeWrite } from '@/utils/neo4j';
 
 export default async function getQuestion(req, res) {
@@ -8,6 +9,7 @@ export default async function getQuestion(req, res) {
       const params = { id };
       const result = await executeRead(query, params);
       const data = result[0].get('q').properties;
+      data.createdAt = parseDate(data.created_at).toDateString();
       res.status(200).json({ status: 'success', data });
     }
     if (req.method == 'POST') {
@@ -15,7 +17,7 @@ export default async function getQuestion(req, res) {
       const { answer, userId } = req.body;
       const query = `MATCH(u:User {id:$uId})
                 MATCH(q:Question {id: $qId})
-                MERGE((u)-[r:ANSWER {id:randomUuid(), answer:$answer}]->(q))
+                MERGE((u)-[r:ANSWER {id:randomUuid(), answer:$answer, created_at: datetime()}]->(q))
                 RETURN r.answer AS ans;
   `;
       const params = { uId: userId, qId: id, answer };
