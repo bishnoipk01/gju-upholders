@@ -53,8 +53,8 @@ export default function QuestionById({ params }) {
 
   return (
     <section className='container mx-auto'>
-      <div className=' p-6 bg-slate-100 relative'>
-        <h1 className='text-3xl font-medium text-neutral-600'>
+      <div className=' p-6 bg-slate-50 relative mb-8'>
+        <h1 className='text-3xl font-medium text-neutral-600 mb-4'>
           {question.title}
         </h1>
         <p>{question.description}</p>
@@ -63,15 +63,15 @@ export default function QuestionById({ params }) {
         </p>
       </div>
       <div>
-        <h1 className='heading-2 '>Answers</h1>
+        <h1 className='heading-2'>Answers</h1>
         {answers.map((ans) => (
-          <div key={ans.id} className='bg-stone-100 shadow-sm p-2 rounded my-6'>
-            <h1 className='text-2xl font-normal text-neutral-600'>
+          <div key={ans.id} className='bg-stone-50 shadow-sm p-2 rounded my-6'>
+            <h1 className='text-2xl font-normal text-neutral-700'>
               {ans.answer}
             </h1>
-            <div className='flex align-bottom w-1/2 mr-4 text-sm text-gray-400 mt-4'>
+            <div className=' w-1/2 mr-4 text-sm text-gray-400 mt-4'>
               <UserCard name={ans.user} image='/user/user.png' />
-              <span className='pt-4'>answered {ans.createdAt}</span>
+              <span className='pt-4'>Answered {ans.createdAt}</span>
             </div>
           </div>
         ))}

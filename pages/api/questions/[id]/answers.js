@@ -21,6 +21,6 @@ export default async function getAnswersToQuestion(req, res) {
       data,
     });
   } catch (e) {
-    res.status(500).send('something went wrong');
+    res.status(500).json({ message: 'something went wrong' });
   }
 }

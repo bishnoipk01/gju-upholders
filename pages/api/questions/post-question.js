@@ -20,6 +20,6 @@ export default async function PostNewQuestion(req, res) {
       question: result[0].get('q').properties,
     });
   } catch (e) {
-    res.status(500).send('something went wrong');
+    res.status(500).json({ message: 'something went wrong' });
   }
 }

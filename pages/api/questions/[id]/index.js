@@ -9,7 +9,8 @@ export default async function getQuestion(req, res) {
       const params = { id };
       const result = await executeRead(query, params);
       const data = result[0].get('q').properties;
-      data.createdAt = parseDate(data.created_at).toDateString();
+      if (data.created_at)
+        data.createdAt = parseDate(data.created_at).toDateString();
       res.status(200).json({ status: 'success', data });
     }
     if (req.method == 'POST') {
@@ -29,6 +30,6 @@ export default async function getQuestion(req, res) {
       });
     }
   } catch (e) {
-    res.status(500).send('something went wrong');
+    res.status(500).json({ message: 'something went wrong' });
   }
 }

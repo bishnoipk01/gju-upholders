@@ -12,6 +12,6 @@ export default async function getAllQuestions(req, res) {
       });
     }
   } catch (e) {
-    res.status(500).send('something went wrong');
+    res.status(500).json({ message: 'something went wrong' });
   }
 }
