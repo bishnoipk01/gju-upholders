@@ -29,6 +29,17 @@ export default async function getQuestion(req, res) {
         message: 'answer posted',
       });
     }
+    if (req.method === 'DELETE') {
+      console.log('deleting question');
+      const { id } = req.query;
+      const query = 'MATCH(q:Question {id:$id}) DETACH DELETE q';
+      const params = { id };
+      const result = await executeWrite(query, params);
+      res.status(200).json({
+        status: 'success',
+        message: 'question deleted',
+      });
+    }
   } catch (e) {
     res.status(500).json({ message: 'something went wrong' });
   }
