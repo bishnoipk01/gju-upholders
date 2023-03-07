@@ -32,6 +32,12 @@ export default function Questions() {
         </Link>
       </div>
       {ques ? '' : <ErrorCard message={`\tUnable to load data try again..`} />}
+      {ques.length ? (
+        ''
+      ) : (
+        <ErrorCard message={`\tNo data found .. Try asking a question`} />
+      )}
+
       {ques.map((question) => {
         return (
           <Link
