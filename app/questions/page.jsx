@@ -24,7 +24,7 @@ export default function Questions() {
     []
   );
   return (
-    <section className='container mx-auto mt-4'>
+    <section className='container mx-auto mt-4 bg-slate-400'>
       <div className='flex justify-between'>
         <h1 className='heading-3'>All Questions</h1>
         <Link href={'/questions/new-question'} className='btn-1'>
