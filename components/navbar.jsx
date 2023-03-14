@@ -70,7 +70,7 @@ export default function NavBar() {
               </button>
               <div
                 id='dropdownAvatarName'
-                className='z-10 hidden absolute top-14 bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600'
+                className='z-15 hidden absolute top-14 bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600'
               >
                 {/* <div className='px-4 py-3 text-sm text-gray-900 dark:text-white'>
               <div className='font-medium '>Pro User</div>
@@ -82,7 +82,7 @@ export default function NavBar() {
                 >
                   <li>
                     <Link
-                      href='#'
+                      href='/user/dashboard/'
                       className='block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white'
                     >
                       Dashboard
