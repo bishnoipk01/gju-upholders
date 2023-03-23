@@ -1,4 +1,6 @@
-// 'use client';
+'use client';
+
+import DashForm from '@/components/dashForm';
 
 export default function Dashboard() {
   return (
@@ -27,7 +29,19 @@ export default function Dashboard() {
             </button>
           </div>
         </div>
-        <div className=' h-[80vh]'></div>
+        <div className=' h-[80vh]'>
+          <div className='bg-gray-200 p-4 rounded mt-10'>
+            <h1 className='text-xl'>Personal information</h1>
+          </div>
+          <div className='mt-4 bg-slate-100 shadow-sm p-4 w-1/2'>
+            <div className='info'>
+              <ul>
+                <li>name: </li>
+                <li> email: </li>
+              </ul>
+            </div>
+          </div>
+        </div>
       </div>
     </>
   );

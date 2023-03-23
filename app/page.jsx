@@ -7,7 +7,7 @@ export default function Home() {
   return (
     <main className=''>
       <Header />
-      <HomeBlog />
+      {/* <HomeBlog /> */}
     </main>
   );
 }

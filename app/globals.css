@@ -2,6 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
+
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Open+Sans:wght@300;400;500;600;700&display=swap');
+
+body {
+    font-family: 'Lato', sans-serif;
+}
+
 .heading-1{
     @apply font-medium leading-tight text-5xl my-4 text-indigo-800;
 }
