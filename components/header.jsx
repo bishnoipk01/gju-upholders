@@ -1,4 +1,4 @@
-import bg from '../public/14.jpeg';
+import bg from '../public/8.jpg';
 import Link from 'next/link';
 export default function Header() {
   return (
@@ -10,7 +10,7 @@ export default function Header() {
       }}
     >
       <div className='flex items-center justify-center h-full w-full bg-gray-900 bg-opacity-50'>
-        <div className='text-center'>
+        {/* <div className='text-center'>
           <h1 className='text-white text-2xl font-semibold uppercase md:text-3xl'>
             Welcome to{' '}
             <span className='underline text-blue-400'>Gju-Upholders</span>
@@ -21,7 +21,7 @@ export default function Header() {
           >
             Ask A Question!
           </Link>
-        </div>
+        </div> */}
       </div>
     </header>
   );

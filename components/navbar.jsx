@@ -1,6 +1,7 @@
 'use client';
 import { useSession, signOut } from 'next-auth/react';
 
+
 import Image from 'next/image';
 import Link from 'next/link';
 export default function NavBar() {
@@ -10,7 +11,7 @@ export default function NavBar() {
       <div className='container flex flex-wrap items-center justify-between mx-auto'>
         <Link href='/' className='flex items-center'>
           <Image
-            src='/logo.png'
+            src='/logo.svg'
             width={40}
             height={40}
             className='h-6 mr-3 sm:h-9'
