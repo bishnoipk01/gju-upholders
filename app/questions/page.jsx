@@ -16,6 +16,7 @@ const getQuestions = async () => {
 
 export default function Questions() {
   const [ques, setQues] = useState([]);
+  const [query, setQuery] = useState('');
   useEffect(
     () => async () => {
       const data = await getQuestions();
@@ -23,6 +24,16 @@ export default function Questions() {
     },
     []
   );
+
+  //Our search filter function
+  const searchFilter = (array) => {
+    if (array.length > 0 && query) {
+      return array.filter((el) => el.tags.includes(query));
+    } else return array;
+  };
+
+  const filtered = searchFilter(ques);
+
   return (
     <section className='container mx-auto mt-10'>
       <div className='flex justify-between'>
@@ -31,14 +42,45 @@ export default function Questions() {
           Ask a Question
         </Link>
       </div>
+      <ul className='flex flex-col sm:flex-row'>
+        <span className='text-lg mt-2 mr-4'>Filter:</span>
+
+        <button onClick={(e) => setQuery('')}>
+          <li
+            className={`inline-flex items-center gap-x-2.5 py-3 px-4 text-sm font-medium border text-gray-800 -mt-px first:rounded-t-lg first:mt-0 last:rounded-b-lg sm:-ml-px sm:mt-0 sm:first:rounded-tr-none sm:first:rounded-bl-lg sm:last:rounded-bl-none sm:last:rounded-tr-lg dark:bg-gray-800 dark:border-gray-700 dark:text-white ${
+              query === '' ? 'bg-green-100' : ''
+            }`}
+          >
+            All
+          </li>
+        </button>
+        <button>
+          <li
+            className={`inline-flex items-center gap-x-2.5 py-3 px-4 text-sm font-medium bg-white border text-gray-800 -mt-px first:rounded-t-lg first:mt-0 last:rounded-b-lg sm:-ml-px sm:mt-0 sm:first:rounded-tr-none sm:first:rounded-bl-lg sm:last:rounded-bl-none sm:last:rounded-tr-lg dark:bg-gray-800 dark:border-gray-700 dark:text-white  ${
+              query === '#code' ? 'bg-green-100' : ''
+            }`}
+            onClick={(e) => setQuery(e.target.textContent)}
+          >
+            #code
+          </li>
+        </button>
+        <button onClick={(e) => setQuery(e.target.textContent)}>
+          <li
+            className={`inline-flex items-center gap-x-2.5 py-3 px-4 text-sm font-medium bg-white border text-gray-800 -mt-px first:rounded-t-lg first:mt-0 last:rounded-b-lg sm:-ml-px sm:mt-0 sm:first:rounded-tr-none sm:first:rounded-bl-lg sm:last:rounded-bl-none sm:last:rounded-tr-lg dark:bg-gray-800 dark:border-gray-700 dark:text-white  ${
+              query === '#Prog' ? 'bg-green-100' : ''
+            }`}
+          >
+            #Prog
+          </li>
+        </button>
+      </ul>
       {ques ? '' : <ErrorCard message={`\tUnable to load data try again..`} />}
       {ques.length ? (
         ''
       ) : (
         <ErrorCard message={`\tNo data found .. Try asking a question`} />
       )}
-
-      {ques.map((question) => {
+      {filtered.map((question) => {
         return (
           <Link
             href={`/questions/${question.id}`}

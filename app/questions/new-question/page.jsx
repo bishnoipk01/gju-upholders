@@ -4,13 +4,18 @@ import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 
+import AskBg from '@/public/ask-q-bg.svg';
+import { list } from 'postcss';
+
 export default function NewQuestion() {
   const router = useRouter();
   const { data: session } = useSession();
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
+  const tags = [];
 
   async function PostQuestion() {
+    console.log(tags);
     const res = await fetch('/api/questions/post-question', {
       method: 'post',
       headers: { 'content-type': 'application/json' },
@@ -18,6 +23,7 @@ export default function NewQuestion() {
         title,
         description,
         Uid: session.user.id,
+        tags,
       }),
     });
     const result = await res.json();
@@ -28,7 +34,10 @@ export default function NewQuestion() {
   }
 
   return (
-    <section className='container mx-auto'>
+    <section
+      className='container mx-auto bg-cover bg-center min-h-[90vh] pt-6'
+      style={{ backgroundImage: `url(${AskBg.src})` }}
+    >
       <h1 className='heading-2'>Ask a public question</h1>
       <div>
         <p>
@@ -39,6 +48,9 @@ export default function NewQuestion() {
           className='w-1/2'
           onSubmit={(e) => {
             e.preventDefault();
+            document
+              .querySelectorAll('.bg-green-100')
+              .forEach((el) => tags.push(el.textContent));
             PostQuestion();
           }}
         >
@@ -73,6 +85,21 @@ export default function NewQuestion() {
             placeholder='...'
             onChange={(e) => setDescription(e.target.value)}
           ></textarea>
+          <div className='mt-8'>
+            <ul
+              onClick={(e) => {
+                if (e.target.nodeName !== 'LI') return;
+                e.target.classList.toggle('bg-green-100');
+              }}
+            >
+              <li className='p-2 rounded-full border-rose-100 border-2 cursor-pointer inline mr-4 '>
+                #code
+              </li>
+              <li className='p-2 rounded-full border-rose-100 border-2 cursor-pointer inline mr-4'>
+                #Prog
+              </li>
+            </ul>
+          </div>
           <input
             type='submit'
             value='Post'
