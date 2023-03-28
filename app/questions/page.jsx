@@ -56,7 +56,7 @@ export default function Questions() {
         </button>
         <button>
           <li
-            className={`inline-flex items-center gap-x-2.5 py-3 px-4 text-sm font-medium bg-white border text-gray-800 -mt-px first:rounded-t-lg first:mt-0 last:rounded-b-lg sm:-ml-px sm:mt-0 sm:first:rounded-tr-none sm:first:rounded-bl-lg sm:last:rounded-bl-none sm:last:rounded-tr-lg dark:bg-gray-800 dark:border-gray-700 dark:text-white  ${
+            className={`inline-flex items-center gap-x-2.5 py-3 px-4 text-sm font-medium  border text-gray-800 -mt-px first:rounded-t-lg first:mt-0 last:rounded-b-lg sm:-ml-px sm:mt-0 sm:first:rounded-tr-none sm:first:rounded-bl-lg sm:last:rounded-bl-none sm:last:rounded-tr-lg dark:bg-gray-800 dark:border-gray-700 dark:text-white  ${
               query === '#code' ? 'bg-green-100' : ''
             }`}
             onClick={(e) => setQuery(e.target.textContent)}
@@ -66,7 +66,7 @@ export default function Questions() {
         </button>
         <button onClick={(e) => setQuery(e.target.textContent)}>
           <li
-            className={`inline-flex items-center gap-x-2.5 py-3 px-4 text-sm font-medium bg-white border text-gray-800 -mt-px first:rounded-t-lg first:mt-0 last:rounded-b-lg sm:-ml-px sm:mt-0 sm:first:rounded-tr-none sm:first:rounded-bl-lg sm:last:rounded-bl-none sm:last:rounded-tr-lg dark:bg-gray-800 dark:border-gray-700 dark:text-white  ${
+            className={`inline-flex items-center gap-x-2.5 py-3 px-4 text-sm font-medium  border text-gray-800 -mt-px first:rounded-t-lg first:mt-0 last:rounded-b-lg sm:-ml-px sm:mt-0 sm:first:rounded-tr-none sm:first:rounded-bl-lg sm:last:rounded-bl-none sm:last:rounded-tr-lg dark:bg-gray-800 dark:border-gray-700 dark:text-white  ${
               query === '#Prog' ? 'bg-green-100' : ''
             }`}
           >
