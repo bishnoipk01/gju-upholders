@@ -56,21 +56,48 @@ export default function Questions() {
         </button>
         <button>
           <li
-            className={`inline-flex items-center gap-x-2.5 py-3 px-4 text-sm font-medium bg-white border text-gray-800 -mt-px first:rounded-t-lg first:mt-0 last:rounded-b-lg sm:-ml-px sm:mt-0 sm:first:rounded-tr-none sm:first:rounded-bl-lg sm:last:rounded-bl-none sm:last:rounded-tr-lg dark:bg-gray-800 dark:border-gray-700 dark:text-white  ${
-              query === '#code' ? 'bg-green-100' : ''
+            className={`inline-flex items-center gap-x-2.5 py-3 px-4 text-sm font-medium border text-gray-800 -mt-px first:rounded-t-lg first:mt-0 last:rounded-b-lg sm:-ml-px sm:mt-0 sm:first:rounded-tr-none sm:first:rounded-bl-lg sm:last:rounded-bl-none sm:last:rounded-tr-lg dark:bg-gray-800 dark:border-gray-700 dark:text-white  ${
+              query === '#Programming' ? 'bg-green-100' : ''
             }`}
             onClick={(e) => setQuery(e.target.textContent)}
           >
-            #code
+            #Programming
           </li>
         </button>
         <button onClick={(e) => setQuery(e.target.textContent)}>
           <li
-            className={`inline-flex items-center gap-x-2.5 py-3 px-4 text-sm font-medium bg-white border text-gray-800 -mt-px first:rounded-t-lg first:mt-0 last:rounded-b-lg sm:-ml-px sm:mt-0 sm:first:rounded-tr-none sm:first:rounded-bl-lg sm:last:rounded-bl-none sm:last:rounded-tr-lg dark:bg-gray-800 dark:border-gray-700 dark:text-white  ${
-              query === '#Prog' ? 'bg-green-100' : ''
+            className={`inline-flex items-center gap-x-2.5 py-3 px-4 text-sm font-medium  border text-gray-800 -mt-px first:rounded-t-lg first:mt-0 last:rounded-b-lg sm:-ml-px sm:mt-0 sm:first:rounded-tr-none sm:first:rounded-bl-lg sm:last:rounded-bl-none sm:last:rounded-tr-lg dark:bg-gray-800 dark:border-gray-700 dark:text-white  ${
+              query === '#Technology' ? 'bg-green-100' : ''
             }`}
           >
-            #Prog
+            #Technology
+          </li>
+        </button>
+        <button onClick={(e) => setQuery(e.target.textContent)}>
+          <li
+            className={`inline-flex items-center gap-x-2.5 py-3 px-4 text-sm font-medium  border text-gray-800 -mt-px first:rounded-t-lg first:mt-0 last:rounded-b-lg sm:-ml-px sm:mt-0 sm:first:rounded-tr-none sm:first:rounded-bl-lg sm:last:rounded-bl-none sm:last:rounded-tr-lg dark:bg-gray-800 dark:border-gray-700 dark:text-white  ${
+              query === '#CodingQuestion' ? 'bg-green-100' : ''
+            }`}
+          >
+            #CodingQuestion
+          </li>
+        </button>
+        <button onClick={(e) => setQuery(e.target.textContent)}>
+          <li
+            className={`inline-flex items-center gap-x-2.5 py-3 px-4 text-sm font-medium  border text-gray-800 -mt-px first:rounded-t-lg first:mt-0 last:rounded-b-lg sm:-ml-px sm:mt-0 sm:first:rounded-tr-none sm:first:rounded-bl-lg sm:last:rounded-bl-none sm:last:rounded-tr-lg dark:bg-gray-800 dark:border-gray-700 dark:text-white  ${
+              query === '#Placement' ? 'bg-green-100' : ''
+            }`}
+          >
+            #Placement
+          </li>
+        </button>
+        <button onClick={(e) => setQuery(e.target.textContent)}>
+          <li
+            className={`inline-flex items-center gap-x-2.5 py-3 px-4 text-sm font-medium  border text-gray-800 -mt-px first:rounded-t-lg first:mt-0 last:rounded-b-lg sm:-ml-px sm:mt-0 sm:first:rounded-tr-none sm:first:rounded-bl-lg sm:last:rounded-bl-none sm:last:rounded-tr-lg dark:bg-gray-800 dark:border-gray-700 dark:text-white  ${
+              query === '#T&PCell' ? 'bg-green-100' : ''
+            }`}
+          >
+            #T&PCell
           </li>
         </button>
       </ul>
@@ -85,7 +112,7 @@ export default function Questions() {
           <Link
             href={`/questions/${question.id}`}
             key={question.id}
-            className='block p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 my-6'
+            className='block p-6  border border-gray-200 rounded-lg  bg-white shadow hover:bg-gray-100 my-6'
           >
             <h5 className='mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white'>
               {question.title}

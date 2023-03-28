@@ -39,7 +39,7 @@ export default function FeaturesHome() {
         <div className='sm:text-center'>
           <div className='flex items-center justify-center w-16 h-16 mb-4 rounded-full bg-indigo-50 sm:mx-auto sm:w-24 sm:h-24'>
             <svg
-              className='w-12 h-12 text-sky-400 sm:w-20 sm:h-20'
+              className='w-12 h-12 text-purple-400 sm:w-20 sm:h-20'
               stroke='currentColor'
               viewBox='0 0 52 52'
             >
@@ -60,7 +60,7 @@ export default function FeaturesHome() {
           <a
             href='/'
             aria-label=''
-            className='inline-flex items-center font-semibold transition-colors duration-200 text-sky-400 hover:text-sky-800'
+            className='inline-flex items-center font-semibold transition-colors duration-200 text-purple-400 hover:text-purple-800'
           >
             Learn more
           </a>
@@ -68,7 +68,7 @@ export default function FeaturesHome() {
         <div className='sm:text-center'>
           <div className='flex items-center justify-center w-16 h-16 mb-4 rounded-full bg-indigo-50 sm:mx-auto sm:w-24 sm:h-24'>
             <svg
-              className='w-12 h-12 text-sky-400 sm:w-20 sm:h-20'
+              className='w-12 h-12 text-purple-400 sm:w-20 sm:h-20'
               stroke='currentColor'
               viewBox='0 0 52 52'
             >
@@ -89,7 +89,7 @@ export default function FeaturesHome() {
           <a
             href='/'
             aria-label=''
-            className='inline-flex items-center font-semibold transition-colors duration-200 text-sky-400 hover:text-sky-800'
+            className='inline-flex items-center font-semibold transition-colors duration-200 text-purple-400 hover:text-purple-800'
           >
             Learn more
           </a>
@@ -97,7 +97,7 @@ export default function FeaturesHome() {
         <div className='sm:text-center'>
           <div className='flex items-center justify-center w-16 h-16 mb-4 rounded-full bg-indigo-50 sm:mx-auto sm:w-24 sm:h-24'>
             <svg
-              className='w-12 h-12 text-sky-400 sm:w-20 sm:h-20'
+              className='w-12 h-12 text-purple-400 sm:w-20 sm:h-20'
               stroke='currentColor'
               viewBox='0 0 52 52'
             >
@@ -118,7 +118,7 @@ export default function FeaturesHome() {
           <a
             href='/'
             aria-label=''
-            className='inline-flex items-center font-semibold transition-colors duration-200 text-sky-400 hover:text-sky-800'
+            className='inline-flex items-center font-semibold transition-colors duration-200 text-purple-400 hover:text-purple-800'
           >
             Learn more
           </a>

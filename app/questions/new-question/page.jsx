@@ -35,7 +35,7 @@ export default function NewQuestion() {
 
   return (
     <section
-      className='container mx-auto bg-cover bg-center min-h-[90vh] pt-6'
+      className='container mx-auto bg-contain bg-no-repeat bg-right min-h-[90vh] pt-6'
       style={{ backgroundImage: `url(${AskBg.src})` }}
     >
       <h1 className='heading-2'>Ask a public question</h1>
@@ -85,7 +85,8 @@ export default function NewQuestion() {
             placeholder='...'
             onChange={(e) => setDescription(e.target.value)}
           ></textarea>
-          <div className='mt-8'>
+          <div className='mt-4 mb-2'>
+            <h2 className='mb-4 text-xl'>Select tags for your question</h2>
             <ul
               onClick={(e) => {
                 if (e.target.nodeName !== 'LI') return;
@@ -93,10 +94,19 @@ export default function NewQuestion() {
               }}
             >
               <li className='p-2 rounded-full border-rose-100 border-2 cursor-pointer inline mr-4 '>
-                #code
+                #Programming
               </li>
               <li className='p-2 rounded-full border-rose-100 border-2 cursor-pointer inline mr-4'>
-                #Prog
+                #Technology
+              </li>
+              <li className='p-2 rounded-full border-rose-100 border-2 cursor-pointer inline mr-4'>
+                #Placement
+              </li>
+              <li className='p-2 rounded-full border-rose-100 border-2 cursor-pointer inline mr-4'>
+                #CodingQuestion
+              </li>
+              <li className='p-2 rounded-full border-rose-100 border-2 cursor-pointer inline mr-4'>
+                #T&PCell
               </li>
             </ul>
           </div>
