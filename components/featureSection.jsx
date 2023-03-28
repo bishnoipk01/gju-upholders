@@ -40,7 +40,6 @@ export default function FeaturesHome() {
           <div className='flex items-center justify-center w-16 h-16 mb-4 rounded-full bg-indigo-50 sm:mx-auto sm:w-24 sm:h-24'>
             <svg
               className='w-12 h-12 text-purple-400 sm:w-20 sm:h-20'
-              className='w-12 h-12 text-sky-600 sm:w-20 sm:h-20'
               stroke='currentColor'
               viewBox='0 0 52 52'
             >
