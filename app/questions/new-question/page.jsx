@@ -5,7 +5,6 @@ import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 
 import AskBg from '@/public/ask-q-bg.svg';
-import { list } from 'postcss';
 
 export default function NewQuestion() {
   const router = useRouter();
@@ -15,7 +14,6 @@ export default function NewQuestion() {
   const tags = [];
 
   async function PostQuestion() {
-    console.log(tags);
     const res = await fetch('/api/questions/post-question', {
       method: 'post',
       headers: { 'content-type': 'application/json' },
@@ -85,7 +83,8 @@ export default function NewQuestion() {
             placeholder='...'
             onChange={(e) => setDescription(e.target.value)}
           ></textarea>
-          <div className='mt-8'>
+          <div className='mt-4 mb-2'>
+            <h2 className='my-4  text-lg'>Select tags for your Question</h2>
             <ul
               onClick={(e) => {
                 if (e.target.nodeName !== 'LI') return;
@@ -93,10 +92,19 @@ export default function NewQuestion() {
               }}
             >
               <li className='p-2 rounded-full border-rose-100 border-2 cursor-pointer inline mr-4 '>
-                #code
+                #Programming
               </li>
               <li className='p-2 rounded-full border-rose-100 border-2 cursor-pointer inline mr-4'>
-                #Prog
+                #Technology
+              </li>
+              <li className='p-2 rounded-full border-rose-100 border-2 cursor-pointer inline mr-4'>
+                #Placement
+              </li>
+              <li className='p-2 rounded-full border-rose-100 border-2 cursor-pointer inline mr-4'>
+                #CodingQuestion
+              </li>
+              <li className='p-2 rounded-full border-rose-100 border-2 cursor-pointer inline mr-4'>
+                #T&PCell
               </li>
             </ul>
           </div>

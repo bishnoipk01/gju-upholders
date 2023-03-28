@@ -28,7 +28,7 @@ export default function FeaturesHome() {
             </svg>
             <span className='relative'>Features</span>
           </span>{' '}
-           of our Web App
+          of our Web App
         </h2>
         {/* <p className='text-base text-gray-700 md:text-lg'>
           Sed ut perspiciatis unde omnis iste natus error sit voluptatem
@@ -52,10 +52,12 @@ export default function FeaturesHome() {
               />
             </svg>
           </div>
-          <h6 className='mb-2 font-semibold leading-5 text-2xl  text-cyan-900' >Make a post</h6>
+          <h6 className='mb-2 font-semibold leading-5 text-2xl  text-cyan-900'>
+            Make a post
+          </h6>
           <p className='max-w-md mb-3 text-lg text-cyan-700  sm:mx-auto'>
-          By putting your ideas and experience you can give direction to many
-students
+            By putting your ideas and experience you can give direction to many
+            students
           </p>
           <a
             href='/'
@@ -81,9 +83,11 @@ students
               />
             </svg>
           </div>
-          <h6 className='mb-2 font-semibold leading-5 text-2xl  text-cyan-900'>Ask a question</h6>
+          <h6 className='mb-2 font-semibold leading-5 text-2xl  text-cyan-900'>
+            Ask a question
+          </h6>
           <p className='max-w-md mb-3 text-lg  text-cyan-700 sm:mx-auto'>
-           Users can Question and Answer each other
+            Users can Question and Answer each other
           </p>
           <a
             href='/'
@@ -109,9 +113,11 @@ students
               />
             </svg>
           </div>
-          <h6 className='mb-2 font-semibold leading-5 text-2xl  text-cyan-900'>Explore clubs</h6>
+          <h6 className='mb-2 font-semibold leading-5 text-2xl  text-cyan-900'>
+            Explore clubs
+          </h6>
           <p className='max-w-md mb-3 text-lg  text-cyan-700 sm:mx-auto'>
-          We are providing a single place for all clubs in our university
+            We are providing a single place for all clubs in our university
           </p>
           <a
             href='/'
