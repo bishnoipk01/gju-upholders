@@ -26,20 +26,21 @@ export default function FeaturesHome() {
                 height='24'
               />
             </svg>
-            <span className='relative'>The</span>
+            <span className='relative'>Features</span>
           </span>{' '}
-          quick, brown fox jumps over a lazy dog
+          of our Web App
         </h2>
-        <p className='text-base text-gray-700 md:text-lg'>
+        {/* <p className='text-base text-gray-700 md:text-lg'>
           Sed ut perspiciatis unde omnis iste natus error sit voluptatem
           accusantium doloremque rem aperiam, eaque ipsa quae.
-        </p>
+        </p> */}
       </div>
       <div className='grid gap-8 row-gap-8 lg:grid-cols-3'>
         <div className='sm:text-center'>
           <div className='flex items-center justify-center w-16 h-16 mb-4 rounded-full bg-indigo-50 sm:mx-auto sm:w-24 sm:h-24'>
             <svg
               className='w-12 h-12 text-purple-400 sm:w-20 sm:h-20'
+              className='w-12 h-12 text-sky-600 sm:w-20 sm:h-20'
               stroke='currentColor'
               viewBox='0 0 52 52'
             >
@@ -52,10 +53,12 @@ export default function FeaturesHome() {
               />
             </svg>
           </div>
-          <h6 className='mb-2 font-semibold leading-5'>Ask A Question</h6>
-          <p className='max-w-md mb-3 text-sm text-gray-900 sm:mx-auto'>
-            Cheese on toast airedale the big cheese. Danish fontina cheesy grin
-            airedale danish
+          <h6 className='mb-2 font-semibold leading-5 text-2xl  text-cyan-900'>
+            Make a post
+          </h6>
+          <p className='max-w-md mb-3 text-lg text-cyan-700  sm:mx-auto'>
+            By putting your ideas and experience you can give direction to many
+            students
           </p>
           <a
             href='/'
@@ -81,10 +84,11 @@ export default function FeaturesHome() {
               />
             </svg>
           </div>
-          <h6 className='mb-2 font-semibold leading-5'>Make a post</h6>
-          <p className='max-w-md mb-3 text-sm text-gray-900 sm:mx-auto'>
-            Satoshi Nakamoto launched lots of decentralisation when Litecoin
-            required
+          <h6 className='mb-2 font-semibold leading-5 text-2xl  text-cyan-900'>
+            Ask a question
+          </h6>
+          <p className='max-w-md mb-3 text-lg  text-cyan-700 sm:mx-auto'>
+            Users can Question and Answer each other
           </p>
           <a
             href='/'
@@ -110,10 +114,11 @@ export default function FeaturesHome() {
               />
             </svg>
           </div>
-          <h6 className='mb-2 font-semibold leading-5'>explore clubs</h6>
-          <p className='max-w-md mb-3 text-sm text-gray-900 sm:mx-auto'>
-            Bavaria ipsum dolor sit amet Radler Schneid vui huift vui ognudelt i
-            mechad
+          <h6 className='mb-2 font-semibold leading-5 text-2xl  text-cyan-900'>
+            Explore clubs
+          </h6>
+          <p className='max-w-md mb-3 text-lg  text-cyan-700 sm:mx-auto'>
+            We are providing a single place for all clubs in our university
           </p>
           <a
             href='/'
