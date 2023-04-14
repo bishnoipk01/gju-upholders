@@ -1,6 +1,6 @@
 export default function FeaturesHome() {
   return (
-    <div className='px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20'>
+    <div className='px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20 my-28'>
       <div className='max-w-xl mb-10 md:mx-auto sm:text-center lg:max-w-2xl md:mb-12'>
         <h2 className='max-w-lg mb-6 font-sans text-3xl font-bold leading-none tracking-tight text-gray-900 sm:text-4xl md:mx-auto'>
           <span className='relative inline-block'>
@@ -26,10 +26,11 @@ export default function FeaturesHome() {
                 height='24'
               />
             </svg>
-            <span className='relative'>Features</span>
+            <span className='relative'>Explore</span>
           </span>{' '}
-          of our Web App
+          Our Features
         </h2>
+
         {/* <p className='text-base text-gray-700 md:text-lg'>
           Sed ut perspiciatis unde omnis iste natus error sit voluptatem
           accusantium doloremque rem aperiam, eaque ipsa quae.
@@ -52,12 +53,11 @@ export default function FeaturesHome() {
               />
             </svg>
           </div>
-          <h6 className='mb-2 font-semibold leading-5 text-2xl  text-cyan-900'>
-            Make a post
+          <h6 className='mb-4 font-semibold leading-5 text-2xl  text-cyan-900'>
+            Make A Post
           </h6>
           <p className='max-w-md mb-3 text-lg text-cyan-700  sm:mx-auto'>
-            By putting your ideas and experience you can give direction to many
-            students
+            Put together your ideas and experience and share them with others
           </p>
           <a
             href='/'
@@ -65,29 +65,38 @@ export default function FeaturesHome() {
             className='inline-flex items-center font-semibold transition-colors duration-200 text-sky-600 hover:text-sky-800'
           >
             Learn more
+            <svg
+              fill='none'
+              stroke='currentColor'
+              stroke-linecap='round'
+              stroke-linejoin='round'
+              stroke-width='2'
+              class='w-4 h-4 ml-2'
+              viewBox='0 0 24 24'
+            >
+              <path d='M5 12h14M12 5l7 7-7 7'></path>
+            </svg>
           </a>
         </div>
         <div className='sm:text-center'>
           <div className='flex items-center justify-center w-16 h-16 mb-4 rounded-full bg-indigo-50 sm:mx-auto sm:w-24 sm:h-24'>
             <svg
-              className='w-12 h-12 text-sky-600 sm:w-20 sm:h-20'
+              fill='none'
               stroke='currentColor'
-              viewBox='0 0 52 52'
+              stroke-linecap='round'
+              stroke-linejoin='round'
+              stroke-width='3'
+              className='w-10 h-10 text-sky-700'
+              viewBox='0 0 24 24'
             >
-              <polygon
-                strokeWidth='3'
-                strokeLinecap='round'
-                strokeLinejoin='round'
-                fill='none'
-                points='29 13 14 29 25 29 23 39 38 23 27 23'
-              />
+              <path d='M22 12h-4l-3 9L9 3l-3 9H2'></path>
             </svg>
           </div>
-          <h6 className='mb-2 font-semibold leading-5 text-2xl  text-cyan-900'>
-            Ask a question
+          <h6 className='mb-4 font-semibold leading-5 text-2xl  text-cyan-900'>
+            Ask A Question
           </h6>
           <p className='max-w-md mb-3 text-lg  text-cyan-700 sm:mx-auto'>
-            Users can Question and Answer each other
+            Getting stuck at any problem, just ask a question
           </p>
           <a
             href='/'
@@ -95,29 +104,40 @@ export default function FeaturesHome() {
             className='inline-flex items-center font-semibold transition-colors duration-200 text-sky-600 hover:text-sky-800'
           >
             Learn more
+            <svg
+              fill='none'
+              stroke='currentColor'
+              stroke-linecap='round'
+              stroke-linejoin='round'
+              stroke-width='2'
+              class='w-4 h-4 ml-2'
+              viewBox='0 0 24 24'
+            >
+              <path d='M5 12h14M12 5l7 7-7 7'></path>
+            </svg>
           </a>
         </div>
         <div className='sm:text-center'>
           <div className='flex items-center justify-center w-16 h-16 mb-4 rounded-full bg-indigo-50 sm:mx-auto sm:w-24 sm:h-24'>
             <svg
-              className='w-12 h-12 text-sky-600 sm:w-20 sm:h-20'
+              fill='none'
               stroke='currentColor'
-              viewBox='0 0 52 52'
+              stroke-linecap='round'
+              stroke-linejoin='round'
+              stroke-width='3'
+              className='w-10 h-10 text-sky-600'
+              viewBox='0 0 24 24'
             >
-              <polygon
-                strokeWidth='3'
-                strokeLinecap='round'
-                strokeLinejoin='round'
-                fill='none'
-                points='29 13 14 29 25 29 23 39 38 23 27 23'
-              />
+              <path d='M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2'></path>
+              <circle cx='12' cy='7' r='4'></circle>
             </svg>
           </div>
-          <h6 className='mb-2 font-semibold leading-5 text-2xl  text-cyan-900'>
-            Explore clubs
+          <h6 className='mb-4 font-semibold leading-5 text-2xl  text-cyan-900'>
+            Clubs
           </h6>
           <p className='max-w-md mb-3 text-lg  text-cyan-700 sm:mx-auto'>
-            We are providing a single place for all clubs in our university
+            A single place to interact with university clubs, create and share
+            information
           </p>
           <a
             href='/'
@@ -125,6 +145,17 @@ export default function FeaturesHome() {
             className='inline-flex items-center font-semibold transition-colors duration-200 text-sky-600 hover:text-sky-800'
           >
             Learn more
+            <svg
+              fill='none'
+              stroke='currentColor'
+              stroke-linecap='round'
+              stroke-linejoin='round'
+              stroke-width='2'
+              class='w-4 h-4 ml-2'
+              viewBox='0 0 24 24'
+            >
+              <path d='M5 12h14M12 5l7 7-7 7'></path>
+            </svg>
           </a>
         </div>
       </div>

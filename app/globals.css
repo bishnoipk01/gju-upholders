@@ -4,14 +4,22 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;700;800&display=swap');
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: 'Poppins', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
+
+section {flex: 1}
 
 .heading-1{
     @apply font-medium leading-tight text-5xl my-4 text-indigo-800;
 }
-
 .heading-2 {
     @apply text-3xl font-normal leading-normal my-2 text-gray-800;
 }
