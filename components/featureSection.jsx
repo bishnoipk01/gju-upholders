@@ -60,7 +60,7 @@ export default function FeaturesHome() {
             Put together your ideas and experience and share them with others
           </p>
           <a
-            href='/'
+            href='/posts'
             aria-label=''
             className='inline-flex items-center font-semibold transition-colors duration-200 text-sky-600 hover:text-sky-800'
           >
@@ -99,7 +99,7 @@ export default function FeaturesHome() {
             Getting stuck at any problem, just ask a question
           </p>
           <a
-            href='/'
+            href='/questions'
             aria-label=''
             className='inline-flex items-center font-semibold transition-colors duration-200 text-sky-600 hover:text-sky-800'
           >
@@ -140,7 +140,7 @@ export default function FeaturesHome() {
             information
           </p>
           <a
-            href='/'
+            href='/clubs'
             aria-label=''
             className='inline-flex items-center font-semibold transition-colors duration-200 text-sky-600 hover:text-sky-800'
           >
