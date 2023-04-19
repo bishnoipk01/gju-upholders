@@ -4,6 +4,7 @@
  * @returns Date
  */
 const parseDate = (neo4jDateTime) => {
+  console.log(neo4jDateTime);
   const { year, month, day, hour, minute, second, nanosecond } = neo4jDateTime;
 
   const date = new Date(

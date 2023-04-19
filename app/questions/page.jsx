@@ -101,7 +101,11 @@ export default function Questions() {
           </li>
         </button>
       </ul>
-      {ques ? '' : <ErrorCard message={`\tUnable to load data try again..`} />}
+      {ques === null ? (
+        <ErrorCard message={`\tUnable to load data try again..`} />
+      ) : (
+        ''
+      )}
       {ques.length ? (
         ''
       ) : (
