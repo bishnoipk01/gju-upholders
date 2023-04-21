@@ -1,5 +1,4 @@
 import ClubHeader from '@/components/clubHeader';
-import CoreMembers from '@/components/coreMembers';
 
 export default function GjustCoders() {
   return (
@@ -17,25 +16,9 @@ export default function GjustCoders() {
           valuable experience of working with others
         </p>
       </div>
-      <div id='club-members'>
-        <CoreMembers />
-      </div>
-      <div className=' container mx-auto flex justify-between border-2 border-green-100 p-4 mb-10'>
-        <div id='club-works' className='border-2 border-red-100 p-4'>
-          {' '}
-          all the recent work done by club
-        </div>
-        <div id='announcement' className='border-2 border-yellow-100 p-4'>
-          latest announcement with links to register
-        </div>
-      </div>
-      <div
-        id='commentSection'
-        className='border-2 border-sky-100 p-10 bg-green-50 mb-10'
-      >
-        {' '}
-        commentSection
-      </div>
+      <div className='club-members'></div>
+      <div className='club-works'></div>
+      <dir></dir>
     </section>
   );
 }

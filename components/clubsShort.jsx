@@ -37,13 +37,13 @@ export default function ClubsShort() {
               </div>
             </div>
           </a>
-          <a href='/clubs/aptitude-club' aria-label='View Item'>
+          <a href='/' aria-label='View Item'>
             <div className='relative overflow-hidden transition duration-200 transform rounded shadow-lg hover:-translate-y-2 hover:shadow-2xl'>
               <Image
                 height={400}
                 width={400}
                 className='object-cover w-full h-56 md:h-64 xl:h-80'
-                src={'/aptitude.png'}
+                src={'/coders.jpeg'}
                 alt=''
               />
               <div className='absolute inset-x-0 bottom-0 px-6 py-2 bg-black bg-opacity-60'>
@@ -56,10 +56,10 @@ export default function ClubsShort() {
           <a href='/' aria-label='View Item'>
             <div className='relative overflow-hidden transition duration-200 transform rounded shadow-lg hover:-translate-y-2 hover:shadow-2xl'>
               <Image
-                height={300}
-                width={300}
+                height={400}
+                width={400}
                 className='object-cover w-full h-56 md:h-64 xl:h-80'
-                src={'/udbhavna.png'}
+                src={'/coders.jpeg'}
                 alt=''
               />
               <div className='absolute inset-x-0 bottom-0 px-6 py-2 bg-black bg-opacity-60'>
@@ -69,13 +69,13 @@ export default function ClubsShort() {
               </div>
             </div>
           </a>
-          <a href='/clubs/speakathon-club' aria-label='View Item'>
+          <a href='/' aria-label='View Item'>
             <div className='relative overflow-hidden transition duration-200 transform rounded shadow-lg hover:-translate-y-2 hover:shadow-2xl'>
               <Image
-                height={200}
-                width={200}
+                height={400}
+                width={400}
                 className='object-cover w-full h-56 md:h-64 xl:h-80'
-                src={'/speakathon.png'}
+                src={'/coders.jpeg'}
                 alt=''
               />
               <div className='absolute inset-x-0 bottom-0 px-6 py-2 bg-black bg-opacity-60'>
