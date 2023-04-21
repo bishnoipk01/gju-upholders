@@ -1,30 +1,19 @@
 'use client';
-import Post from '@/components/Post';
 import Image from 'next/image';
 import { useState, useEffect } from 'react';
-import parseDate from '@/utils/js-date';
 import ErrorCard from '@/components/errorCard';
-
-const getPosts = async () => {
-  try {
-    const res = await fetch('/api/posts/', { cache: `no-cache` });
-    const posts = await res.json();
-    if (res.status !== 200) return null;
-    return posts.data;
-  } catch (err) {
-    console.log(err);
-  }
-};
+import Post from '@/components/post';
 
 export default function Posts() {
   const [posts, setPosts] = useState([]);
   useEffect(
     () => async () => {
-      const data = await getPosts();
-      setPosts(data);
-      console.log(data);
+      const res = await fetch('/api/posts/');
+      const posts = await res.json();
+      console.log(posts);
+      setPosts(posts.data);
     },
-    []
+    [posts]
   );
   return (
     <section className='mx-auto  w-full lg:max-w-[50vw]'>
@@ -33,8 +22,8 @@ export default function Posts() {
           className='w-10 h-10 rounded-full mr-6'
           src='/user/user.png'
           alt='Rounded avatar'
-          width={50}
-          height={50}
+          width={60}
+          height={60}
         />
         <input
           type='text'
@@ -43,7 +32,6 @@ export default function Posts() {
           placeholder='What do you want to share?'
         />
       </div>
-
       <div id='main' className='flex flex-col'>
         {posts === null ? (
           <ErrorCard message='Unable to load data. try again...' />
@@ -58,12 +46,6 @@ export default function Posts() {
             />
           ))
         )}
-        {/* <Post
-          user='New User'
-          caption={'Another Post'}
-          image='/14.jpeg'
-          time={'17 Apr 2022'}
-        /> */}
       </div>
     </section>
   );
