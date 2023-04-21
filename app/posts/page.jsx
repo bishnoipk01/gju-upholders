@@ -1,8 +1,8 @@
 'use client';
-import Post from '@/components/Post';
 import Image from 'next/image';
 import { useState, useEffect } from 'react';
 import ErrorCard from '@/components/errorCard';
+import Post from '@/components/post';
 
 export default function Posts() {
   const [posts, setPosts] = useState([]);
