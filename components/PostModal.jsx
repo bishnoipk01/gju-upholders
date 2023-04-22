@@ -1,61 +1,123 @@
 import { useState } from 'react';
+import ImageUpload from './imageUpload';
+import Image from 'next/image';
 
 export default function PostModal() {
   const [showModal, setShowModal] = useState(false);
+  const [selectedFile, setSelectedFile] = useState();
+  const [checkFile, setCheckFile] = useState(false);
+
+  const imageHandler = (e) => {
+    setSelectedFile(e.target.files[0]);
+    setCheckFile(true);
+  };
+
+  const uploadPost = (e) => {};
+
+  // const imagesubmission = () => {
+  //   if (checkFile) {
+  //     alert('File Uploaded');
+  //     console.log(selectedFile);
+  //   } else {
+  //     alert('select a file');
+  //   }
+  // };
   return (
     <>
-      <button
-        className='bg-pink-500 text-white active:bg-pink-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150'
-        type='button'
+      <div
+        id='input-post'
+        className='p-2 shadow-sm m-8 flex bg-gray-100 rounded-lg'
         onClick={() => setShowModal(true)}
       >
-        Open regular modal
-      </button>
+        <Image
+          className='w-10 h-10 rounded-full mr-6'
+          src='/user/user.png'
+          alt='Rounded avatar'
+          width={60}
+          height={60}
+        />
+        <input
+          type='text'
+          id='first_name'
+          className='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 cursor-pointer'
+          placeholder='What do you want to share?'
+          disabled
+        />
+      </div>
       {showModal ? (
         <>
-          <div className='justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none'>
+          <div className='justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50'>
             <div className='relative w-auto my-6 mx-auto max-w-3xl'>
-              {/*content*/}
-              <div className='border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none'>
-                {/*header*/}
+              <div className=' rounded-lg shadow-lg relative w-full bg-white'>
                 <div className='flex items-start justify-between p-5 border-b border-solid border-slate-200 rounded-t'>
-                  <h3 className='text-3xl font-semibold'>Modal Title</h3>
+                  <h3 className='text-3xl font-semibold'>Create Post</h3>
                   <button
-                    className='p-1 ml-auto bg-transparent border-0 text-black opacity-5 float-right text-3xl leading-none font-semibold outline-none focus:outline-none'
+                    className='p-1 ml-auto bg-transparent border-0 text-black opacity-60 float-right text-3xl leading-none font-semibold outline-none focus:outline-none'
                     onClick={() => setShowModal(false)}
                   >
-                    <span className='bg-transparent text-black opacity-5 h-6 w-6 text-2xl block outline-none focus:outline-none'>
-                      ×
+                    <span className=' text-gray-800 opacity-80 h-6 w-6 text-2xl block outline-none focus:outline-none'>
+                      x
                     </span>
                   </button>
                 </div>
-                {/*body*/}
-                <div className='relative p-6 flex-auto'>
-                  <p className='my-4 text-slate-500 text-lg leading-relaxed'>
-                    I always felt like I could do anything. That’s the main
-                    thing people are controlled by! Thoughts- their perception
-                    of themselves! Theyre slowed down by their perception of
-                    themselves. If youre taught you can’t do anything, you won’t
-                    do anything. I was taught I could do everything.
-                  </p>
-                </div>
-                {/*footer*/}
-                <div className='flex items-center justify-end p-6 border-t border-solid border-slate-200 rounded-b'>
-                  <button
-                    className='text-red-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150'
-                    type='button'
-                    onClick={() => setShowModal(false)}
-                  >
-                    Close
-                  </button>
-                  <button
-                    className='bg-emerald-500 text-white active:bg-emerald-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150'
-                    type='button'
-                    onClick={() => setShowModal(false)}
-                  >
-                    Save Changes
-                  </button>
-                </div>
+                <form action='' className='p-4 m-4' onSubmit={uploadPost}>
+                  <textarea
+                    name='image-caption'
+                    id='image-caption'
+                    cols='40'
+                    rows='5'
+                    placeholder='Write your thought..'
+                    className='focus:outline-none focus:border-0'
+                  ></textarea>
+                  <div id='image-upload'>
+                    <div className='flex justify-center items-center m-4'>
+                      {selectedFile && (
+                        <Image
+                          width='300'
+                          height='300'
+                          className={`inline-block m-4  ${
+                            checkFile ? 'opacity-1' : 'opacity-0'
+                          }`}
+                          alt='image upload'
+                          src={
+                            selectedFile
+                              ? URL.createObjectURL(selectedFile)
+                              : null
+                          }
+                        />
+                      )}
+                    </div>
+                  </div>
+                  <div className='flex items-center justify-between p-6 border-t border-solid border-slate-200 rounded-b'>
+                    <div className=' p-2'>
+                      <label htmlFor='file-input'>
+                        <svg
+                          xmlns='http://www.w3.org/2000/svg'
+                          className='w-12 h-12 text-gray-400 group-hover:text-gray-600 cursor-pointer inline'
+                          viewBox='0 0 20 20'
+                          fill='currentColor'
+                        >
+                          <path
+                            fill-rule='evenodd'
+                            d='M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z'
+                            clip-rule='evenodd'
+                          />
+                        </svg>
+                      </label>
+                      <input
+                        type='file'
+                        id='file-input'
+                        className=' hidden'
+                        onChange={imageHandler}
+                      />
+                    </div>
+                    <input
+                      className='bg-emerald-500 text-white active:bg-emerald-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150'
+                      type='submit'
+                      value={'upload'}
+                    />
+                  </div>
+                </form>
               </div>
             </div>
           </div>
