@@ -1,5 +1,5 @@
 'use client';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, cache } from 'react';
 import ErrorCard from '@/components/errorCard';
 import Post from '@/components/post';
 import PostModal from '@/components/PostModal';
@@ -8,7 +8,7 @@ export default function Posts() {
   const [posts, setPosts] = useState([]);
   useEffect(
     () => async () => {
-      const res = await fetch('/api/posts/');
+      const res = await fetch('/api/posts/', { cache: 'no-cache' });
       const posts = await res.json();
       setPosts(posts.data);
     },

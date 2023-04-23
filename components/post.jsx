@@ -26,7 +26,7 @@ export default function Post({ user, caption, image, time }) {
         <Image
           width={500}
           height={500}
-          src={image}
+          src={`/images/${image}`}
           alt=''
           className='object-cover w-full mb-4 h-60 sm:h-96 bg-gray-500'
         />

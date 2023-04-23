@@ -1,18 +1,40 @@
 import { useState } from 'react';
 import ImageUpload from './imageUpload';
 import Image from 'next/image';
+import { useSession } from 'next-auth/react';
 
 export default function PostModal() {
+  const { data: session } = useSession();
   const [showModal, setShowModal] = useState(false);
   const [selectedFile, setSelectedFile] = useState();
   const [checkFile, setCheckFile] = useState(false);
+  const [caption, setCaption] = useState('');
 
   const imageHandler = (e) => {
     setSelectedFile(e.target.files[0]);
     setCheckFile(true);
   };
 
-  const uploadPost = (e) => {};
+  const uploadPost = async (e) => {
+    e.preventDefault();
+    // setUploading(true);
+    try {
+      if (!checkFile) return alert('Please select a file ');
+      const formData = new FormData();
+      formData.append('image', selectedFile);
+      formData.append('caption', caption);
+      formData.append('Uid', session.user.id);
+      const res = await fetch('/api/posts/new-post', {
+        method: 'POST',
+        body: formData,
+      });
+      const data = await res.json();
+      console.log(data);
+    } catch (error) {
+      console.log(error);
+    }
+    // setUploading(false);
+  };
 
   // const imagesubmission = () => {
   //   if (checkFile) {
@@ -68,6 +90,7 @@ export default function PostModal() {
                     rows='5'
                     placeholder='Write your thought..'
                     className='focus:outline-none focus:border-0'
+                    onChange={(e) => setCaption(e.target.value)}
                   ></textarea>
                   <div id='image-upload'>
                     <div className='flex justify-center items-center m-4'>
@@ -98,9 +121,9 @@ export default function PostModal() {
                           fill='currentColor'
                         >
                           <path
-                            fill-rule='evenodd'
+                            fillRule='evenodd'
                             d='M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z'
-                            clip-rule='evenodd'
+                            clipRule='evenodd'
                           />
                         </svg>
                       </label>
