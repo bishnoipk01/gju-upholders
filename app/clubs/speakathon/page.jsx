@@ -3,8 +3,8 @@ import ClubHeader from '@/components/clubHeader';
 export default function GjustCoders() {
   return (
     <section>
-      <ClubHeader clubName={'GJUST-CODERS'} />;
-      <div
+      <ClubHeader clubName={'SPEAKATHON CLUB'} />;
+      {/* <div
         id='about'
         className='flex justify-center items-center flex-col p-6 m-4 border-2 border-red-100 shadow-md w-1/2 mx-auto'
       >
@@ -15,7 +15,7 @@ export default function GjustCoders() {
           come and hang out with best coders of university. Share and gain
           valuable experience of working with others
         </p>
-      </div>
+      </div> */}
       <div
         id='club-members'
         className='bg-sky-50 p-8 border-2 border-red-100 container mx-auto mb-10'

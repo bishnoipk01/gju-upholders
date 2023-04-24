@@ -37,7 +37,7 @@ export default function ClubsShort() {
               </div>
             </div>
           </a>
-          <a href='/' aria-label='View Item'>
+          <a href='/clubs/aptitude' aria-label='View Item'>
             <div className='relative overflow-hidden transition duration-200 transform rounded shadow-lg hover:-translate-y-2 hover:shadow-2xl'>
               <Image
                 height={400}
@@ -53,7 +53,7 @@ export default function ClubsShort() {
               </div>
             </div>
           </a>
-          <a href='/' aria-label='View Item'>
+          <a href='/clubs/udbhavna' aria-label='View Item'>
             <div className='relative overflow-hidden transition duration-200 transform rounded shadow-lg hover:-translate-y-2 hover:shadow-2xl'>
               <Image
                 height={400}
@@ -69,7 +69,7 @@ export default function ClubsShort() {
               </div>
             </div>
           </a>
-          <a href='/' aria-label='View Item'>
+          <a href='/clubs/speakathon' aria-label='View Item'>
             <div className='relative overflow-hidden transition duration-200 transform rounded shadow-lg hover:-translate-y-2 hover:shadow-2xl'>
               <Image
                 height={400}

@@ -8,6 +8,7 @@ import PostBg from '@/public/post-bg.jpg';
 export default function Posts() {
   const [posts, setPosts] = useState([]);
   const [modal, setModal] = useState(true);
+
   useEffect(
     () => async () => {
       const res = await fetch('/api/posts/', { cache: 'no-cache' });
@@ -16,6 +17,10 @@ export default function Posts() {
     },
     [modal]
   );
+
+  function loadData() {
+    setModal((state) => !state);
+  }
   return (
     <section
       className=' bg-center bg-fixed bg-contain  h-screen w-screen overflow-hidden'
@@ -24,7 +29,7 @@ export default function Posts() {
       }}
     >
       <div className='mx-auto w-full lg:max-w-[50vw]'>
-        <PostModal action={modal} />
+        <PostModal loadData={loadData} />
         <div id='main' className='flex flex-col'>
           {posts === null ? (
             <ErrorCard message='Unable to load data. try again...' />

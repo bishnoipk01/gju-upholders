@@ -1,9 +1,12 @@
-import { useState } from 'react';
+'use client';
+import { useEffect, useState } from 'react';
 import ImageUpload from './imageUpload';
 import Image from 'next/image';
 import { useSession } from 'next-auth/react';
+import { useRouter } from 'next/navigation';
 
-export default function PostModal({ action }) {
+export default function PostModal({ loadData }) {
+  const router = useRouter();
   const { data: session } = useSession();
   const [showModal, setShowModal] = useState(false);
   const [selectedFile, setSelectedFile] = useState();
@@ -16,7 +19,6 @@ export default function PostModal({ action }) {
   };
 
   const uploadPost = async (e) => {
-    // setUploading(true);
     try {
       if (!checkFile) return alert('Please select a file ');
       const formData = new FormData();
@@ -30,13 +32,13 @@ export default function PostModal({ action }) {
       const data = await res.json();
       if (res.ok) {
         alert('New post added successfully');
-        action = false;
         setShowModal(false);
+        loadData();
+        setSelectedFile(null);
       } else alert('something went wrong');
     } catch (error) {
       console.log(error);
     }
-    // setUploading(false);
   };
 
   return (
@@ -61,7 +63,7 @@ export default function PostModal({ action }) {
           disabled
         />
       </div>
-      {showModal && action ? (
+      {showModal ? (
         <>
           <div className='justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50'>
             <div className='relative w-auto my-6 mx-auto max-w-3xl'>
