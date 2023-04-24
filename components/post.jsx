@@ -28,7 +28,7 @@ export default function Post({ user, caption, image, time }) {
           height={500}
           src={`/images/${image}`}
           alt=''
-          className='object-cover w-full mb-4 h-60 sm:h-96 bg-gray-500'
+          className='object-cover w-96 mb-4 h-60 sm:h-96 bg-white overflow-hidden inline-block'
         />
         {/* <h2 className='mb-1 text-xl font-semibold'>
           Nam cu platonem posidonium sanctus debitis te

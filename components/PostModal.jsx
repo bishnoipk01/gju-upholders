@@ -3,7 +3,7 @@ import ImageUpload from './imageUpload';
 import Image from 'next/image';
 import { useSession } from 'next-auth/react';
 
-export default function PostModal() {
+export default function PostModal({ action }) {
   const { data: session } = useSession();
   const [showModal, setShowModal] = useState(false);
   const [selectedFile, setSelectedFile] = useState();
@@ -16,7 +16,6 @@ export default function PostModal() {
   };
 
   const uploadPost = async (e) => {
-    e.preventDefault();
     // setUploading(true);
     try {
       if (!checkFile) return alert('Please select a file ');
@@ -29,21 +28,17 @@ export default function PostModal() {
         body: formData,
       });
       const data = await res.json();
-      console.log(data);
+      if (res.ok) {
+        alert('New post added successfully');
+        action = false;
+        setShowModal(false);
+      } else alert('something went wrong');
     } catch (error) {
       console.log(error);
     }
     // setUploading(false);
   };
 
-  // const imagesubmission = () => {
-  //   if (checkFile) {
-  //     alert('File Uploaded');
-  //     console.log(selectedFile);
-  //   } else {
-  //     alert('select a file');
-  //   }
-  // };
   return (
     <>
       <div
@@ -66,7 +61,7 @@ export default function PostModal() {
           disabled
         />
       </div>
-      {showModal ? (
+      {showModal && action ? (
         <>
           <div className='justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50'>
             <div className='relative w-auto my-6 mx-auto max-w-3xl'>
@@ -82,7 +77,14 @@ export default function PostModal() {
                     </span>
                   </button>
                 </div>
-                <form action='' className='p-4 m-4' onSubmit={uploadPost}>
+                <form
+                  action=''
+                  className='p-4 m-4'
+                  onSubmit={(e) => {
+                    e.preventDefault();
+                    uploadPost(e);
+                  }}
+                >
                   <textarea
                     name='image-caption'
                     id='image-caption'
@@ -135,7 +137,7 @@ export default function PostModal() {
                       />
                     </div>
                     <input
-                      className='bg-emerald-500 text-white active:bg-emerald-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150'
+                      className='inline-block bg-emerald-500 text-white active:bg-emerald-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150 cursor-pointer'
                       type='submit'
                       value={'upload'}
                     />
