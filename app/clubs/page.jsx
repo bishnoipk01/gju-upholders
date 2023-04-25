@@ -16,7 +16,7 @@ export default function Clubs() {
         image={'/speakathon.png'}
       />
       <EachClub 
-      clubName={`CODER'S CLUB`}
+      clubName={`GJUST CODER'S`}
         clubInfo={
           'At Coders Club, the students apply computer programming concepts in solving real life problems.'
         }
@@ -24,7 +24,7 @@ export default function Clubs() {
         feature2={'Projectathons & Hackathons'}
         feature3={'Peer level Mentoring'}
         feature4={'Coding Classes through codechef & Coding Ninjas'}
-        image={'/coders.jpeg'} />
+        image={'/GJUST-CODERS.svg'} />
       <EachClub 
       clubName={'APTITUDE CLUB'}
       clubInfo={
@@ -34,7 +34,7 @@ export default function Clubs() {
       feature2={'Weekly online Aptitude Test (GWOAT) on Winuall platform'}
       feature3={'Offline Aptitude (Physical GWOAT)'}
       feature4={'Certificate & Prizes'}
-      image={'/aptitude.png'}/>
+      image={'/aptitude_final.svg'}/>
       <EachClub 
       clubName={'UDBHAVANA CLUB'}
       clubInfo={
@@ -54,7 +54,7 @@ export default function Clubs() {
       feature2={'Industrial Visits'}
       feature3={'LinkedIn profile and Portfolio building'}
       feature4={'How to present yourself'}
-      image={'/pngwing.com.png'}/>
+      image={'/interaction_club-s.svg'}/>
       <EachClub 
       clubName={'ENTREPRENEURSHIP CLUB'}
       clubInfo={
@@ -64,7 +64,7 @@ export default function Clubs() {
       feature2={'Cultivate the Entrepreneurship skills'}
       feature3={'Expert lectures and Seminars'}
       feature4={'Securing financial and legal help from alumni '}
-      image={'/entrepreneuship.jpg'}/>
+      image={'/entrepreneurship_club.svg'}/>
     </section>
   );
 }
