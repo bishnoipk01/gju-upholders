@@ -1,3 +1,4 @@
+import ClubActivity from '@/components/clubActivity';
 import ClubComments from '@/components/clubComment';
 import ClubHeader from '@/components/clubHeader';
 import ClubMembers from '@/components/clubMember';
@@ -22,11 +23,8 @@ export default function GjustCoders() {
         <ClubMembers />
       </div>
       <div className='flex border-2 border-green-50 justify-between gap-4 mb-10 '>
-        <div
-          id='club-activities'
-          className='border-2 border-sky-500 p-8 flex-1 bg-green-200'
-        >
-          club activities
+        <div id='club-activities' className=' flex-1'>
+          <ClubActivity />
         </div>
         <div
           id='recent-work'
