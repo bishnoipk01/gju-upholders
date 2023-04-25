@@ -1,4 +1,6 @@
+import ClubComments from '@/components/clubComment';
 import ClubHeader from '@/components/clubHeader';
+import ClubMembers from '@/components/clubMember';
 
 export default function GjustCoders() {
   return (
@@ -16,11 +18,8 @@ export default function GjustCoders() {
           valuable experience of working with others
         </p>
       </div> */}
-      <div
-        id='club-members'
-        className='bg-sky-50 p-8 border-2 border-red-100 container mx-auto mb-10'
-      >
-        club members and cordinators
+      <div id='club-members' className=' container mx-auto mb-10'>
+        <ClubMembers />
       </div>
       <div className='flex border-2 border-green-50 justify-between gap-4 mb-10 '>
         <div
@@ -36,11 +35,8 @@ export default function GjustCoders() {
           recent work
         </div>
       </div>
-      <div
-        id='comments'
-        className='border-2 border-violet-300 p-10 bg-gray-300'
-      >
-        comments
+      <div id='comments' className=''>
+        <ClubComments />
       </div>
     </section>
   );
