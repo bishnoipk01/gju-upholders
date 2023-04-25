@@ -26,8 +26,8 @@ export default function ClubsShort() {
               <Image
                 height={400}
                 width={400}
-                className='object-cover w-full h-56 md:h-64 xl:h-80'
-                src={'/coders.jpeg'}
+                className=' w-full h-56 md:h-64 xl:h-80 object-center '
+                src={'/GJUST-CODERS.svg'}
                 alt=''
               />
               <div className='absolute inset-x-0 bottom-0 px-6 py-2 bg-black bg-opacity-60'>
@@ -42,8 +42,8 @@ export default function ClubsShort() {
               <Image
                 height={400}
                 width={400}
-                className='object-cover w-full h-56 md:h-64 xl:h-80'
-                src={'/aptitude.png'}
+                className='object-center w-full h-56 md:h-64 xl:h-80'
+                src={'/aptitude_final.svg'}
                 alt=''
               />
               <div className='absolute inset-x-0 bottom-0 px-6 py-2 bg-black bg-opacity-60'>
@@ -74,7 +74,7 @@ export default function ClubsShort() {
               <Image
                 height={400}
                 width={400}
-                className='object-cover w-full h-56 md:h-64 xl:h-80'
+                className='object-center w-full h-56 md:h-64 xl:h-80'
                 src={'/speakathon.png'}
                 alt=''
               />

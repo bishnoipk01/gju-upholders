@@ -141,10 +141,10 @@ export default function EachClub({clubName,clubInfo,feature1,feature2,feature3,f
         </div>
         <div>
           <Image
-            className='object-center w-auto h-auto rounded shadow-lg sm:h-96'
+            className='object-cover w-full  rounded shadow-lg sm:w-3/4'
             src={image}
-            width={300}
-            height={300}
+            width={400}
+            height={400}
             alt=''
           />
         </div>
