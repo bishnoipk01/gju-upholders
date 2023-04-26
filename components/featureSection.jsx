@@ -60,7 +60,7 @@ export default function FeaturesHome() {
             Put together your ideas and experience and share them with others
           </p>
           <a
-            href='/'
+            href='/posts'
             aria-label=''
             className='inline-flex items-center font-semibold transition-colors duration-200 text-sky-600 hover:text-sky-800'
           >
@@ -68,10 +68,10 @@ export default function FeaturesHome() {
             <svg
               fill='none'
               stroke='currentColor'
-              stroke-linecap='round'
-              stroke-linejoin='round'
-              stroke-width='2'
-              class='w-4 h-4 ml-2'
+              strokeLinecap='round'
+              strokeLinejoin='round'
+              strokeWidth='2'
+              className='w-4 h-4 ml-2'
               viewBox='0 0 24 24'
             >
               <path d='M5 12h14M12 5l7 7-7 7'></path>
@@ -83,9 +83,9 @@ export default function FeaturesHome() {
             <svg
               fill='none'
               stroke='currentColor'
-              stroke-linecap='round'
-              stroke-linejoin='round'
-              stroke-width='3'
+              strokeLinecap='round'
+              strokeLinejoin='round'
+              strokeWidth='3'
               className='w-10 h-10 text-sky-700'
               viewBox='0 0 24 24'
             >
@@ -99,7 +99,7 @@ export default function FeaturesHome() {
             Getting stuck at any problem, just ask a question
           </p>
           <a
-            href='/'
+            href='/questions'
             aria-label=''
             className='inline-flex items-center font-semibold transition-colors duration-200 text-sky-600 hover:text-sky-800'
           >
@@ -107,10 +107,10 @@ export default function FeaturesHome() {
             <svg
               fill='none'
               stroke='currentColor'
-              stroke-linecap='round'
-              stroke-linejoin='round'
-              stroke-width='2'
-              class='w-4 h-4 ml-2'
+              strokeLinecap='round'
+              strokeLinejoin='round'
+              strokeWidth='2'
+              className='w-4 h-4 ml-2'
               viewBox='0 0 24 24'
             >
               <path d='M5 12h14M12 5l7 7-7 7'></path>
@@ -122,9 +122,9 @@ export default function FeaturesHome() {
             <svg
               fill='none'
               stroke='currentColor'
-              stroke-linecap='round'
-              stroke-linejoin='round'
-              stroke-width='3'
+              strokeLinecap='round'
+              strokeLinejoin='round'
+              strokeWidth='3'
               className='w-10 h-10 text-sky-600'
               viewBox='0 0 24 24'
             >
@@ -140,7 +140,7 @@ export default function FeaturesHome() {
             information
           </p>
           <a
-            href='/'
+            href='/clubs'
             aria-label=''
             className='inline-flex items-center font-semibold transition-colors duration-200 text-sky-600 hover:text-sky-800'
           >
@@ -148,10 +148,10 @@ export default function FeaturesHome() {
             <svg
               fill='none'
               stroke='currentColor'
-              stroke-linecap='round'
-              stroke-linejoin='round'
-              stroke-width='2'
-              class='w-4 h-4 ml-2'
+              strokeLinecap='round'
+              strokeLinejoin='round'
+              strokeWidth='2'
+              className='w-4 h-4 ml-2'
               viewBox='0 0 24 24'
             >
               <path d='M5 12h14M12 5l7 7-7 7'></path>

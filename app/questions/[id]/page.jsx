@@ -22,6 +22,7 @@ export default function QuestionById({ params }) {
   const [question, setQuestion] = useState({});
   const [answers, setAnswers] = useState([]);
   const [state, setState] = useState('ok');
+
   useEffect(
     () => async () => {
       const data1 = await getQuestion(params.id);
