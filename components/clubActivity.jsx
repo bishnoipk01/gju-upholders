@@ -12,7 +12,7 @@ export default function ClubActivity() {
               Earum at ipsa aliquid quis, exercitationem est.
             </h3>
             <time
-              datetime=''
+              dateTime=''
               className='row-start-1 mb-1 md:col-start-1 xl:col-span-2 text-gray-600'
             >
               Apr 13, 2023
@@ -37,7 +37,7 @@ export default function ClubActivity() {
               Earum at ipsa aliquid quis, exercitationem est.
             </h3>
             <time
-              datetime=''
+              dateTime=''
               className='row-start-1 mb-1 md:col-start-1 xl:col-span-2 text-gray-600'
             >
               Apr 13, 2023
@@ -62,7 +62,7 @@ export default function ClubActivity() {
               Earum at ipsa aliquid quis, exercitationem est.
             </h3>
             <time
-              datetime=''
+              dateTime=''
               className='row-start-1 mb-1 md:col-start-1 xl:col-span-2 text-gray-600'
             >
               Apr 13, 2023
@@ -87,7 +87,7 @@ export default function ClubActivity() {
               Earum at ipsa aliquid quis, exercitationem est.
             </h3>
             <time
-              datetime=''
+              dateTime=''
               className='row-start-1 mb-1 md:col-start-1 xl:col-span-2 text-gray-600'
             >
               Apr 13, 2023
