@@ -1,3 +1,4 @@
+import Aptitude_club from '@/components/Aptitude_club';
 import ClubActivity from '@/components/clubActivity';
 import ClubComments from '@/components/clubComment';
 import ClubHeader from '@/components/clubHeader';
@@ -19,18 +20,18 @@ export default function GjustCoders() {
           valuable experience of working with others
         </p>
       </div> */}
-      <div id='club-members' className=' container mx-auto mb-10'>
-        <ClubMembers />
+      <div id='recent-work'
+          className='border-2 border-pink-200 p-8 flex-1 bg-violet-300'>
+      <Aptitude_club/>
       </div>
-      <div className='flex border-2 border-green-50 justify-between gap-4 mb-10 '>
-        <div id='club-activities' className=' flex-1'>
+      <div className='flex border-2 border-pink-200 justify-between gap-4 mb-10 '>
+        <div id='club-activities' className=' flex-1 '>
           <ClubActivity />
         </div>
-        <div
-          id='recent-work'
-          className='border-2 border-green-500 p-8 flex-1 bg-sky-200'
+        <div id='club-members' className=' flex-1 '
+          
         >
-          recent work
+          <ClubMembers />
         </div>
       </div>
       <div id='comments' className=''>
