@@ -164,6 +164,7 @@ aptitude abilities.</p>
 //     </ul>
 //   );
 // }
+   
 
 // <div className='w-10/12 xl:w-2/5 md:w-3/5 sm:w-9/12 mx-auto relative shadow-xl pl-8 pr-4 sm:pl-8 lg:pr-8 py-4 my-8 rounded-lg bg-white dark:bg-gray-800'>
 //   <div className='flex flex-wrap items-center justify-between'>

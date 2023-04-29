@@ -35,7 +35,7 @@ export default function GjustCoders() {
         </div>
       </div>
       <div id='comments' className=''>
-        <ClubComments />
+        <ClubComments club={'aptitude-club'} />
       </div>
     </section>
   );
