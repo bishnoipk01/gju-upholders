@@ -3,9 +3,63 @@
 import DashForm from '@/components/dashForm';
 import { useSession } from 'next-auth/react';
 import Image from 'next/image';
+import { useEffect, useState } from 'react';
 
 export default function Dashboard() {
   const { data: session } = useSession();
+  const [selectedFile, setSelectedFile] = useState();
+  const [checkFile, setCheckFile] = useState(false);
+  const [image, setImage] = useState('users/default.png');
+
+  useEffect(() => {
+    if (session) setImage(session.user.avatar);
+  }, [session]);
+
+  useEffect(
+    () => async () => {
+      try {
+        if (session) {
+          const res = await fetch('/api/users/get-user', {
+            method: 'POST',
+            headers: {
+              'content-type': 'application/json',
+            },
+            body: JSON.stringify({ uid: session.user.id }),
+          });
+          const data = await res.json();
+          console.log(data.data.avatar);
+          setImage(data.data.avatar);
+        }
+      } catch (err) {
+        console.error(err);
+      }
+    },
+    [image, session]
+  );
+
+  const imageHandler = (e) => {
+    setSelectedFile(e.target.files[0]);
+    setCheckFile(true);
+  };
+
+  const uploadPhoto = async () => {
+    if (!checkFile) return alert('Please select photo');
+    const formData = new FormData();
+    formData.append('avatar', selectedFile);
+    formData.append('Uid', session.user.id);
+    const res = await fetch('/api/users/upload-photo', {
+      method: 'POST',
+      body: formData,
+    });
+    const data = await res.json();
+    if (res.ok) {
+      alert('Photo uploaded successfully');
+      console.log(`users/${data.data.avatar}`);
+      setImage(`users/${data.data.avatar}`);
+      setSelectedFile(null);
+      await fetch('/api/auth/session?update');
+    } else alert('something went wrong');
+  };
   return (
     <section className='mb-6 w-full -ml-20 md:ml-auto'>
       <div className=' z-10 top-0 h-16 border-b bg-white py-2.5'>
@@ -21,17 +75,47 @@ export default function Dashboard() {
           {/* Profile Card */}
           <div className='bg-white p-3 border-t-4 border-blue-400 text-center'>
             <div className='image overflow-hidden'>
-              <Image
-                width={300}
-                height={300}
-                className='w-2/4 mx-auto'
-                src='/user/user.png'
-                alt=''
-              />
+              {selectedFile ? (
+                <>
+                  <Image
+                    width={300}
+                    height={300}
+                    className='w-2/4 mx-auto'
+                    src={
+                      selectedFile ? URL.createObjectURL(selectedFile) : null
+                    }
+                    alt=''
+                  />
+                  <button
+                    className='text-blue-300 hover:underline inline-block p-2'
+                    onClick={uploadPhoto}
+                  >
+                    upload
+                  </button>
+                </>
+              ) : (
+                <Image
+                  width={300}
+                  height={300}
+                  src={`/users/${image}`}
+                  alt=''
+                  className='w-2/4 mx-auto'
+                />
+              )}
             </div>
-            <button className='text-blue-300 hover:underline  inline-block p-2'>
+            <label
+              htmlFor='avatar'
+              className='text-blue-300 hover:underline  inline-block p-2'
+            >
+              <input
+                type='file'
+                name='avatar'
+                id='avatar'
+                hidden
+                onChange={imageHandler}
+              />
               update photo
-            </button>
+            </label>
             <h1 className='font-bold text-2xl text-blue-500 uppercase leading-8 my-5'>
               {session?.user.name}
             </h1>

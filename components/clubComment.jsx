@@ -83,9 +83,9 @@ export default function ClubComments({ club }) {
                       <Image
                         height={100}
                         width={100}
+                        src={`/users/${value.avatar}`}
                         className='mr-2 w-6 h-6 rounded-full'
-                        src='https://flowbite.com/docs/images/people/profile-picture-2.jpg'
-                        alt='User 1'
+                        alt={value.username}
                       />
                       {value.username}
                     </p>

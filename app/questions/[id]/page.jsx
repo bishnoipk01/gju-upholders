@@ -71,7 +71,7 @@ export default function QuestionById({ params }) {
               {ans.answer}
             </h1>
             <div className=' w-1/2 mr-4 text-sm text-gray-400 mt-4'>
-              <UserCard name={ans.user} image='/user/user.png' />
+              <UserCard name={ans.user} image={`/users/${ans.avatar}`} />
               <span className='pt-4'>Answered {ans.createdAt}</span>
             </div>
           </div>

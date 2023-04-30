@@ -4,8 +4,32 @@ import { useSession, signOut } from 'next-auth/react';
 import Image from 'next/image';
 import Link from 'next/link';
 import Header from './header';
+import { useEffect, useState } from 'react';
+
 export default function NavBar() {
   const { data: session } = useSession();
+  const [avatar, setAvatar] = useState('default.png');
+  useEffect(
+    () => async () => {
+      try {
+        if (session) {
+          const res = await fetch('/api/users/get-user', {
+            method: 'POST',
+            headers: {
+              'content-type': 'application/json',
+            },
+            body: JSON.stringify({ uid: session.user.id }),
+          });
+          const data = await res.json();
+          console.log(data.data.avatar);
+          setAvatar(data.data.avatar);
+        }
+      } catch (err) {
+        console.error(err);
+      }
+    },
+    [session]
+  );
   return (
     <nav className=' px-2 sm:px-4 py-3.5 rounded  bg-gradient-to-tr  bg-opacity-60 backdrop-blur-md  shadow-md  sticky bg-white z-10'>
       <div className='container flex flex-wrap items-center justify-between mx-auto'>
@@ -30,7 +54,7 @@ export default function NavBar() {
               >
                 <Image
                   className='w-8 h-8 mr-2 rounded-full'
-                  src='/user/user.png'
+                  src={`/users/${avatar}`}
                   alt='user photo'
                   width={50}
                   height={50}

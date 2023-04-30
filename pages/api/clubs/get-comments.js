@@ -5,7 +5,7 @@ export default async function handler(req, res) {
   try {
     const { club } = req.body;
     const query = `MATCH((u:User)-[d:DISCUSS]->(c:Club {name:$club}))
-                 return u.name as username,d.id as id, d.comment as comment,d.created_at as created_at
+                 return u.name as username, u.avatar as avatar ,d.id as id, d.comment as comment,d.created_at as created_at
   `;
     const params = { club };
     const result = await executeRead(query, params);
@@ -14,6 +14,7 @@ export default async function handler(req, res) {
         username: item.get('username'),
         comment: item.get('comment'),
         id: item.get('id'),
+        avatar: item.get('avatar'),
         createdAt: parseDate(item.get('created_at')).toDateString(),
       };
     });
