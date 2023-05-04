@@ -35,7 +35,7 @@ export default function AboutSection() {
             height={400}
             width={400}
             className='mt-4 w-full lg:mt-10 rounded-lg'
-            src={aboutBg.src}
+            src='/about-us-2.jpg'
             alt='office content 2'
           />
         </div>

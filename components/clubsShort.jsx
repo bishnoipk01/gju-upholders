@@ -4,7 +4,7 @@ import Link from 'next/link';
 export default function ClubsShort() {
   return (
     <div className='bg-sky-50'>
-      <div className='px-4 pb-16 pt-24 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20'>
+      <div className='px-4 pb-10 pt-14 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-16 lg:px-2 lg:py-10'>
         <div className='flex flex-col mb-6 lg:justify-between lg:flex-row md:mb-8'>
           <h2 className='max-w-lg mb-5 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl sm:leading-none md:mb-6 group'>
             <span className='inline-block mb-1 sm:mb-4'>
@@ -20,13 +20,13 @@ export default function ClubsShort() {
             information
           </p>
         </div>
-        <div className='grid gap-6 row-gap-5 mb-8 lg:grid-cols-4 sm:row-gap-6 sm:grid-cols-2'>
+        <div className='grid gap-4  mb-8 xl:grid-cols-4 sm:row-gap-6 md:grid-cols-2'>
           <a href='/clubs/gjust-coders' aria-label='View Item'>
             <div className='relative overflow-hidden transition duration-200 transform rounded shadow-lg hover:-translate-y-2 hover:shadow-2xl'>
               <Image
                 height={400}
                 width={400}
-                className=' w-full h-56 md:h-64 xl:h-80 object-center '
+                className=' w-full h-96 xl:h-80 object-center '
                 src={'/coders.jpeg'}
                 alt=''
               />
@@ -42,7 +42,7 @@ export default function ClubsShort() {
               <Image
                 height={500}
                 width={400}
-                className='object-center w-full h-56 md:h-64 xl:h-80'
+                className='object-cover w-full h-96 xl:h-80'
                 src={'/aptitude-2.png'}
                 alt=''
               />
@@ -58,7 +58,7 @@ export default function ClubsShort() {
               <Image
                 height={400}
                 width={400}
-                className='object-cover w-full h-56 md:h-64 xl:h-80'
+                className='object-cover w-full h-96 xl:h-80'
                 src={'/udbhavna.png'}
                 alt=''
               />
@@ -74,7 +74,7 @@ export default function ClubsShort() {
               <Image
                 height={400}
                 width={400}
-                className='object-center w-full h-56 md:h-64 xl:h-80'
+                className='object-cover w-full h-96 xl:h-80'
                 src={'/speakathon.png'}
                 alt=''
               />

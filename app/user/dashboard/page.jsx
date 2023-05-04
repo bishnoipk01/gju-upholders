@@ -205,7 +205,7 @@ export default function Dashboard() {
                 </div>
                 <div className='grid grid-cols-2'>
                   <div className='px-4 py-2 font-semibold'>Birthday</div>
-                  <div className='px-4 py-2'>Feb 06, 1998</div>
+                  <div className='px-4 py-2'>NA</div>
                 </div>
               </div>
             </div>

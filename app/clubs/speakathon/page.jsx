@@ -1,46 +1,66 @@
+import ClubMembers from '@/components/clubMembers';
+import ClubActivity from '@/components/clubActivity';
+import ClubComments from '@/components/clubComment';
 import ClubHeader from '@/components/clubHeader';
+import ClubWork from '@/components/clubWork';
 
-export default function GjustCoders() {
+export default function Speakathon() {
   return (
     <section>
-      <ClubHeader clubName={'SPEAKATHON CLUB'} />;
-      {/* <div
-        id='about'
-        className='flex justify-center items-center flex-col p-6 m-4 border-2 border-red-100 shadow-md w-1/2 mx-auto'
-      >
-        <h2 className='text-xl font-semibold uppercase text-gray-800 mb-2'>
-          The club for the coders
-        </h2>
-        <p className='text-base '>
-          come and hang out with best coders of university. Share and gain
-          valuable experience of working with others
-        </p>
-      </div> */}
+      <ClubHeader clubName={'SPEAKATHON'} />
+
       <div
-        id='club-members'
-        className='bg-sky-50 p-8 border-2 border-red-100 container mx-auto mb-10'
+        id='recent-work'
+        className=' border-pink-200 p-8 flex-1 bg-violet-300'
       >
-        club members and cordinators
+        <ClubMembers
+          clubheading={''}
+          cordinator={{
+            image: '/user.png',
+            name: '',
+            dept: '',
+          }}
+          jointCordinator={{
+            image: '/user.png',
+            name: '',
+            dept: '',
+          }}
+          member1={{
+            image: '/user.png',
+            name: '',
+            dept: '',
+            position: '',
+          }}
+          member2={{
+            image: '/user.png',
+            name: '',
+            dept: '',
+            position: '',
+          }}
+          member3={{
+            image: '/user.png',
+            name: '',
+            dept: '',
+            position: '',
+          }}
+          member4={{
+            image: '/user.png',
+            name: '',
+            dept: '',
+            position: '',
+          }}
+        />
       </div>
-      <div className='flex border-2 border-green-50 justify-between gap-4 mb-10 '>
-        <div
-          id='club-activities'
-          className='border-2 border-sky-500 p-8 flex-1 bg-green-200'
-        >
-          club activities
+      <div className='flex  flex-col xl:flex-row border-2 border-pink-200 justify-between gap-4 mb-10 '>
+        <div id='club-activities' className=' flex-1 '>
+          <ClubActivity clubname={'SPEAKATHON'} activities={[]} />
         </div>
-        <div
-          id='recent-work'
-          className='border-2 border-green-500 p-8 flex-1 bg-sky-200'
-        >
-          recent work
+        <div id='club-members' className=' flex-1 '>
+          <ClubWork />
         </div>
       </div>
-      <div
-        id='comments'
-        className='border-2 border-violet-300 p-10 bg-gray-300'
-      >
-        comments
+      <div id='comments' className=''>
+        <ClubComments club={'SPEAKATHON'} />
       </div>
     </section>
   );

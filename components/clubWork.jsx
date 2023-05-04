@@ -1,6 +1,6 @@
 import Image from 'next/image';
 
-export default function ClubMembers() {
+export default function ClubWork() {
   return (
     <section className='py-6 sm:py-12 dark:bg-gray-800 dark:text-gray-100'>
       <div className='container p-6 mx-auto space-y-8'>
@@ -10,7 +10,7 @@ export default function ClubMembers() {
             Qualisque erroribus usu at, duo te agam soluta mucius.
           </p>
         </div>
-        <div className='grid grid-cols-1 gap-x-4 gap-y-8 md:grid-cols-2 lg:grid-cols-4'>
+        <div className='grid grid-cols-1 gap-x-4 gap-y-8 lg:grid-cols-2 2xl:grid-cols-4'>
           <article className='flex flex-col dark:bg-gray-900'>
             <a
               rel='noopener noreferrer'
