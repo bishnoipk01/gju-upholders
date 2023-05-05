@@ -5,6 +5,8 @@ import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 
 import AskBg from '@/public/ask-q-bg.svg';
+import Success from '@/components/successMsg';
+import ErrorCard from '@/components/errorCard';
 
 export default function NewQuestion() {
   const router = useRouter();
@@ -26,9 +28,9 @@ export default function NewQuestion() {
     });
     const result = await res.json();
     if (res.ok) {
-      alert('Your question posted successfully!');
+      <Success message={'Your question posted successfully!'} />;
       router.push('/questions');
-    } else alert('some error occured.. try again');
+    } else <ErrorCard message={'some error occured.. try again'} />;
   }
 
   return (

@@ -1,6 +1,7 @@
 'use client';
 
-import DashForm from '@/components/dashForm';
+import ErrorCard from '@/components/errorCard';
+import Success from '@/components/successMsg';
 import { useSession } from 'next-auth/react';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
@@ -53,12 +54,10 @@ export default function Dashboard() {
     });
     const data = await res.json();
     if (res.ok) {
-      alert('Photo uploaded successfully');
-      console.log(`users/${data.data.avatar}`);
+      <Success message={'Photo uploaded successfully'} />;
       setImage(`users/${data.data.avatar}`);
       setSelectedFile(null);
-      await fetch('/api/auth/session?update');
-    } else alert('something went wrong');
+    } else <ErrorCard message={'something went wrong'} />;
   };
   return (
     <section className='mb-6 w-full -ml-20 md:ml-auto'>
