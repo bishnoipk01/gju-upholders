@@ -41,6 +41,7 @@ export default function Posts() {
                 caption={post.caption}
                 image={post.image}
                 time={post.createdAt}
+                avatar={post.avatar}
               />
             ))
           )}

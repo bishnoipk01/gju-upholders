@@ -19,12 +19,12 @@ export default function Header() {
               Welcome to{' '}
               <span className='underline text-blue-400'>Gju-Upholders</span>
             </h1>
-            <Link
-              href={'/questions'}
+            <a
+              href={'#features'}
               className='text-white bg-blue-700 hover:bg-blue-800 focus:outline-none font-medium rounded-full text-lg px-5 py-2.5 text-center mr-2 mb-2'
             >
-              Ask A Question
-            </Link>
+              Explore Features
+            </a>
           </div>
         </div>
       </header>

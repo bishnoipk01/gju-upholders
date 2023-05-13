@@ -4,7 +4,7 @@ import Link from 'next/link';
 export default function ClubsShort() {
   return (
     <div className='bg-sky-50'>
-      <div className='px-4 pb-16 pt-24 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20'>
+      <div className='px-4 pb-10 pt-14 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-16 lg:px-2 lg:py-10'>
         <div className='flex flex-col mb-6 lg:justify-between lg:flex-row md:mb-8'>
           <h2 className='max-w-lg mb-5 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl sm:leading-none md:mb-6 group'>
             <span className='inline-block mb-1 sm:mb-4'>
@@ -20,14 +20,14 @@ export default function ClubsShort() {
             information
           </p>
         </div>
-        <div className='grid gap-6 row-gap-5 mb-8 lg:grid-cols-4 sm:row-gap-6 sm:grid-cols-2'>
+        <div className='grid gap-4  mb-8 xl:grid-cols-4 sm:row-gap-6 md:grid-cols-2'>
           <a href='/clubs/gjust-coders' aria-label='View Item'>
             <div className='relative overflow-hidden transition duration-200 transform rounded shadow-lg hover:-translate-y-2 hover:shadow-2xl'>
               <Image
                 height={400}
                 width={400}
-                className=' w-full h-56 md:h-64 xl:h-80 object-center '
-                src={'/GJUST-CODERS.svg'}
+                className=' w-full h-96 xl:h-80 object-center '
+                src={'/coders.jpeg'}
                 alt=''
               />
               <div className='absolute inset-x-0 bottom-0 px-6 py-2 bg-black bg-opacity-60'>
@@ -40,10 +40,10 @@ export default function ClubsShort() {
           <a href='/clubs/aptitude' aria-label='View Item'>
             <div className='relative overflow-hidden transition duration-200 transform rounded shadow-lg hover:-translate-y-2 hover:shadow-2xl'>
               <Image
-                height={400}
+                height={500}
                 width={400}
-                className='object-center w-full h-56 md:h-64 xl:h-80'
-                src={'/aptitude_final.svg'}
+                className='object-cover w-full h-96 xl:h-80'
+                src={'/aptitude-2.png'}
                 alt=''
               />
               <div className='absolute inset-x-0 bottom-0 px-6 py-2 bg-black bg-opacity-60'>
@@ -58,7 +58,7 @@ export default function ClubsShort() {
               <Image
                 height={400}
                 width={400}
-                className='object-cover w-full h-56 md:h-64 xl:h-80'
+                className='object-cover w-full h-96 xl:h-80'
                 src={'/udbhavna.png'}
                 alt=''
               />
@@ -74,7 +74,7 @@ export default function ClubsShort() {
               <Image
                 height={400}
                 width={400}
-                className='object-center w-full h-56 md:h-64 xl:h-80'
+                className='object-cover w-full h-96 xl:h-80'
                 src={'/speakathon.png'}
                 alt=''
               />
@@ -87,8 +87,8 @@ export default function ClubsShort() {
           </a>
         </div>
         <div className='text-center'>
-          <a
-            href='/'
+          <Link
+            href='/clubs'
             aria-label=''
             className='inline-flex items-center font-semibold transition-colors duration-200 text-sky-400 hover:text-sky-800'
           >
@@ -100,7 +100,7 @@ export default function ClubsShort() {
             >
               <path d='M9.707,5.293l-5-5A1,1,0,0,0,3.293,1.707L7.586,6,3.293,10.293a1,1,0,1,0,1.414,1.414l5-5A1,1,0,0,0,9.707,5.293Z' />
             </svg>
-          </a>
+          </Link>
         </div>
       </div>
     </div>

@@ -9,11 +9,11 @@ export default async function register(req, res) {
   const encryptPassowrd = await bcrypt.hash(password, 10);
   // query that needs to be run on database
   const query = `
-        MERGE(u:User { id: randomUuid(), name:$name, email:$email, password:$encryptPassowrd})
+        MERGE(u:User { id: randomUuid(), name:$name, email:$email, password:$encryptPassowrd, avatar:$avatar})
         RETURN u
         `;
   // parameters used in query
-  const params = { name, email, encryptPassowrd };
+  const params = { name, email, encryptPassowrd, avatar: 'default.png' };
   // run the query on database
   const result = await executeWrite(query, params);
   // extract user from data returned from database

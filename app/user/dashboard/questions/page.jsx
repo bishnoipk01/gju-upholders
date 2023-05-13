@@ -57,25 +57,24 @@ export default function QuestionAsked() {
   }
 
   return (
-    <>
-      <div className='ml-auto mb-6 lg:w-[75%] xl:w-[80%] 2xl:w-[85%] mt-2'>
-        <div className=' z-10 top-0 h-16 border-b bg-white lg:py-2.5'>
-          <div className='px-6 flex items-center justify-between space-x-4 2xl:container'>
-            <h5 hidden className='text-2xl text-gray-600 font-medium lg:block'>
-              Questions
-            </h5>
-          </div>
+    <div className=' w-full'>
+      <div className=' z-10 top-0 h-16 border-b bg-white py-2.5'>
+        <div className='px-6 flex items-center justify-between space-x-4 2xl:container'>
+          <h5 hidden className='text-3xl text-blue-400 font-bold lg:block'>
+            Questions
+          </h5>
         </div>
-        <div className=' min-h-[85vh] bg-slate-100'>
-          <h1 className='heading-3 p-4 rounded bg-slate-200'>
-            All questions Asked
-          </h1>
-          {questions ? '' : <ErrorCard message={'\tno data found!'} />}
-          {questions.map((question) => {
+      </div>
+      <div className=' min-h-[80vh] bg-slate-100'>
+        <h1 className='heading-3 p-4 rounded bg-slate-200'>
+          All questions Asked
+        </h1>
+        {questions ? (
+          questions.map((question) => {
             return (
               <div
                 key={question.id}
-                className='p-6 bg-white border border-gray-200 rounded-lg shadow my-6 w-3/4 ml-4 flex justify-between'
+                className='p-6 bg-white border border-gray-200 rounded-lg shadow my-6  w-full lg:w-3/4 ml-4 flex  justify-between flex-col lg:flex-row'
               >
                 <div>
                   <h5 className='mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white'>
@@ -104,7 +103,7 @@ export default function QuestionAsked() {
                         d='M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16'
                       />
                     </svg>
-                    Delete
+                    <span className='hidden sm:block'>Delete</span>
                   </button>
 
                   <button className='inline-flex items-center px-4 py-2 bg-indigo-500 hover:bg-indigo-600 text-white text-sm font-medium rounded-md'>
@@ -122,14 +121,16 @@ export default function QuestionAsked() {
                         d='M3 10h10a8 8 0 018 8v2M3 10l6 6m-6-6l6-6'
                       />
                     </svg>
-                    Modify
+                    <span className='hidden sm:block'>Modify</span>
                   </button>
                 </div>
               </div>
             );
-          })}
-        </div>
+          })
+        ) : (
+          <ErrorCard message={'\tno data found!'} />
+        )}
       </div>
-    </>
+    </div>
   );
 }

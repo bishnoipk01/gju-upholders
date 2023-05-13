@@ -1,6 +1,6 @@
 import Image from 'next/image';
 
-export default function Post({ user, caption, image, time }) {
+export default function Post({ user, caption, image, time, avatar }) {
   return (
     <div className='flex flex-col max-w-lg p-6 space-y-6 overflow-hidden rounded-lg shadow-md bg-violet-200 text-gray-800 mx-auto mb-6'>
       <div className='flex space-x-4'>
@@ -8,7 +8,7 @@ export default function Post({ user, caption, image, time }) {
           width={400}
           height={400}
           alt=''
-          src='/user/user.png'
+          src={`/users/${avatar}`}
           className='object-cover w-12 h-12 rounded-full shadow bg-gray-500'
         />
         <div className='flex flex-col space-y-1'>

@@ -1,5 +1,6 @@
 'use client';
 import ClubsShort from '@/components/clubsShort';
+import ContactHome from '@/components/contactHome';
 import FeaturesHome from '@/components/featureSection';
 import GetStarted from '@/components/GetStarted';
 import Header from '@/components/header';
@@ -16,6 +17,7 @@ export default function Home() {
       {session?.user ? '' : <GetStarted />}
       <ClubsShort />
       <AboutSection />
+      <ContactHome />
     </main>
   );
 }

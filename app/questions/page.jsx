@@ -104,26 +104,25 @@ export default function Questions() {
       </ul>
       {ques ? '' : <ErrorCard message={`\tUnable to load data try again..`} />}
       {ques.length ? (
-        ''
+        filtered.map((question) => {
+          return (
+            <Link
+              href={`/questions/${question.id}`}
+              key={question.id}
+              className='block p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 my-6'
+            >
+              <h5 className='mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white'>
+                {question.title}
+              </h5>
+              <p className='font-normal text-gray-700 dark:text-gray-400'>
+                {question.description?.substring(0, 100)}
+              </p>
+            </Link>
+          );
+        })
       ) : (
-        <ErrorCard message={`\tNo data found .. Try asking a question`} />
+        <p>loading...</p>
       )}
-      {filtered.map((question) => {
-        return (
-          <Link
-            href={`/questions/${question.id}`}
-            key={question.id}
-            className='block p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 my-6'
-          >
-            <h5 className='mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white'>
-              {question.title}
-            </h5>
-            <p className='font-normal text-gray-700 dark:text-gray-400'>
-              {question.description?.substring(0, 100)}
-            </p>
-          </Link>
-        );
-      })}
     </section>
   );
 }

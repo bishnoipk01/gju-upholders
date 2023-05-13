@@ -12,11 +12,32 @@ export default function PostModal({ loadData }) {
   const [selectedFile, setSelectedFile] = useState();
   const [checkFile, setCheckFile] = useState(false);
   const [caption, setCaption] = useState('');
+  const [avatar, setAvatar] = useState('default.png');
 
   const imageHandler = (e) => {
     setSelectedFile(e.target.files[0]);
     setCheckFile(true);
   };
+  useEffect(
+    () => async () => {
+      try {
+        if (session) {
+          const res = await fetch('/api/users/get-user', {
+            method: 'POST',
+            headers: {
+              'content-type': 'application/json',
+            },
+            body: JSON.stringify({ uid: session.user.id }),
+          });
+          const data = await res.json();
+          setAvatar(data.data.avatar);
+        }
+      } catch (err) {
+        console.error(err);
+      }
+    },
+    [session]
+  );
 
   const uploadPost = async (e) => {
     try {
@@ -50,7 +71,7 @@ export default function PostModal({ loadData }) {
       >
         <Image
           className='w-10 h-10 rounded-full mr-6'
-          src='/user/user.png'
+          src={`/users/${avatar}`}
           alt='Rounded avatar'
           width={60}
           height={60}
