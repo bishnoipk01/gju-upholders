@@ -31,25 +31,25 @@ export default function AptitudeClub() {
             image: '/user.png',
             name: 'komal',
             dept: 'M.Sc.(Bio Technology)',
-            position: 'Poster Team',
+            position: 'Poster Team Member',
           }}
           member2={{
             image: '/user.png',
             name: 'Monika',
             dept: 'MCA',
-            position: 'Poster Team',
+            position: 'Poster Team Member',
           }}
           member3={{
             image: '/user.png',
             name: 'Sourabh',
             dept: 'B.tech (EE)',
-            position: 'Certificate Team',
+            position: 'Certificate Team Member',
           }}
           member4={{
             image: '/user.png',
             name: 'Payal',
             dept: 'M.Sc.(Microbiology)',
-            position: 'Testing Team',
+            position: 'Testing Team Member',
           }}
         />
       </div>
