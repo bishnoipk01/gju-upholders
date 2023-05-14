@@ -103,7 +103,8 @@ export default function Udbhavna() {
               ]} />
         </div>
         <div id='club-members' className=' flex-1 '>
-          <ClubWork club={'udbhavna'}/>
+          <ClubWork club={'UDBHAVNA CLUB'} poster1={{image:'/UDBHAVANA Club-5.jpeg',name:`Resume Building`,date:`NOV 19 2022`}} poster2={{image:'/UDBHAVANA Club-3.jpeg',name:`Soft Skill Training`,date:`Oct 13-16 2022`}}
+          poster3={{image:'/UDBHAVANA Club-2.jpg',name:`Good Fitness for Good Health`,date:`Sept 28 2022`}} poster4={{image:'/speakathon.png',name:``,date:``}} />
         </div>
       </div>
       <div id='comments' className=''>

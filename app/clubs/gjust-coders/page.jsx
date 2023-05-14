@@ -113,7 +113,8 @@ export default function GjustCoders() {
           ]} />
         </div>
         <div id='club-members' className=' flex-1 '>
-          <ClubWork club={'gjust-coders'}/>
+          <ClubWork club={'gjust-coders'} poster1={{image:'/GJUST-CODER.jpeg',name:`Game of Codes`,date:`April 25 2023`}} poster2={{image:'/coders.jpeg',name:``,date:``}}
+          poster3={{image:'/coders.jpeg',name:``,date:``}} poster4={{image:'/coders.jpeg',name:``,date:``}}/>
         </div>
       </div>
       <div id='comments' className=''>

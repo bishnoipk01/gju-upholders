@@ -100,7 +100,8 @@ export default function Speakathon() {
               },]} />
         </div>
         <div id='club-members' className=' flex-1 '>
-          <ClubWork />
+          <ClubWork club={'SPEAKATHON CLUB'} poster1={{image:'/speakathon1.jpeg',name:`GD`,date:`April 27 2023`}} poster2={{image:'/speakathon2.jpeg',name:`GD`,date:`April 13 2023`}}
+          poster3={{image:'/speakathon3.jpeg',name:`GD`,date:`March 23 2023`}} poster4={{image:'/speakathon4.jpeg',name:`GD`,date:`March 08 2023`}} />
         </div>
       </div>
       <div id='comments' className=''>

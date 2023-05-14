@@ -1,6 +1,6 @@
 import Image from 'next/image';
 
-export default function ClubWork({club}) {
+export default function ClubWork({poster1,poster2,poster3,poster4}) {
   return (
     <section className='py-6 sm:py-12 dark:bg-gray-800 dark:text-gray-100'>
       <div className='container p-6 mx-auto space-y-8'>
@@ -22,7 +22,7 @@ export default function ClubWork({club}) {
                 width={200}
                 alt=''
                 className='object-cover w-full h-72 dark:bg-gray-500'
-                src='/GJUST-CODER.jpeg'
+                src={poster1.image}
               />
             </a>
             <div className='flex flex-col flex-1 p-6'>
@@ -39,11 +39,11 @@ export default function ClubWork({club}) {
                 Convenire
               </a> */}
               <h3 className='flex-1 py-2 text-lg font-semibold leading-snug'>
-                Game of Codes
+                {poster1.name}
               </h3>
               <div className='flex flex-wrap justify-between pt-3 space-x-2 text-xs dark:text-gray-400'>
-                <span>April 25, 2023</span>
-                <span>2.1K views</span>
+                <span>{poster1.date}</span>
+                
               </div>
             </div>
           </article>
@@ -58,7 +58,7 @@ export default function ClubWork({club}) {
                 width={200}
                 alt=''
                 className='object-cover w-full h-72 dark:bg-gray-500'
-                src='/coders.jpeg'
+                src={poster2.image}
               />
             </a>
             <div className='flex flex-col flex-1 p-6'>
@@ -75,12 +75,11 @@ export default function ClubWork({club}) {
                 Convenire
               </a> */}
               <h3 className='flex-1 py-2 text-lg font-semibold leading-snug'>
-              {/* GWOAT 3.0 <br></br>
-              (Test-31) */}
+              {poster2.name}
               </h3>
               <div className='flex flex-wrap justify-between pt-3 space-x-2 text-xs dark:text-gray-400'>
-                <span>April 19, 2023</span>
-                <span>2.2K views</span>
+                <span>{poster2.date}</span>
+                
               </div>
             </div>
           </article>
@@ -95,7 +94,7 @@ export default function ClubWork({club}) {
                 width={200}
                 alt=''
                 className='object-cover w-full h-72 dark:bg-gray-500'
-                src='/coders.jpeg'
+                src={poster3.image}
               />
             </a>
             <div className='flex flex-col flex-1 p-6'>
@@ -112,12 +111,10 @@ export default function ClubWork({club}) {
                 Convenire
               </a> */}
               <h3 className='flex-1 py-2 text-lg font-semibold leading-snug'>
-              {/* GWOAT 3.0 <br></br>
-              (Test-30) */}
+              {poster3.name}
               </h3>
               <div className='flex flex-wrap justify-between pt-3 space-x-2 text-xs dark:text-gray-400'>
-                <span>April 12, 2023</span>
-                <span>2.3K views</span>
+                <span>{poster3.date}</span>
               </div>
             </div>
           </article>
@@ -132,7 +129,7 @@ export default function ClubWork({club}) {
                 width={200}
                 alt=''
                 className='object-cover w-full h-72 dark:bg-gray-500'
-                src='/coders.jpeg'
+                src={poster4.image}
               />
             </a>
             <div className='flex flex-col flex-1 p-6'>
@@ -149,12 +146,11 @@ export default function ClubWork({club}) {
                 Convenire
               </a> */}
               <h3 className='flex-1 py-2 text-lg font-semibold leading-snug'>
-              {/* GWOAT 3.0 <br></br>
-              (Test-29) */}
+              {poster4.name}
               </h3>
               <div className='flex flex-wrap justify-between pt-3 space-x-2 text-xs dark:text-gray-400'>
-                <span>April 5, 2023</span>
-                <span>2.4K views</span>
+                <span>{poster4.date}</span>
+                
               </div>
             </div>
           </article>
