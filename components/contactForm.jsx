@@ -33,7 +33,6 @@ export default function ContactForm() {
           Got a technical issue? Want to send feedback about a feature? Need
           details on any topic? Let us know.
         </p>
-        <Success message={'message sent successfully'} />;
         <form
           action='#'
           className='space-y-8'

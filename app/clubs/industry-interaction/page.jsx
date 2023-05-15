@@ -7,7 +7,7 @@ import ClubWork from '@/components/clubWork';
 export default function IndustryInteraction() {
   return (
     <section>
-      <ClubHeader clubName={'IndustryInteraction'} />
+      <ClubHeader clubName={'Industry-Interaction Club'} />
 
       <div
         id='recent-work'
@@ -16,7 +16,7 @@ export default function IndustryInteraction() {
         <ClubMembers
           clubheading={''}
           cordinator={{
-            image: '/industry interaction club coordinator.jpeg',
+            image: '/industry interaction club coordinator.jpg',
             name: 'Monika Sihag',
             dept: 'M.Sc.(chemistry)',
           }}
@@ -26,7 +26,7 @@ export default function IndustryInteraction() {
             dept: 'M.Pharmacy',
           }}
           member1={{
-            image: '/ved prakash jc iip club',
+            image: '/ved prakash jc iip club.jpeg',
             name: 'Ved Parkash',
             dept: 'B.Tech(ECE)',
             position: 'Joint Coordinator',
@@ -53,26 +53,28 @@ export default function IndustryInteraction() {
       </div>
       <div className='flex  flex-col xl:flex-row border-2 border-pink-200 justify-between gap-4 mb-10 '>
         <div id='club-activities' className=' flex-1 '>
-          <ClubActivity clubname={'GJUST-CODERS'} activities={[
-            {date: '15 February 2023',
-            description: ` A webinar on the
+          <ClubActivity
+            clubname={'INDUSTRY INTERACTION'}
+            activities={[
+              {
+                date: '15 February 2023',
+                description: ` A webinar on the
             topic "LinkedIn profile and portfolio
             building". Rohit Ghumare, founder of Keep
             Up and currently working as a developer
             advocate at solo.io was the keynote
             speaker of the webinar.`,
 
-            description2:`Prof. B.R. Kamboj, ViceChancellor of the University, encouraged
+                description2: `Prof. B.R. Kamboj, ViceChancellor of the University, encouraged
             students to participate in such events and
             encouraged them to make and maintain a
             good professional profile on platforms like
             LinkedIn, Twitter, etc.
             `,
-            
-          },
-          {
-            date: '16 February 2023',
-            description: `Dr.
+              },
+              {
+                date: '16 February 2023',
+                description: `Dr.
             Minakshi Garg, who has 15 years of R&D
             experience in renowned pharmaceutical
             companies, was the keynote speaker and
@@ -87,7 +89,7 @@ export default function IndustryInteraction() {
             industry-aware and industry-ready.
             
             `,
-            description2: `Dr. Minakshi Garg
+                description2: `Dr. Minakshi Garg
             explained the process of approval of
             changes in drug manufacturing methods
             and packaging from the Regulatory
@@ -95,10 +97,10 @@ export default function IndustryInteraction() {
             discussed how to review technology
             transfer documents, coaching and monitoring team members, and the
             work culture of R&D labs.`,
-          },
-          {
-            date: '25 February 2023',
-            description: `Webinar on Scope for Chemistry Students
+              },
+              {
+                date: '25 February 2023',
+                description: `Webinar on Scope for Chemistry Students
             in R&D (Research and Development) Field
             for Chemistry Department students. The
             webinar was attended by more than 25
@@ -108,21 +110,43 @@ export default function IndustryInteraction() {
             keynote speaker was Mr. Alekh Upadhyay.
             
             `,
-            description2: `Mr. Alekh Upadhyay
+                description2: `Mr. Alekh Upadhyay
             presented several R&D departments such
             as Chemical Research and Development, Analytical Development, and Quality
             Assurance, where chemistry students may
             establish a career.`,
-          },
-          ]} />
+              },
+            ]}
+          />
         </div>
         <div id='club-members' className=' flex-1 '>
-          <ClubWork club={'IndustryInteraction'} poster1={{image:'/industry1.jpeg',name:`Career Options for chemists in industries`,date:`March 04 2023`}} poster2={{image:'/industry2.jpeg',name:`Scopes for chemistry students in R&D Area`,date:`FEB 25 2023`}}
-          poster3={{image:'/industry3.jpeg',name:`A regulatory perspective`,date:`FEB 16 2023`}} poster4={{image:'/industry4.jpeg',name:`Linkedin Profile and Portfolio Building`,date:`FEB 15 2023`}}/>
+          <ClubWork
+            club={'IndustryInteraction'}
+            poster1={{
+              image: '/industry1.jpeg',
+              name: `Career Options for chemists in industries`,
+              date: `March 04 2023`,
+            }}
+            poster2={{
+              image: '/industry2.jpg',
+              name: `Scopes for chemistry students in R&D Area`,
+              date: `FEB 25 2023`,
+            }}
+            poster3={{
+              image: '/industry3.jpg',
+              name: `A regulatory perspective`,
+              date: `FEB 16 2023`,
+            }}
+            poster4={{
+              image: '/industry4.jpg',
+              name: `Linkedin Profile and Portfolio Building`,
+              date: `FEB 15 2023`,
+            }}
+          />
         </div>
       </div>
       <div id='comments' className=''>
-        <ClubComments club={'gjust-coders'} />
+        <ClubComments club={'industry-interaction'} />
       </div>
     </section>
   );

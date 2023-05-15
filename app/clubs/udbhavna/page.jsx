@@ -53,7 +53,10 @@ export default function Udbhavna() {
       </div>
       <div className='flex  flex-col xl:flex-row border-2 border-pink-200 justify-between gap-4 mb-10 '>
         <div id='club-activities' className=' flex-1 '>
-          <ClubActivity clubname={'UDBHAVNA'} activities={[  {
+          <ClubActivity
+            clubname={'UDBHAVNA'}
+            activities={[
+              {
                 date: '23 February 2023',
                 description: `Orientation program
                 by Bhabha Atomic Research Centre
@@ -100,11 +103,29 @@ export default function Udbhavna() {
               //         consequence of our continual efforts and that learners
               //         should study hard to acquire aptitude abilities.`,
               // },
-              ]} />
+            ]}
+          />
         </div>
         <div id='club-members' className=' flex-1 '>
-          <ClubWork club={'UDBHAVNA CLUB'} poster1={{image:'/UDBHAVANA Club-5.jpeg',name:`Resume Building`,date:`NOV 19 2022`}} poster2={{image:'/UDBHAVANA Club-3.jpeg',name:`Soft Skill Training`,date:`Oct 13-16 2022`}}
-          poster3={{image:'/UDBHAVANA Club-2.jpg',name:`Good Fitness for Good Health`,date:`Sept 28 2022`}} poster4={{image:'/speakathon.png',name:``,date:``}} />
+          <ClubWork
+            club={'UDBHAVNA CLUB'}
+            poster1={{
+              image: '/UDBHAVANA Club-5.jpeg',
+              name: `Resume Building`,
+              date: `NOV 19 2022`,
+            }}
+            poster2={{
+              image: '/UDBHAVANA Club-3.jpeg',
+              name: `Soft Skill Training`,
+              date: `Oct 13-16 2022`,
+            }}
+            poster3={{
+              image: '/UDBHAVANA Club-2.jpg',
+              name: `Good Fitness for Good Health`,
+              date: `Sept 28 2022`,
+            }}
+            poster4={{ image: '/udbhavna.png', name: ``, date: `` }}
+          />
         </div>
       </div>
       <div id='comments' className=''>

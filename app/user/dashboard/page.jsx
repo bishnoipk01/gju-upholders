@@ -10,7 +10,7 @@ export default function Dashboard() {
   const { data: session } = useSession();
   const [selectedFile, setSelectedFile] = useState();
   const [checkFile, setCheckFile] = useState(false);
-  const [image, setImage] = useState('users/default.png');
+  const [image, setImage] = useState('default.png');
 
   useEffect(() => {
     if (session) setImage(session.user.avatar);
@@ -28,7 +28,6 @@ export default function Dashboard() {
             body: JSON.stringify({ uid: session.user.id }),
           });
           const data = await res.json();
-          console.log(data.data.avatar);
           setImage(data.data.avatar);
         }
       } catch (err) {
@@ -55,7 +54,7 @@ export default function Dashboard() {
     const data = await res.json();
     if (res.ok) {
       <Success message={'Photo uploaded successfully'} />;
-      setImage(`users/${data.data.avatar}`);
+      setImage(data.data.avatar);
       setSelectedFile(null);
     } else <ErrorCard message={'something went wrong'} />;
   };
