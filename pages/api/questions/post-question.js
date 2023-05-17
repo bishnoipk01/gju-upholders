@@ -7,8 +7,8 @@ export default async function PostNewQuestion(req, res) {
     // query to post question
     const query = `
             MATCH(u:User {id:$Uid})
-            MERGE(q:Question {id: randomUuid(), title: $title, description:$description, created_at: datetime(), tags: $tags}) 
-            MERGE((u)-[r:ASK]->(q))
+            MERGE (q:Question {id: randomUuid(), title: $title, description:$description, created_at: datetime(), tags: $tags}) 
+            MERGE (u)-[r:ASK]->(q)
             RETURN q`;
     //  parameter that used in query
     const params = { title, description, Uid, tags };

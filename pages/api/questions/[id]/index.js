@@ -5,7 +5,7 @@ export default async function getQuestion(req, res) {
   try {
     if (req.method == 'GET') {
       const { id } = req.query;
-      const query = 'MATCH(q:Question {id:$id}) return q';
+      const query = 'MATCH (q:Question {id:$id}) return q';
       const params = { id };
       const result = await executeRead(query, params);
       const data = result[0].get('q').properties;
@@ -16,9 +16,8 @@ export default async function getQuestion(req, res) {
     if (req.method == 'POST') {
       const { id } = req.query;
       const { answer, userId } = req.body;
-      const query = `MATCH(u:User {id:$uId})
-                MATCH(q:Question {id: $qId})
-                MERGE((u)-[r:ANSWER {id:randomUuid(), answer:$answer, created_at: datetime()}]->(q))
+      const query = `MATCH (u:User {id:$uId}), (q:Question {id: $qId})
+                MERGE (u)-[r:ANSWER {id:randomUuid(), answer:$answer, created_at: datetime()}]->(q)
                 RETURN r.answer AS ans;
   `;
       const params = { uId: userId, qId: id, answer };
