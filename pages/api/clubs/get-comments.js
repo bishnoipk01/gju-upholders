@@ -4,7 +4,7 @@ import { executeRead } from '@/utils/neo4j';
 export default async function handler(req, res) {
   try {
     const { club } = req.body;
-    const query = `MATCH((u:User)-[d:DISCUSS]->(c:Club {name:$club}))
+    const query = `MATCH (u:User)-[d:DISCUSS]->(c:Club {name:$club})
                  return u.name as username, u.avatar as avatar ,d.id as id, d.comment as comment,d.created_at as created_at
   `;
     const params = { club };

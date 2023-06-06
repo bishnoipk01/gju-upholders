@@ -4,7 +4,7 @@ export default async function getQuestion(req, res) {
   try {
     const { id } = req.body;
     if (!id) return res.status(200).json({});
-    const query = `MATCH((q:Question)<-[:ASK]-(u:User {id:$id})) return q LIMIT 30`;
+    const query = `MATCH (q:Question)<-[:ASK]-(u:User {id:$id}) return q LIMIT 30`;
     const params = { id };
     const result = await executeRead(query, params);
     const questions = result.map((row) => row.get('q').properties);

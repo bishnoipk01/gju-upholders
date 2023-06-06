@@ -5,7 +5,7 @@ export default async function getAnswersToQuestion(req, res) {
   try {
     const { id } = req.query;
     const query =
-      'MATCH((q:Question {id:$id})<-[r:ANSWER]-(u:User)) return r.answer AS ans, r.created_at as created, u.name as name, u.id as id, u.avatar as avatar';
+      'MATCH (q:Question {id:$id})<-[r:ANSWER]-(u:User) return r.answer AS ans, r.created_at as created, u.name as name, u.id as id, u.avatar as avatar';
     const params = { id };
     const result = await executeRead(query, params);
     const data = result.map((row) => {

@@ -31,25 +31,25 @@ export default function AptitudeClub() {
             image: '/user.png',
             name: 'komal',
             dept: 'M.Sc.(Bio Technology)',
-            position: 'Poster Team',
+            position: 'Poster Team Member',
           }}
           member2={{
             image: '/user.png',
             name: 'Monika',
             dept: 'MCA',
-            position: 'Poster Team',
+            position: 'Poster Team Member',
           }}
           member3={{
             image: '/user.png',
             name: 'Sourabh',
             dept: 'B.tech (EE)',
-            position: 'Certificate Team',
+            position: 'Certificate Team Member',
           }}
           member4={{
             image: '/user.png',
             name: 'Payal',
             dept: 'M.Sc.(Microbiology)',
-            position: 'Testing Team',
+            position: 'Testing Team Member',
           }}
         />
       </div>
@@ -91,7 +91,8 @@ export default function AptitudeClub() {
           />
         </div>
         <div id='club-members' className=' flex-1 '>
-          <ClubWork />
+          <ClubWork club={'APTITUDE CLUB'} poster1={{image:'/GWOAT POSTER 3.0-32.jpeg',name:`Test-32`,date:`April 26 2023`}} poster2={{image:'/GWOAT POSTER 3.0-31.jpeg',name:`Test-31`,date:`April 19 2023`}}
+          poster3={{image:'/GWOAT POSTER 3.0-30.jpeg',name:`Test-30`,date:`April 12 2023`}} poster4={{image:'/GWOAT POSTER 3.0-29.jpeg',name:`Test-29`,date:`April 05 2023`}}/>
         </div>
       </div>
       <div id='comments' className=''>

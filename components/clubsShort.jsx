@@ -21,18 +21,18 @@ export default function ClubsShort() {
           </p>
         </div>
         <div className='grid gap-4  mb-8 xl:grid-cols-4 sm:row-gap-6 md:grid-cols-2'>
-          <a href='/clubs/gjust-coders' aria-label='View Item'>
+          <a href='/clubs/industry-interaction' aria-label='View Item'>
             <div className='relative overflow-hidden transition duration-200 transform rounded shadow-lg hover:-translate-y-2 hover:shadow-2xl'>
               <Image
                 height={400}
                 width={400}
                 className=' w-full h-96 xl:h-80 object-center '
-                src={'/coders.jpeg'}
+                src={'/interaction_club.png'}
                 alt=''
               />
               <div className='absolute inset-x-0 bottom-0 px-6 py-2 bg-black bg-opacity-60'>
                 <p className='font-bold text-base text-center uppercase tracking-wide text-white'>
-                  Gjust-Coders
+                  industry-interaction
                 </p>
               </div>
             </div>

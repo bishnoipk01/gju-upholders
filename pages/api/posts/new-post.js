@@ -41,9 +41,9 @@ const handler = async (req, res) => {
     };
 
     const query = `
-             MATCH(u:User {id:$Uid})
-             MERGE(p:Post {id: randomUuid(), caption: $caption, image:$image, created_at: datetime()})
-             MERGE((u)-[r:CREATE]->(p))
+             MATCH (u:User {id:$Uid})
+             MERGE (p:Post {id: randomUuid(), caption: $caption, image:$image, created_at: datetime()})
+             MERGE (u)-[r:CREATE]->(p)
              RETURN p`;
     const params = {
       caption: values.caption,
