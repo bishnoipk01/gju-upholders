@@ -16,16 +16,19 @@ export default function NewQuestion() {
   const tags = [];
 
   async function PostQuestion() {
-    const res = await fetch('/api/questions/post-question', {
-      method: 'post',
-      headers: { 'content-type': 'application/json' },
-      body: JSON.stringify({
-        title,
-        description,
-        Uid: session.user.id,
-        tags,
-      }),
-    });
+    const res = await fetch(
+      `https://${process.env.VERCEL_URL}/api/questions/post-question`,
+      {
+        method: 'post',
+        headers: { 'content-type': 'application/json' },
+        body: JSON.stringify({
+          title,
+          description,
+          Uid: session.user.id,
+          tags,
+        }),
+      }
+    );
     const result = await res.json();
     if (res.ok) {
       <Success message={'Your question posted successfully!'} />;
