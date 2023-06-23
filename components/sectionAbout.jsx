@@ -1,4 +1,3 @@
-import aboutBg from '@/public/about-us.jpg';
 import Image from 'next/image';
 
 export default function AboutSection() {
@@ -27,7 +26,7 @@ export default function AboutSection() {
             height={400}
             width={400}
             className='w-full rounded-lg'
-            src={aboutBg.src}
+            src='/about-us.jpg'
             alt='office content 1'
           />
           <Image
