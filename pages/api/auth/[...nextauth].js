@@ -9,11 +9,14 @@ export const authOptions = {
       async authorize(credentials, req) {
         // Add logic here to look up the user from the credentials supplied
         const { email, password } = credentials;
-        const result = await fetch('/api/users/login', {
-          method: 'post',
-          body: JSON.stringify({ email, password }),
-          headers: { 'content-type': 'application/json' },
-        });
+        const result = await fetch(
+          'https://gju-upholders.vercel.app/api/users/login',
+          {
+            method: 'post',
+            body: JSON.stringify({ email, password }),
+            headers: { 'content-type': 'application/json' },
+          }
+        );
         const res = await result.json();
         const user = res.data.user;
         if (user) {
