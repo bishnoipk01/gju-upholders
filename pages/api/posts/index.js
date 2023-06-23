@@ -1,7 +1,7 @@
 import parseDate from '@/utils/js-date';
 import { executeRead } from '@/utils/neo4j';
 
-export default async function GetAllPosts(req, res) {
+export default async function handler(req, res) {
   try {
     if (req.method === 'GET') {
       const query = `MATCH (p:Post)<-[r:CREATE]-(u:User) return p.id as id, p.caption AS caption,p.image AS image,p.created_at AS created,u.name AS username,u.avatar AS avatar`;

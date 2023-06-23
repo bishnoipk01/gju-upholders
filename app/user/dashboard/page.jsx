@@ -117,12 +117,12 @@ export default function Dashboard() {
             <h1 className='font-bold text-2xl text-blue-500 uppercase leading-8 my-5'>
               {session?.user.name}
             </h1>
-            <h3 className='text-gray-600 font-lg font-semibold leading-6 text-left'>
+            {/* <h3 className='text-gray-600 font-lg font-semibold leading-6 text-left'>
               **TagLine**
             </h3>
             <p className='text-sm text-gray-500 hover:text-gray-600 leading-6 text-left'>
               **BIO**
-            </p>
+            </p> */}
             <ul className='bg-gray-100 text-gray-600 hover:text-gray-700 hover:shadow py-2 px-3 mt-3 divide-y rounded shadow-sm'>
               <li className='flex items-center py-3'>
                 <span>Status</span>
@@ -144,7 +144,7 @@ export default function Dashboard() {
         <div className='w-full md:w-8/12 mx-6 mt-6'>
           {/* Profile tab */}
           {/* About Section */}
-          <div className='bg-white shadow-sm rounded-sm'>
+          {/* <div className='bg-white shadow-sm rounded-sm'>
             <div className='flex items-center space-x-2 leading-8'>
               <span>
                 <svg
@@ -180,10 +180,7 @@ export default function Dashboard() {
                     {session?.user.name.split(' ')[1]}
                   </div>
                 </div>
-                {/* <div className='grid grid-cols-2'>
-                  <div className='px-4 py-2 font-semibold'>Gender</div>
-                  <div className='px-4 py-2'>Female</div>
-                </div> */}
+                
                 <div className='grid grid-cols-2'>
                   <div className='px-4 py-2 font-semibold'>Contact No.</div>
                   <div className='px-4 py-2'>NA</div>
@@ -210,8 +207,7 @@ export default function Dashboard() {
             <button className='block w-full text-blue-800 text-base font-semibold rounded-lg hover:bg-gray-100 focus:outline-none focus:shadow-outline focus:bg-gray-100 hover:shadow-xs p-3 my-4 md:w-8/12 '>
               Edit Info
             </button>
-          </div>
-          {/* End of about section */}
+          </div> */}
         </div>
       </div>
     </section>

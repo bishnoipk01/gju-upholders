@@ -23,7 +23,6 @@ const readFile = (req, saveLocally) => {
   return new Promise((resolve, reject) => {
     form.parse(req, (err, fields, files) => {
       if (err) reject(err);
-      console.log(fields, files);
       resolve({ fields, files });
     });
   });

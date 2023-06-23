@@ -19,8 +19,7 @@ export default function AboutSection() {
           <p>
             {' '}
             But there’s a whole lot more you can do as well. In addition to
-            answering the question, you can follow the individual question,
-            despite what topic it resides in
+            answering the question, you can post photos and info to the website
           </p>
         </div>
         <div className='grid grid-cols-2 gap-4 mt-8'>

@@ -21,7 +21,6 @@ export default function NavBar() {
             body: JSON.stringify({ uid: session.user.id }),
           });
           const data = await res.json();
-          console.log(data.data.avatar);
           setAvatar(data.data.avatar);
         }
       } catch (err) {

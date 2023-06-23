@@ -1,14 +1,12 @@
 'use client';
 import ErrorCard from '@/components/errorCard';
-import { getToken } from 'next-auth/jwt';
 import { useSession } from 'next-auth/react';
-import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useState, useEffect } from 'react';
 
 const getQuestions = async (id) => {
   try {
-    if (id === undefined) return null;
+    if (id === undefined) return [];
     const res = await fetch('/api/users/questions', {
       method: 'POST',
       body: JSON.stringify({ id }),
@@ -26,23 +24,15 @@ const getQuestions = async (id) => {
 
 export default function QuestionAsked() {
   const { data: session } = useSession();
-  const [questions, setQuestions] = useState(null);
-  const [error, setError] = useState(null);
+  const [questions, setQuestions] = useState([]);
   const router = useRouter();
   const [state, setState] = useState(false);
 
   useEffect(() => {
-    getQuestions(session?.user.id)
-      .then((questions) => {
-        setQuestions(questions);
-      })
-      .catch((err) => {
-        setError(err);
-      });
+    getQuestions(session?.user.id).then((questions) => {
+      setQuestions(questions);
+    });
   }, [state, session]);
-
-  if (error) return <ErrorCard error={error} />;
-  if (!questions) return <p>Loading...</p>;
 
   const refreshPage = () => {
     setState((state) => !state);
@@ -70,6 +60,11 @@ export default function QuestionAsked() {
           All questions Asked
         </h1>
         {questions ? (
+          ''
+        ) : (
+          <ErrorCard message={`\tUnable to load data try again..`} />
+        )}
+        {questions.length ? (
           questions.map((question) => {
             return (
               <div
@@ -128,7 +123,7 @@ export default function QuestionAsked() {
             );
           })
         ) : (
-          <ErrorCard message={'\tno data found!'} />
+          <ErrorCard message={'\tno data found'} />
         )}
       </div>
     </div>
