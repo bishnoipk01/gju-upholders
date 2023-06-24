@@ -19,15 +19,21 @@ const getQuestions = async () => {
 };
 
 export default function Questions() {
-  const [ques, setQues] = useState([]);
-  const [query, setQuery] = useState('');
-  useEffect(
-    () => async () => {
-      const data = await getQuestions();
-      setQues(data);
+  const [ques, setQues] = useState([
+    {
+      id: '92bb35bd-7183-4209-aaca-0f5c7aa7b2bd',
+      caption: 'Here we go',
+      image: '1683803440622_IMG_20220521_190644_BURST2.jpg',
+      createdAt: 'Thu May 11 2023',
+      username: 'nitin',
+      avatar: '1683803314395_IMG_20220521_190553.jpg',
     },
-    []
-  );
+  ]);
+  const [query, setQuery] = useState('');
+  useEffect(async () => {
+    const data = await getQuestions();
+    setQues(data);
+  }, []);
 
   //Our search filter function
   const searchFilter = (array) => {
