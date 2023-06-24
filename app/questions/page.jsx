@@ -7,7 +7,7 @@ const getQuestions = async () => {
   try {
     console.log('getQuestions');
     const res = await fetch(
-      `https://${process.env.VERCEL_URL}/api/questions/get-all`,
+      `https://${process.env.NEXT_PUBLIC_VERCEL_URL}/api/questions/get-all`,
       { cache: `no-cache` }
     );
     const questions = await res.json();
@@ -46,7 +46,7 @@ export default function Questions() {
           Ask a Question
         </Link>
       </div>
-      {console.log(process.env.VERCEL_URL)}
+      {console.log(process.env.NEXT_PUBLIC_VERCEL_URL)}
       <ul className='flex flex-col sm:flex-row'>
         <span className='text-lg mt-2 mr-4'>Filter:</span>
 
@@ -125,7 +125,7 @@ export default function Questions() {
           );
         })
       ) : (
-        <p>loading... {process.env.VERCEL_URL}</p>
+        <p>loading... {process.env.NEXT_PUBLIC_VERCEL_URL}</p>
       )}
     </section>
   );
