@@ -6,10 +6,7 @@ import { useEffect, useState } from 'react';
 const getQuestions = async () => {
   try {
     console.log('getQuestions');
-    const res = await fetch(
-      `https://${process.env.NEXT_PUBLIC_VERCEL_URL}/api/questions/get-all`,
-      { cache: `no-cache` }
-    );
+    const res = await fetch(`/api/questions/get-all`, { cache: `no-cache` });
     const questions = await res.json();
     if (res.status !== 200) return null;
     return questions.data;
@@ -19,16 +16,7 @@ const getQuestions = async () => {
 };
 
 export default function Questions() {
-  const [ques, setQues] = useState([
-    {
-      id: '92bb35bd-7183-4209-aaca-0f5c7aa7b2bd',
-      caption: 'Here we go',
-      image: '1683803440622_IMG_20220521_190644_BURST2.jpg',
-      createdAt: 'Thu May 11 2023',
-      username: 'nitin',
-      avatar: '1683803314395_IMG_20220521_190553.jpg',
-    },
-  ]);
+  const [ques, setQues] = useState([]);
   const [query, setQuery] = useState('');
   useEffect(async () => {
     const data = await getQuestions();
@@ -52,7 +40,6 @@ export default function Questions() {
           Ask a Question
         </Link>
       </div>
-      {console.log(process.env.VERCEL_URL)}
       <ul className='flex flex-col sm:flex-row'>
         <span className='text-lg mt-2 mr-4'>Filter:</span>
 
@@ -131,7 +118,7 @@ export default function Questions() {
           );
         })
       ) : (
-        <p>loading... {process.env.NEXT_PUBLIC_VERCEL_URL}</p>
+        <p>loading...</p>
       )}
     </section>
   );

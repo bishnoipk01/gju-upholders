@@ -10,14 +10,11 @@ export default function ContactForm() {
   const [message, setMessage] = useState('');
 
   const submitFeedback = async () => {
-    const res = await fetch(
-      `https://${process.env.VERCEL_URL}/api/users/contact-us`,
-      {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, subject, message }),
-      }
-    );
+    const res = await fetch(`/api/users/contact-us`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email, subject, message }),
+    });
     const data = await res.json();
     if (res.ok) {
       <Success message={'message sent successfully'} />;
