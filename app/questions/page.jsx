@@ -46,6 +46,7 @@ export default function Questions() {
           Ask a Question
         </Link>
       </div>
+      {console.log(process.env.VERCEL_URL)}
       <ul className='flex flex-col sm:flex-row'>
         <span className='text-lg mt-2 mr-4'>Filter:</span>
 
@@ -124,7 +125,7 @@ export default function Questions() {
           );
         })
       ) : (
-        <p>loading...</p>
+        <p>loading... {process.env.VERCEL_URL}</p>
       )}
     </section>
   );
