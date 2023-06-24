@@ -52,7 +52,7 @@ export default function Questions() {
           Ask a Question
         </Link>
       </div>
-      {console.log(process.env.NEXT_PUBLIC_VERCEL_URL)}
+      {console.log(process.env.VERCEL_URL)}
       <ul className='flex flex-col sm:flex-row'>
         <span className='text-lg mt-2 mr-4'>Filter:</span>
 
