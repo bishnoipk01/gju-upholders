@@ -10,7 +10,7 @@ export const authOptions = {
         // Add logic here to look up the user from the credentials supplied
         const { email, password } = credentials;
         const result = await fetch(
-          `http://${process.env.VERCEL_URL}/api/users/login`,
+          `https://${process.env.NEXT_PUBLIC_VERCEL_URL}/api/users/login`,
           {
             method: 'post',
             body: JSON.stringify({ email, password }),
