@@ -18,10 +18,13 @@ const getQuestions = async () => {
 export default function Questions() {
   const [ques, setQues] = useState([]);
   const [query, setQuery] = useState('');
-  useEffect(async () => {
-    const data = await getQuestions();
-    setQues(data);
-  }, []);
+  useEffect(
+    () => async () => {
+      const data = await getQuestions();
+      setQues(data);
+    },
+    []
+  );
 
   //Our search filter function
   const searchFilter = (array) => {
