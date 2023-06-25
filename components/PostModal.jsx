@@ -22,13 +22,16 @@ export default function PostModal({ loadData }) {
     () => async () => {
       try {
         if (session) {
-          const res = await fetch('/api/users/get-user', {
-            method: 'POST',
-            headers: {
-              'content-type': 'application/json',
-            },
-            body: JSON.stringify({ uid: session.user.id }),
-          });
+          const res = await fetch(
+            `${process.env.NEXT_PUBLIC_API_URL}/api/users/get-user`,
+            {
+              method: 'POST',
+              headers: {
+                'content-type': 'application/json',
+              },
+              body: JSON.stringify({ uid: session.user.id }),
+            }
+          );
           const data = await res.json();
           setAvatar(data.data.avatar);
         }
@@ -46,10 +49,13 @@ export default function PostModal({ loadData }) {
       formData.append('image', selectedFile);
       formData.append('caption', caption);
       formData.append('Uid', session.user.id);
-      const res = await fetch('/api/posts/new-post', {
-        method: 'POST',
-        body: formData,
-      });
+      const res = await fetch(
+        `${process.env.NEXT_PUBLIC_API_URL}/api/posts/new-post`,
+        {
+          method: 'POST',
+          body: formData,
+        }
+      );
       const data = await res.json();
       if (res.ok) {
         alert('New post added successfully');

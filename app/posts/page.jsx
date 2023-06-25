@@ -11,7 +11,7 @@ export default function Posts() {
 
   useEffect(
     () => async () => {
-      const res = await fetch(`/api/posts/`, {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/posts/`, {
         cache: 'no-cache',
       });
       const posts = await res.json();

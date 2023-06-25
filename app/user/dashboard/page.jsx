@@ -2,6 +2,7 @@
 
 import ErrorCard from '@/components/errorCard';
 import Success from '@/components/successMsg';
+
 import { useSession } from 'next-auth/react';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
@@ -20,13 +21,16 @@ export default function Dashboard() {
     () => async () => {
       try {
         if (session) {
-          const res = await fetch('/api/users/get-user', {
-            method: 'POST',
-            headers: {
-              'content-type': 'application/json',
-            },
-            body: JSON.stringify({ uid: session.user.id }),
-          });
+          const res = await fetch(
+            `${process.env.NEXT_PUBLIC_API_URL} api/users/get-user`,
+            {
+              method: 'POST',
+              headers: {
+                'content-type': 'application/json',
+              },
+              body: JSON.stringify({ uid: session.user.id }),
+            }
+          );
           const data = await res.json();
           setImage(data.data.avatar);
         }
@@ -47,10 +51,13 @@ export default function Dashboard() {
     const formData = new FormData();
     formData.append('avatar', selectedFile);
     formData.append('Uid', session.user.id);
-    const res = await fetch('/api/users/upload-photo', {
-      method: 'POST',
-      body: formData,
-    });
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_API_URL}/api/users/upload-photo`,
+      {
+        method: 'POST',
+        body: formData,
+      }
+    );
     const data = await res.json();
     if (res.ok) {
       <Success message={'Photo uploaded successfully'} />;

@@ -6,12 +6,16 @@ import UserCard from '@/components/userCard';
 import parseDate from '@/utils/js-date';
 
 const getQuestion = async (id) => {
-  const res = await fetch(`/api/questions/${id}`);
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_API_URL}/api/questions/${id}`
+  );
   const data = await res.json();
   return data.data;
 };
 const getAnswers = async (id) => {
-  const res = await fetch(`/api/questions/${id}/answers`);
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_API_URL}/api/questions/${id}/answers`
+  );
   const data = await res.json();
   return data.data;
 };
@@ -40,11 +44,14 @@ export default function QuestionById({ params }) {
 
   async function postAnswer(e) {
     const answer = e.target.answer.value;
-    const res = await fetch(`/api/questions/${params.id}`, {
-      method: 'post',
-      body: JSON.stringify({ userId: session?.user.id, answer }),
-      headers: { 'content-type': 'application/json' },
-    });
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_API_URL}/api/questions/${params.id}`,
+      {
+        method: 'post',
+        body: JSON.stringify({ userId: session?.user.id, answer }),
+        headers: { 'content-type': 'application/json' },
+      }
+    );
     if (res.ok) {
       refreshPage();
       alert('answer posted successfully!');

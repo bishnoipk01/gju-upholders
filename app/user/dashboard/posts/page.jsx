@@ -8,13 +8,16 @@ import DashPost from '@/components/DashPost';
 const getPosts = async (id) => {
   try {
     if (id === undefined) return [];
-    const res = await fetch('/api/users/posts', {
-      method: 'POST',
-      body: JSON.stringify({ id }),
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    });
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_API_URL}/api/users/posts`,
+      {
+        method: 'POST',
+        body: JSON.stringify({ id }),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      }
+    );
     const posts = await res.json();
     if (res.status !== 200) return null;
     return posts.data;
@@ -42,7 +45,7 @@ export default function PostCreated() {
   };
 
   async function deletePost(id) {
-    await fetch(`/api/posts/${id}`, {
+    await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/posts/${id}`, {
       method: 'DELETE',
     });
     refreshPage();

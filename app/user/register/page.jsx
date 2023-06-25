@@ -12,11 +12,14 @@ export default function Register() {
 
   async function RegisterUser() {
     if (password !== matchPass) return alert('Password does not match!');
-    const res = await fetch('/api/users/register', {
-      method: 'post',
-      body: JSON.stringify({ name, email, password }),
-      headers: { 'content-type': 'application/json' },
-    });
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_API_URL}/api/users/register`,
+      {
+        method: 'post',
+        body: JSON.stringify({ name, email, password }),
+        headers: { 'content-type': 'application/json' },
+      }
+    );
     const data = await res.json();
     if (res.ok) {
       await signIn('credentials', {

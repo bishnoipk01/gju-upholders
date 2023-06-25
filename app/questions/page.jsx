@@ -1,12 +1,18 @@
 'use client';
 import ErrorCard from '@/components/errorCard';
+
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 
 const getQuestions = async () => {
   try {
     console.log('getQuestions');
-    const res = await fetch(`/api/questions/get-all`, { cache: `no-cache` });
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_API_URL}/api/questions/get-all`,
+      {
+        cache: `no-cache`,
+      }
+    );
     const questions = await res.json();
     if (res.status !== 200) return null;
     return questions.data;

@@ -1,4 +1,5 @@
 'use client';
+
 import { useSession } from 'next-auth/react';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
@@ -9,13 +10,16 @@ export default function ClubComments({ club }) {
   const [comment, setComment] = useState('');
   useEffect(
     () => async () => {
-      const res = await fetch('/api/clubs/get-comments', {
-        method: 'POST',
-        headers: {
-          'content-type': 'application/json',
-        },
-        body: JSON.stringify({ club }),
-      });
+      const res = await fetch(
+        `${process.env.NEXT_PUBLIC_API_URL}/api/clubs/get-comments `,
+        {
+          method: 'POST',
+          headers: {
+            'content-type': 'application/json',
+          },
+          body: JSON.stringify({ club }),
+        }
+      );
       const data = await res.json();
       setCommentsData(data.data);
     },
@@ -24,13 +28,16 @@ export default function ClubComments({ club }) {
 
   const postComment = async () => {
     const userId = session.user.id;
-    const res = await fetch('/api/clubs/add-comment', {
-      method: 'POST',
-      headers: {
-        'content-type': 'application/json',
-      },
-      body: JSON.stringify({ userId, comment, club }),
-    });
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_API_URL}/api/clubs/add-comment`,
+      {
+        method: 'POST',
+        headers: {
+          'content-type': 'application/json',
+        },
+        body: JSON.stringify({ userId, comment, club }),
+      }
+    );
     const data = await res.json();
     if (res.ok) setComment('');
     console.log(data);

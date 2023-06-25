@@ -1,5 +1,6 @@
 'use client';
 import ErrorCard from '@/components/errorCard';
+
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import { useState, useEffect } from 'react';
@@ -7,13 +8,16 @@ import { useState, useEffect } from 'react';
 const getQuestions = async (id) => {
   try {
     if (id === undefined) return [];
-    const res = await fetch('/api/users/questions', {
-      method: 'POST',
-      body: JSON.stringify({ id }),
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    });
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_API_URL}/api/users/questions`,
+      {
+        method: 'POST',
+        body: JSON.stringify({ id }),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      }
+    );
     const questions = await res.json();
     if (res.status !== 200) return null;
     return questions.data;
@@ -40,7 +44,7 @@ export default function QuestionAsked() {
   };
 
   async function deleteQuestion(id) {
-    await fetch(`/api/questions/${id}`, {
+    await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/questions/${id}`, {
       method: 'DELETE',
     });
     refreshPage();
@@ -101,7 +105,7 @@ export default function QuestionAsked() {
                     <span className='hidden sm:block'>Delete</span>
                   </button>
 
-                  <button className='inline-flex items-center px-4 py-2 bg-indigo-500 hover:bg-indigo-600 text-white text-sm font-medium rounded-md'>
+                  {/* <button className='inline-flex items-center px-4 py-2 bg-indigo-500 hover:bg-indigo-600 text-white text-sm font-medium rounded-md'>
                     <svg
                       xmlns='http://www.w3.org/2000/svg'
                       className='h-5 w-5 mr-2'
@@ -117,7 +121,7 @@ export default function QuestionAsked() {
                       />
                     </svg>
                     <span className='hidden sm:block'>Modify</span>
-                  </button>
+                  </button> */}
                 </div>
               </div>
             );
