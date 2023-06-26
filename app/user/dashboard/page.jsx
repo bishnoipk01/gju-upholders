@@ -32,6 +32,7 @@ export default function Dashboard() {
             }
           );
           const data = await res.json();
+          console.log(data);
           setImage(data.data.avatar);
         }
       } catch (err) {
