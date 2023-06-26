@@ -22,7 +22,7 @@ export default function Dashboard() {
       try {
         if (session) {
           const res = await fetch(
-            `${process.env.NEXT_PUBLIC_API_URL} api/users/get-user`,
+            `${process.env.NEXT_PUBLIC_API_URL}/api/users/get-user`,
             {
               method: 'POST',
               headers: {
