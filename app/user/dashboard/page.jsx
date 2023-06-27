@@ -13,7 +13,7 @@ export default function Dashboard() {
   const [checkFile, setCheckFile] = useState(false);
   const [image, setImage] = useState('default.png');
 
-  const getAvatar = async () => {
+  const userAvatar = async () => {
     try {
       if (session) {
         const res = await fetch(
@@ -33,10 +33,10 @@ export default function Dashboard() {
       console.error(err);
     }
   };
+
   useEffect(() => {
-    console.log('getAvatar');
-    getAvatar();
-  }, [image, session]);
+    userAvatar();
+  }, []);
 
   const imageHandler = (e) => {
     setSelectedFile(e.target.files[0]);

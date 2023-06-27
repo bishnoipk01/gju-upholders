@@ -7,10 +7,11 @@ import { useEffect, useState } from 'react';
 export default function Questions() {
   const [ques, setQues] = useState([]);
   const [query, setQuery] = useState('');
+  const [loading, setLoading] = useState(true);
 
   const getQuestions = async () => {
+    setLoading(true);
     try {
-      console.log('getQuestions');
       const res = await fetch(
         `${process.env.NEXT_PUBLIC_API_URL}/api/questions/get-all`,
         {
@@ -20,6 +21,7 @@ export default function Questions() {
       const questions = await res.json();
       if (res.status !== 200) return null;
       setQues(questions.data);
+      setLoading(false);
     } catch (err) {
       console.log(err);
     }
@@ -46,9 +48,8 @@ export default function Questions() {
           Ask a Question
         </Link>
       </div>
-      <ul className='flex flex-col sm:flex-row'>
-        <span className='text-lg mt-2 mr-4'>Filter:</span>
-
+      <span className='text-lg mt-2 mr-4'>Filter:</span>
+      <ul className='grid grid-cols-2 w-3/4 md:grid-cols-3 lg:flex'>
         <button onClick={(e) => setQuery('')}>
           <li
             className={`inline-flex items-center gap-x-2.5 py-3 px-4 text-sm font-medium border text-gray-800 -mt-px first:rounded-t-lg first:mt-0 last:rounded-b-lg sm:-ml-px sm:mt-0 sm:first:rounded-tr-none sm:first:rounded-bl-lg sm:last:rounded-bl-none sm:last:rounded-tr-lg dark:bg-gray-800 dark:border-gray-700 dark:text-white ${
@@ -105,7 +106,12 @@ export default function Questions() {
           </li>
         </button>
       </ul>
-      {ques ? '' : <ErrorCard message={`\tUnable to load data try again..`} />}
+      {ques === null ? (
+        <ErrorCard message={`\tUnable to load data try again..`} />
+      ) : (
+        ''
+      )}
+
       {ques.length ? (
         filtered.map((question) => {
           return (
@@ -123,8 +129,10 @@ export default function Questions() {
             </Link>
           );
         })
+      ) : loading ? (
+        'loading...'
       ) : (
-        <p>loading...</p>
+        <ErrorCard message={`\tNo data found..`} />
       )}
     </section>
   );

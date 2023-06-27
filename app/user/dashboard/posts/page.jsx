@@ -34,7 +34,6 @@ export default function PostCreated() {
 
   useEffect(() => {
     getPosts(session?.user.id).then((posts) => {
-      console.log(posts);
       setPosts(posts);
     });
   }, [state, session]);
