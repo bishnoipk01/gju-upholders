@@ -25,7 +25,9 @@ export default function Questions() {
     }
   };
 
-  useEffect(() => getQuestions(), []);
+  useEffect(() => {
+    getQuestions();
+  }, []);
 
   //Our search filter function
   const searchFilter = (array) => {
