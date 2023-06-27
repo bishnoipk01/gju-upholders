@@ -9,29 +9,31 @@ import { useEffect, useState } from 'react';
 export default function NavBar() {
   const { data: session } = useSession();
   const [avatar, setAvatar] = useState('default.png');
-  useEffect(
-    () => async () => {
-      try {
-        if (session) {
-          const res = await fetch(
-            `${process.env.NEXT_PUBLIC_API_URL}/api/users/get-user`,
-            {
-              method: 'POST',
-              headers: {
-                'content-type': 'application/json',
-              },
-              body: JSON.stringify({ uid: session.user.id }),
-            }
-          );
-          const data = await res.json();
-          setAvatar(data.data.avatar);
-        }
-      } catch (err) {
-        console.error(err);
+
+  const getAvatar = async () => {
+    try {
+      if (session) {
+        const res = await fetch(
+          `${process.env.NEXT_PUBLIC_API_URL}/api/users/get-user`,
+          {
+            method: 'POST',
+            headers: {
+              'content-type': 'application/json',
+            },
+            body: JSON.stringify({ uid: session.user.id }),
+          }
+        );
+        const data = await res.json();
+        setAvatar(data.data.avatar);
       }
-    },
-    [session]
-  );
+    } catch (err) {
+      console.error(err);
+    }
+  };
+  useEffect(() => {
+    console.log('getAvatar');
+    getAvatar();
+  });
   return (
     <nav className=' px-2 sm:px-4 py-3.5 rounded  bg-gradient-to-tr  bg-opacity-60 backdrop-blur-md  shadow-md  sticky bg-white z-10'>
       <div className='container flex flex-wrap items-center justify-between mx-auto'>

@@ -9,16 +9,15 @@ export default function Posts() {
   const [posts, setPosts] = useState([]);
   const [modal, setModal] = useState(true);
 
-  useEffect(
-    () => async () => {
-      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/posts/`, {
-        cache: 'no-cache',
-      });
-      const posts = await res.json();
-      setPosts(posts.data);
-    },
-    [modal]
-  );
+  const getPosts = async function () {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/posts/`, {
+      cache: 'no-cache',
+    });
+    const posts = await res.json();
+    setPosts(posts.data);
+  };
+
+  useEffect(() => getPosts(), [modal]);
 
   function loadData() {
     setModal((state) => !state);

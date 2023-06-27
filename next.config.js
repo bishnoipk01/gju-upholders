@@ -3,16 +3,7 @@ const nextConfig = {
   experimental: {
     appDir: true,
   },
-  images: {
-    remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: 'flowbite.com',
-        port: '',
-        pathname: '/**',
-      },
-    ],
-  },
+  images: {},
 };
 
 module.exports = nextConfig;

@@ -4,33 +4,28 @@ import ErrorCard from '@/components/errorCard';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 
-const getQuestions = async () => {
-  try {
-    console.log('getQuestions');
-    const res = await fetch(
-      `${process.env.NEXT_PUBLIC_API_URL}/api/questions/get-all`,
-      {
-        cache: `no-cache`,
-      }
-    );
-    const questions = await res.json();
-    if (res.status !== 200) return null;
-    return questions.data;
-  } catch (err) {
-    console.log(err);
-  }
-};
-
 export default function Questions() {
   const [ques, setQues] = useState([]);
   const [query, setQuery] = useState('');
-  useEffect(
-    () => async () => {
-      const data = await getQuestions();
-      setQues(data);
-    },
-    []
-  );
+
+  const getQuestions = async () => {
+    try {
+      console.log('getQuestions');
+      const res = await fetch(
+        `${process.env.NEXT_PUBLIC_API_URL}/api/questions/get-all`,
+        {
+          cache: `no-cache`,
+        }
+      );
+      const questions = await res.json();
+      if (res.status !== 200) return null;
+      setQues(questions.data);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  useEffect(() => getQuestions(), []);
 
   //Our search filter function
   const searchFilter = (array) => {

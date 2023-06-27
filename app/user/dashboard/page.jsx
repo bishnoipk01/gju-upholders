@@ -13,34 +13,30 @@ export default function Dashboard() {
   const [checkFile, setCheckFile] = useState(false);
   const [image, setImage] = useState('default.png');
 
-  useEffect(() => {
-    if (session) setImage(session.user.avatar);
-  }, [session]);
-
-  useEffect(
-    () => async () => {
-      try {
-        if (session) {
-          const res = await fetch(
-            `${process.env.NEXT_PUBLIC_API_URL}/api/users/get-user`,
-            {
-              method: 'POST',
-              headers: {
-                'content-type': 'application/json',
-              },
-              body: JSON.stringify({ uid: session.user.id }),
-            }
-          );
-          const data = await res.json();
-          console.log(data);
-          setImage(data.data.avatar);
-        }
-      } catch (err) {
-        console.error(err);
+  const getAvatar = async () => {
+    try {
+      if (session) {
+        const res = await fetch(
+          `${process.env.NEXT_PUBLIC_API_URL}/api/users/get-user`,
+          {
+            method: 'POST',
+            headers: {
+              'content-type': 'application/json',
+            },
+            body: JSON.stringify({ uid: session.user.id }),
+          }
+        );
+        const data = await res.json();
+        setImage(data.data.avatar);
       }
-    },
-    [image, session]
-  );
+    } catch (err) {
+      console.error(err);
+    }
+  };
+  useEffect(() => {
+    console.log('getAvatar');
+    getAvatar();
+  }, [image, session]);
 
   const imageHandler = (e) => {
     setSelectedFile(e.target.files[0]);
