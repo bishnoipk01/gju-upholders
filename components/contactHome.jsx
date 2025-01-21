@@ -3,36 +3,37 @@ import Link from 'next/link';
 
 export default function ContactHome() {
   return (
-    <div className=' py-12 px-4'>
-      <div className='w-full flex justify-center'>
-        <div className='w-full md:w-11/12 xl:w-full bg-gradient-to-r from-indigo-500 to-indigo-700 md:py-8 md:px-8 px-5 py-4 xl:px-12 xl:py-16'>
-          <div>
-            <div className='flex flex-wrap items-center md:flex-row flex-col-reverse'>
-              <div className='md:w-2/3 w-full pb-6 md:pb-0 md:pr-6 flex-col md:block flex items-center justify-center md:pt-0 pt-4'>
-                <div>
-                  <h1
-                    role='heading'
-                    className='text-xl md:text-2xl lg:text-4xl xl:text-4xl lg:w-10/12 text-white font-black leading-6 lg:leading-10 md:text-left text-center'
-                  >
-                    Have something on Mind? or just want to suggest something.
-                    Feel free to reach out to us
-                  </h1>
-                </div>
-                <Link
-                  href={'/contact'}
-                  className='inline-block mt-5 lg:mt-8 py-3 lg:py-4 px-4 lg:px-8 bg-white font-bold text-indigo-700 rounded-lg text-sm lg:text-lg xl:text-xl hover:bg-opacity-90 focus:outline-none hover:-translate-y-1 active:-translate-y-0 hover:shadow-md active:shadow-sm transition-all'
-                >
-                  contact us
-                </Link>
-              </div>
-              <div className='md:w-1/3 w-2/3'>
-                <Image
-                  height={300}
-                  width={300}
-                  src='/CTA.png'
-                  alt='cartoon avatars'
-                />
-              </div>
+    <div className="py-12 px-4 bg-gray-800">
+      <div className="w-full flex justify-center">
+        <div className="w-full md:w-11/12 xl:w-full bg-gradient-to-r from-teal-500 to-teal-600 md:py-10 md:px-8 px-6 py-6 xl:px-16 xl:py-20 rounded-xl shadow-2xl transition-all hover:scale-105">
+          <div className="flex flex-wrap items-center justify-between">
+            {/* Text Section */}
+            <div className="md:w-1/2 w-full flex flex-col justify-center text-center md:text-left mb-6 md:mb-0">
+              <h1 className="text-3xl lg:text-4xl font-bold text-white leading-tight mb-4">
+                Have something on your mind? <br />
+                Or just want to suggest something?
+              </h1>
+              <p className="text-lg text-teal-100 mb-6">
+                We&apos;re always open to hearing your thoughts and ideas. Feel free to
+                reach out to us anytime. We&apos;d love to connect!
+              </p>
+              <Link
+                href="/contact"
+                className="py-2 w-1/3 text-center bg-teal-600 text-white font-semibold rounded-lg shadow-lg hover:bg-teal-700 transform transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-2xl focus:outline-none"
+              >
+                Contact Us
+              </Link>
+            </div>
+
+            {/* Image Section */}
+            <div className="md:w-1/2 mt-8 md:mt-0 flex justify-center md:justify-end">
+              <Image
+                height={400}
+                width={400}
+                src="/22.svg"
+                alt="Contact us"
+                className="rounded-lg object-cover"
+              />
             </div>
           </div>
         </div>

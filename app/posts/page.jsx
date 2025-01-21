@@ -3,7 +3,6 @@ import { useState, useEffect } from 'react';
 import ErrorCard from '@/components/errorCard';
 import Post from '@/components/post';
 import PostModal from '@/components/PostModal';
-import PostBg from '@/public/post-bg.jpg';
 
 export default function Posts() {
   const [posts, setPosts] = useState([]);
@@ -28,23 +27,23 @@ export default function Posts() {
   function loadData() {
     setModal((state) => !state);
   }
+
   return (
-    <section
-      className=' bg-center bg-fixed bg-contain  h-screen w-screen '
-      style={{
-        backgroundImage: `url(${PostBg.src})`,
-      }}
-    >
-      <div className='mx-auto w-full  lg:max-w-[50vw]'>
+    <section className='bg-gray-800 text-white min-h-screen flex flex-col items-center'>
+      <div className='mx-auto w-full lg:max-w-[50vw] p-6'>
         <PostModal loadData={loadData} />
-        <div id='main' className='flex flex-col min-h-screen'>
+
+        {/* Posts container */}
+        <div id='main' className='flex flex-col space-y-6'>
           {posts === null ? (
-            <ErrorCard message={`\t Unable to load data. try again...`} />
+            <ErrorCard message="Unable to load data. Please try again..." />
           ) : (
             ''
           )}
 
-          {posts.length ? (
+          {loading ? (
+            <div className='text-center text-gray-400'>Loading posts...</div>
+          ) : posts.length ? (
             posts.map((post) => (
               <Post
                 key={post.id}
@@ -55,10 +54,8 @@ export default function Posts() {
                 avatar={post.avatar}
               />
             ))
-          ) : loading ? (
-            'loading posts...'
           ) : (
-            <ErrorCard message={'\tNo post found'} />
+            <ErrorCard message="No posts found" />
           )}
         </div>
       </div>

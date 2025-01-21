@@ -4,6 +4,10 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;700;800&display=swap');
 
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
 html {
     scroll-behavior: smooth;
 }
@@ -13,28 +17,92 @@ body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    margin: 0;
+    padding: 0;
+    align-items: stretch;
     position: relative;
+    background-color: #1F2937; /* Muted charcoal for a dark theme */
+    color: #F7FAFC; /* Soft white text for better contrast */
 }
 
-section {flex: 1}
-
-.heading-1{
-    @apply font-medium leading-tight text-5xl my-4 text-indigo-800;
-}
-.heading-2 {
-    @apply text-3xl font-normal leading-normal my-2 text-gray-800;
+section {
+    flex: 1;
+    padding: 1.5rem; /* Consistent spacing across sections */
 }
 
-
-.heading-3 {
-    @apply font-medium leading-tight text-3xl mt-0 mb-2 text-purple-800;
+/* Headings */
+.heading-primary {
+    @apply font-semibold leading-tight text-5xl my-6 text-teal-500; /* Teal color for primary headings */
+    letter-spacing: -0.5px; /* Slightly tighter letter spacing for impact */
 }
 
-.btn-1 {
-    @apply text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 shadow-lg shadow-blue-500/50  font-medium rounded-lg text-lg px-4 py-2 text-center mr-2 mb-2 inline-block
-
+.heading-secondary {
+    @apply text-3xl font-medium leading-normal my-4 text-gray-300; /* Light grey for secondary headings */
+    letter-spacing: -0.25px;
 }
 
-.active-dash {
-    @apply bg-gradient-to-r from-sky-600 to-cyan-400 text-white;
+.heading-tertiary {
+    @apply font-semibold leading-tight text-2xl mt-0 mb-4 text-amber-500; /* Amber color for tertiary headings */
+    letter-spacing: -0.25px;
+}
+
+/* Buttons */
+/* Full button styles */
+.btn-primary {
+  @apply text-white bg-transparent hover:bg-teal-500 focus:ring-4 focus:outline-none focus:ring-teal-300 shadow-md rounded-full text-lg px-8 py-3 inline-block transition-all duration-300 ease-in-out border-2 border-teal-400 hover:border-teal-500;
+}
+
+
+/* Hover effects for primary button */
+.button-primary-hover:hover {
+    @apply shadow-lg shadow-teal-600/50 scale-105; /* Subtle hover animation */
+}
+
+/* Secondary Button */
+.button-secondary {
+  @apply text-teal-500 bg-transparent border-2 border-teal-500 hover:bg-teal-500 hover:text-white focus:ring-4 focus:outline-none focus:ring-teal-300 shadow-sm rounded-lg text-lg px-6 py-3 text-center mr-3 mb-3 inline-block transition-all duration-300 ease-in-out;
+}
+
+/* Hover effect for secondary button */
+.button-secondary-hover:hover {
+  @apply bg-teal-500 text-white shadow-md scale-105; /* Subtle hover animation with color change */
+}
+
+/* Focus effect for secondary button */
+.button-secondary:focus {
+  outline: 2px solid #38B2AC; /* Focus state with teal outline */
+}
+
+
+/* Active Button State */
+.button-active {
+    @apply bg-gradient-to-r from-amber-500 to-pink-500 text-white font-semibold px-4 py-2 rounded-lg;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Hover effect for active button state */
+.button-active-hover:hover {
+    @apply bg-gradient-to-r from-pink-500 to-amber-500 shadow-md;
+}
+
+/* Global Transition for smoother interactions */
+button:hover, a:hover {
+    transition: all 0.2s ease-in-out;
+}
+
+/* Focus states for accessibility */
+a:focus, button:focus, input:focus {
+    outline: 2px solid #38B2AC; /* Teal focus outline for better accessibility */
+}
+
+/* Toast animation */
+@keyframes toast-slide-in {
+    0% {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
 }

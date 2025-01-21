@@ -6,19 +6,23 @@ import ClubWork from '@/components/clubWork';
 
 export default function IndustryInteraction() {
   return (
-    <section>
+    <section className="m-0 p-0 flex flex-col items-stretch">
+      {/* Club Header */}
       <ClubHeader clubName={'Industry-Interaction Club'} />
 
+      {/* Club Members */}
       <div
-        id='recent-work'
-        className=' border-pink-200 p-8 flex-1 bg-violet-300'
+        id="recent-work"
+        className="p-8 bg-gradient-to-br  text-white"
       >
         <ClubMembers
-          clubheading={''}
+          clubheading={
+            'Meet our Industry Interaction Club team members who work on bridging the gap between academia and industry by organizing impactful events and webinars.'
+          }
           cordinator={{
-            image: '/industry interaction club coordinator.jpg',
+            image: '/industry_interaction_coordinator.jpg',
             name: 'Monika Sihag',
-            dept: 'M.Sc.(chemistry)',
+            dept: 'M.Sc.(Chemistry)',
           }}
           jointCordinator={{
             image: '/user.png',
@@ -26,7 +30,7 @@ export default function IndustryInteraction() {
             dept: 'M.Pharmacy',
           }}
           member1={{
-            image: '/ved prakash jc iip club.jpeg',
+            image: '/ved_prakash_jc_iip_club.jpeg',
             name: 'Ved Parkash',
             dept: 'B.Tech(ECE)',
             position: 'Joint Coordinator',
@@ -41,111 +45,76 @@ export default function IndustryInteraction() {
             image: '/user.png',
             name: 'Vikash Bishnoi',
             dept: 'B.Tech(PTG)',
-            position: 'Dept.IIP Cordinator',
+            position: 'Dept. IIP Coordinator',
           }}
           member4={{
             image: '/user.png',
-            name: 'Roshan lal',
+            name: 'Roshan Lal',
             dept: 'B.Tech(PTG)',
-            position: 'Joint Dept.IIP Cordinator',
+            position: 'Joint Dept. IIP Coordinator',
           }}
         />
       </div>
-      <div className='flex  flex-col xl:flex-row border-2 border-pink-200 justify-between gap-4 mb-10 '>
-        <div id='club-activities' className=' flex-1 '>
+
+      {/* Club Activities and Posters */}
+      <div className="flex flex-col xl:flex-row border-t border-gray-600 bg-gradient-to-r from-gray-900 via-gray-800 to-black text-white gap-6 p-6">
+        {/* Activities Section */}
+        <div id="club-activities" className="flex-1">
           <ClubActivity
-            clubname={'INDUSTRY INTERACTION'}
+            clubname={'INDUSTRY '}
             activities={[
               {
                 date: '15 February 2023',
-                description: ` A webinar on the
-            topic "LinkedIn profile and portfolio
-            building". Rohit Ghumare, founder of Keep
-            Up and currently working as a developer
-            advocate at solo.io was the keynote
-            speaker of the webinar.`,
-
-                description2: `Prof. B.R. Kamboj, ViceChancellor of the University, encouraged
-            students to participate in such events and
-            encouraged them to make and maintain a
-            good professional profile on platforms like
-            LinkedIn, Twitter, etc.
-            `,
+                description: `A webinar on the topic "LinkedIn Profile and Portfolio Building". The keynote speaker was Rohit Ghumare, founder of Keep Up and developer advocate at solo.io.`,
+                description2: `Prof. B.R. Kamboj, Vice-Chancellor of the University, emphasized the importance of maintaining a professional profile on platforms like LinkedIn and Twitter.`,
               },
               {
                 date: '16 February 2023',
-                description: `Dr.
-            Minakshi Garg, who has 15 years of R&D
-            experience in renowned pharmaceutical
-            companies, was the keynote speaker and
-            approx. 70 students attended the event.
-            Prof. Sumitra Singh was the Chief Guest
-            and Club Mentor Dr. Rekha Rao and Dr.
-            Sunil Kumar were also present. Vice
-            Chancellor Prof. B.R. Kamboj
-            congratulated the department and
-            placement cell for conducting such
-            programmes to help make the students
-            industry-aware and industry-ready.
-            
-            `,
-                description2: `Dr. Minakshi Garg
-            explained the process of approval of
-            changes in drug manufacturing methods
-            and packaging from the Regulatory
-            Agencies of the USA and Europe. She also
-            discussed how to review technology
-            transfer documents, coaching and monitoring team members, and the
-            work culture of R&D labs.`,
+                description: `Dr. Minakshi Garg, with 15 years of R&D experience, was the keynote speaker. Around 70 students attended this insightful event.`,
+                description2: `Dr. Garg discussed drug manufacturing regulatory processes and the work culture of R&D labs. Prof. Sumitra Singh, as Chief Guest, appreciated the efforts towards making students industry-ready.`,
               },
               {
                 date: '25 February 2023',
-                description: `Webinar on Scope for Chemistry Students
-            in R&D (Research and Development) Field
-            for Chemistry Department students. The
-            webinar was attended by more than 25
-            students. IIP Club invited Industry Professionals to
-            advise the students and share their
-            industry experiences and concerns. The
-            keynote speaker was Mr. Alekh Upadhyay.
-            
-            `,
-                description2: `Mr. Alekh Upadhyay
-            presented several R&D departments such
-            as Chemical Research and Development, Analytical Development, and Quality
-            Assurance, where chemistry students may
-            establish a career.`,
+                description: `Webinar on Scope for Chemistry Students in R&D, attended by over 25 students. The keynote speaker, Mr. Alekh Upadhyay, shared his industry insights.`,
+                description2: `Mr. Upadhyay outlined career opportunities in R&D departments such as Chemical Research, Analytical Development, and Quality Assurance.`,
               },
             ]}
           />
         </div>
-        <div id='club-members' className=' flex-1 '>
+
+        {/* Posters Section */}
+        <div id="club-posters" className="flex-1">
           <ClubWork
-            club={'IndustryInteraction'}
+            club={'Industry Interaction'}
             poster1={{
               image: '/industry1.jpeg',
-              name: `Career Options for chemists in industries`,
-              date: `March 04 2023`,
+              name: 'Career Options for Chemists in Industries',
+              date: 'March 04 2023',
             }}
             poster2={{
               image: '/industry2.jpg',
-              name: `Scopes for chemistry students in R&D Area`,
-              date: `FEB 25 2023`,
+              name: 'Scopes for Chemistry Students in R&D Area',
+              date: 'Feb 25 2023',
             }}
             poster3={{
               image: '/industry3.jpg',
-              name: `A regulatory perspective`,
-              date: `FEB 16 2023`,
+              name: 'A Regulatory Perspective',
+              date: 'Feb 16 2023',
             }}
             poster4={{
               image: '/industry4.jpg',
-              name: `Linkedin Profile and Portfolio Building`,
-              date: `FEB 15 2023`,
+              name: 'LinkedIn Profile and Portfolio Building',
+              date: 'Feb 15 2023',
             }}
           />
         </div>
       </div>
-      <div id='comments' className=''>
+
+      {/* Comments Section */}
+      <div
+        id="comments"
+        className="bg-gradient-to-tl from-gray-800 via-gray-900 to-black text-white p-6"
+      >
         <ClubComments club={'industry-interaction'} />
       </div>
     </section>

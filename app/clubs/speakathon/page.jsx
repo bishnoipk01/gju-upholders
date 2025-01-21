@@ -6,12 +6,12 @@ import ClubWork from '@/components/clubWork';
 
 export default function Speakathon() {
   return (
-    <section>
+    <section className='m-0 p-0 flex flex-col items-stretch'>
       <ClubHeader clubName={'SPEAKATHON CLUB'} />
 
       <div
         id='recent-work'
-        className=' border-pink-200 p-8 flex-1 bg-violet-300'
+        className=' p-8 flex-1'
       >
         <ClubMembers
           clubheading={''}
@@ -51,9 +51,9 @@ export default function Speakathon() {
           }}
         />
       </div>
-      <div className='flex  flex-col xl:flex-row border-2 border-pink-200 justify-between gap-4 mb-10 '>
+      <div className='flex  flex-col xl:flex-row justify-between gap-4 mb-10 '>
         <div id='club-activities' className=' flex-1 '>
-          <ClubActivity clubname={'SPEAKATHON'} activities={[ {
+          <ClubActivity clubname={'SPEAK'} activities={[ {
                 date: '26 January 2023',
                 description: `Story telling competition held on the theme of "PEOPLE WHO
                 MADE INDIA IN THE LAST 76 YEARS". Over 25

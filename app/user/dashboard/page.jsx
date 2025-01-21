@@ -1,19 +1,18 @@
 'use client';
 
-import ErrorCard from '@/components/errorCard';
-import Success from '@/components/successMsg';
-
-import { useSession } from 'next-auth/react';
 import Image from 'next/image';
-import { useEffect, useState } from 'react';
+import { useSession } from 'next-auth/react';
+import { useState,useEffect } from 'react';
+import { useToast } from '@/utils/Toast';
 
 export default function Dashboard() {
   const { data: session } = useSession();
-  const [selectedFile, setSelectedFile] = useState();
-  const [checkFile, setCheckFile] = useState(false);
-  const [image, setImage] = useState('default.png');
+  const [selectedFile, setSelectedFile] = useState(null);
+  const [preview, setPreview] = useState(null);
+  const [avatar, setAvatar] = useState('/default.png');
+  const { showToast } = useToast();
 
-  const userAvatar = async () => {
+  const getAvatar = async () => {
     try {
       if (session) {
         const res = await fetch(
@@ -21,199 +20,120 @@ export default function Dashboard() {
           {
             method: 'POST',
             headers: {
-              'content-type': 'application/json',
+              'Content-Type': 'application/json',
             },
             body: JSON.stringify({ uid: session.user.id }),
           }
         );
         const data = await res.json();
-        setImage(data.data.avatar);
+        console.log(data);
+        setAvatar(`/users/${data.data.avatar}`);
       }
     } catch (err) {
       console.error(err);
     }
   };
+  
+  console.log(preview)
+  console.log(avatar)
+    useEffect(() => {
+      getAvatar();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [session]);
 
-  useEffect(() => {
-    userAvatar();
-  }, []);
-
-  const imageHandler = (e) => {
-    setSelectedFile(e.target.files[0]);
-    setCheckFile(true);
+  const handleFileChange = (e) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      setSelectedFile(file);
+      setPreview(URL.createObjectURL(file));
+    }
   };
 
-  const uploadPhoto = async () => {
-    if (!checkFile) return alert('Please select photo');
+  const uploadAvatar = async () => {
+    if (!selectedFile) {
+      showToast('No file selected', 'red');
+      return;
+    }
     const formData = new FormData();
     formData.append('avatar', selectedFile);
-    formData.append('Uid', session.user.id);
-    const res = await fetch(
-      `${process.env.NEXT_PUBLIC_API_URL}/api/users/upload-photo`,
-      {
+    formData.append('Uid', session?.user?.id || '');
+
+    try {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/users/upload-photo`, {
         method: 'POST',
         body: formData,
-      }
-    );
-    const data = await res.json();
-    if (res.ok) {
-      <Success message={'Photo uploaded successfully'} />;
-      setImage(data.data.avatar);
-      setSelectedFile(null);
-    } else <ErrorCard message={'something went wrong'} />;
-  };
-  return (
-    <section className='mb-6 w-full -ml-20 md:ml-auto'>
-      <div className=' z-10 top-0 h-16 border-b bg-white py-2.5'>
-        <div className='px-6 flex items-center justify-between  2xl:container'>
-          <h5 className='text-3xl text-blue-400 font-bold lg:block'>
-            Dashboard
-          </h5>
-        </div>
-      </div>
-      <div className='md:flex md:justify-around no-wrap md:-mx-2 p-10'>
-        {/* Left Side */}
-        <div className='w-full md:w-3/12 md:mx-2'>
-          {/* Profile Card */}
-          <div className='bg-white p-3 border-t-4 border-blue-400 text-center'>
-            <div className='image overflow-hidden'>
-              {selectedFile ? (
-                <>
-                  <Image
-                    width={300}
-                    height={300}
-                    className='w-2/4 mx-auto'
-                    src={
-                      selectedFile ? URL.createObjectURL(selectedFile) : null
-                    }
-                    alt=''
-                  />
-                  <button
-                    className='text-blue-300 hover:underline inline-block p-2'
-                    onClick={uploadPhoto}
-                  >
-                    upload
-                  </button>
-                </>
-              ) : (
-                <Image
-                  width={300}
-                  height={300}
-                  src={`/users/${image}`}
-                  alt=''
-                  className='w-2/4 mx-auto'
-                />
-              )}
-            </div>
-            <label
-              htmlFor='avatar'
-              className='text-blue-300 hover:underline  inline-block p-2'
-            >
-              <input
-                type='file'
-                name='avatar'
-                id='avatar'
-                hidden
-                onChange={imageHandler}
-              />
-              update photo
-            </label>
-            <h1 className='font-bold text-2xl text-blue-500 uppercase leading-8 my-5'>
-              {session?.user.name}
-            </h1>
-            {/* <h3 className='text-gray-600 font-lg font-semibold leading-6 text-left'>
-              **TagLine**
-            </h3>
-            <p className='text-sm text-gray-500 hover:text-gray-600 leading-6 text-left'>
-              **BIO**
-            </p> */}
-            <ul className='bg-gray-100 text-gray-600 hover:text-gray-700 hover:shadow py-2 px-3 mt-3 divide-y rounded shadow-sm'>
-              <li className='flex items-center py-3'>
-                <span>Status</span>
-                <span className='ml-auto'>
-                  <span className='bg-blue-500 py-1 px-2 rounded text-white text-sm'>
-                    Active
-                  </span>
-                </span>
-              </li>
-              {/* <li className='flex items-center py-3'>
-                <span>Member since</span>
-                <span className='ml-auto'>Nov 07, 2016</span>
-              </li> */}
-            </ul>
-          </div>
-          {/* End of profile card */}
-        </div>
-        {/* Right Side */}
-        <div className='w-full md:w-8/12 mx-6 mt-6'>
-          {/* Profile tab */}
-          {/* About Section */}
-          {/* <div className='bg-white shadow-sm rounded-sm'>
-            <div className='flex items-center space-x-2 leading-8'>
-              <span>
-                <svg
-                  className='h-7 text-blue-400'
-                  xmlns='http://www.w3.org/2000/svg'
-                  fill='none'
-                  viewBox='0 0 24 24'
-                  stroke='currentColor'
-                >
-                  <path
-                    strokeLinecap='round'
-                    strokeLinejoin='round'
-                    strokeWidth={2.5}
-                    d='M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z'
-                  />
-                </svg>
-              </span>
-              <span className='tracking-wide text-2xl font-bold text-blue-400'>
-                About
-              </span>
-            </div>
-            <div className='text-gray-700'>
-              <div className=' text-base'>
-                <div className='grid grid-cols-2'>
-                  <div className='px-4 py-2 font-semibold'>First Name</div>
-                  <div className='px-4 py-2'>
-                    {session?.user.name.split(' ')[0]}
-                  </div>
-                </div>
-                <div className='grid grid-cols-2'>
-                  <div className='px-4 py-2 font-semibold'>Last Name</div>
-                  <div className='px-4 py-2'>
-                    {session?.user.name.split(' ')[1]}
-                  </div>
-                </div>
-                
-                <div className='grid grid-cols-2'>
-                  <div className='px-4 py-2 font-semibold'>Contact No.</div>
-                  <div className='px-4 py-2'>NA</div>
-                </div>
-                <div className='grid grid-cols-2'>
-                  <div className='px-4 py-2 font-semibold'>Address</div>
-                  <div className='px-4 py-2'>NA</div>
-                </div>
+      });
 
-                <div className='grid grid-cols-2'>
-                  <div className='px-4 py-2 font-semibold'>Email.</div>
-                  <div className='px-4 py-2'>
-                    <a className='text-blue-800' href='mailto:#'>
-                      NA
-                    </a>
-                  </div>
-                </div>
-                <div className='grid grid-cols-2'>
-                  <div className='px-4 py-2 font-semibold'>Birthday</div>
-                  <div className='px-4 py-2'>NA</div>
-                </div>
-              </div>
+      if (res.ok) {
+        showToast('Photo uploaded successfully!', 'green');
+        setSelectedFile(null);
+        setPreview(null);
+      } else {
+        showToast('Error uploading photo', 'red');
+      }
+    } catch (error) {
+      showToast('An unexpected error occurred', 'red');
+    }
+  };
+
+  return (
+    <div className="relative h-screen bg-gray-800">
+      {/* Space for Navbar */}
+      <div className="absolute top-0 left-0 right-0 h-16 bg-transparent" />
+
+      {/* Dashboard Content */}
+      <section className="absolute top-20 left-0 right-0 flex justify-center items-start">
+        <div className="w-full max-w-lg bg-gray-800 rounded-lg shadow-lg p-6 space-y-6">
+          {/* Greeting */}
+          <h1 className="text-2xl sm:text-3xl font-bold text-white text-center">
+            Welcome, {session?.user?.name || 'User'}!
+          </h1>
+          <p className="text-gray-400 text-sm text-center">
+            Customize your profile and make it your own.
+          </p>
+
+          {/* Profile Section */}
+          <div className="flex flex-col items-center space-y-4">
+            {/* Profile Picture */}
+            <div className="relative">
+              <Image
+                src={preview || avatar}
+                alt="User Avatar"
+                width={120}
+                height={120}
+                className="w-28 h-28 rounded-full object-cover border-4 border-teal-500 shadow-md"
+              />
             </div>
-            <button className='block w-full text-blue-800 text-base font-semibold rounded-lg hover:bg-gray-100 focus:outline-none focus:shadow-outline focus:bg-gray-100 hover:shadow-xs p-3 my-4 md:w-8/12 '>
-              Edit Info
-            </button>
-          </div> */}
+
+            {/* File Input */}
+            <div className="w-full">
+              <label
+                htmlFor="file-input"
+                className="block text-sm font-medium text-gray-300 text-center mb-2"
+              >
+                Update Profile Picture
+              </label>
+              <input
+                id="file-input"
+                type="file"
+                className="block w-full text-sm text-gray-300 bg-gray-700 border border-gray-600 rounded-lg shadow focus:ring-teal-500 focus:border-teal-500 file:cursor-pointer file:mr-2 file:py-1 file:px-3 file:rounded-md file:bg-teal-600 file:text-white file:font-medium hover:file:bg-teal-700"
+                onChange={handleFileChange}
+                aria-label="Upload profile picture"
+              />
+            </div>
+
+            {/* Upload Button */}
+            {preview && (
+              <button
+                onClick={uploadAvatar}
+                className="w-full mt-3 px-4 py-2 bg-teal-600 text-white font-medium rounded-lg shadow hover:bg-teal-700 transition-all focus:outline-none focus:ring-2 focus:ring-teal-500"
+              >
+                Upload Photo
+              </button>
+            )}
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </div>
   );
 }

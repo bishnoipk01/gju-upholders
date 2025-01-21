@@ -7,6 +7,9 @@ let driver;
 // create driver instance from neo4j driver by providing databse URI and authentication
 export const initDriver = function () {
   driver = neo4j.driver(DB, neo4j.auth.basic(DB_USER, DB_PASSWORD));
+  if(driver){
+    console.log('Connected to Neo4j Database');
+  }
 };
 
 initDriver();

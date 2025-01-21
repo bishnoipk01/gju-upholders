@@ -1,34 +1,36 @@
-import bg from '../public/8.jpg';
+import { useSession } from 'next-auth/react';
 import Link from 'next/link';
+
 export default function Header() {
+  const { data: session } = useSession();
+
   return (
-    <>
-      <header
-        className='w-full bg-cover bg-center mb-10 absolute top-0 '
-        style={{
-          height: '88vh',
-          backgroundImage: `url(${bg.src})`,
-        }}
-      >
-        <div className='flex items-center justify-center h-full w-full bg-gray-900 bg-opacity-50 p-4 backdrop-blur-md'>
-          <div className='text-center text-4xl'>
-            <h1
-              className='text-white font-light uppercase mb-4'
-              style={{ letterSpacing: '3px' }}
-            >
-              Welcome to{' '}
-              <span className='underline text-blue-400'>Gju-Upholders</span>
-            </h1>
-            <a
-              href={'#features'}
-              className='text-white bg-blue-700 hover:bg-blue-800 focus:outline-none font-medium rounded-full text-lg px-5 py-2.5 text-center mr-2 mb-2'
-            >
-              Explore Features
-            </a>
-          </div>
+    <header className="w-full bg-gradient-to-r from-teal-500 via-teal-600 to-teal-700 py-40">
+      <div className="flex items-center justify-center w-full h-full text-center text-white">
+        <div className="max-w-xl mx-auto space-y-6">
+          {/* Main Heading */}
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight whitespace-nowrap">
+            Welcome to{' '}
+            <span className="text-teal-200 underline decoration-4">
+              Gju-Upholders
+            </span>
+          </h1>
+
+          {/* Description */}
+          <p className="text-md text-teal-100 sm:text-lg md:text-xl">
+            A community-driven platform to share, learn, and grow. Connect with like-minded individuals and explore amazing features.
+          </p>
+
+          {/* Conditional Button */}
+          {!session?.user ? (
+            <Link href="#get-started">
+              <button className="mt-6 inline-block px-8 py-3 rounded-full font-medium text-lg text-teal-700 bg-white hover:bg-teal-100 transition-all duration-300 ease-in-out border-2 border-teal-500 hover:border-teal-600">
+                Get Started
+              </button>
+            </Link>
+          ) : null}
         </div>
-      </header>
-      <div className='mt-[88vh]'></div>
-    </>
+      </div>
+    </header>
   );
 }

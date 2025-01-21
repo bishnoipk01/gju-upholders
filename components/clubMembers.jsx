@@ -10,99 +10,50 @@ export default function ClubMembers({
   member4,
 }) {
   return (
-    <section className='py-6 dark:bg-gray-800 dark:text-gray-100'>
-      <div className='container flex flex-col items-center justify-center p-4 mx-auto space-y-8 sm:p-10'>
-        <h1 className='text-4xl font-bold leading-none text-center sm:text-5xl text-indigo-800'>
+    <section className='py-12 bg-gray-900'>
+      <div className='container mx-auto px-6 space-y-12'>
+        <h1 className='text-3xl sm:text-4xl font-bold text-center text-teal-400'>
           Our Team
         </h1>
-        <p className='max-w-2xl text-center font font-semibold text-black'>
-          {clubheading}
-        </p>
-        <div className='flex flex-row flex-wrap-reverse justify-center'>
-          <div className='flex flex-col justify-center m-8 text-center'>
-            <Image
-              height={200}
-              width={200}
-              alt=''
-              className='self-center flex-shrink-0 w-24 h-24 mb-4 bg-center bg-cover rounded-full dark:bg-gray-500'
-              src={cordinator.image}
-            />
-            <p className='text-xl font-semibold leading-tight'>
-              {cordinator.name}
-            </p>
-            <p className='dark:text-gray-400'>{cordinator.dept}</p>
-            <p className='dark:text-gray-400'>Coordinator</p>
-          </div>
-          <div className='flex flex-col justify-center m-8 text-center'>
-            <Image
-              height={200}
-              width={200}
-              alt=''
-              className='self-center flex-shrink-0 w-24 h-24 mb-4 bg-center bg-cover rounded-full dark:bg-gray-500'
-              src={jointCordinator.image}
-            />
-            <p className='text-xl font-semibold leading-tight'>
-              {jointCordinator.name}
-            </p>
-            <p className='dark:text-gray-400'>{jointCordinator.dept}</p>
-            <p className='dark:text-gray-400'>Joint Coordinator</p>
-          </div>
-          <div className='flex flex-col justify-center m-8 text-center'>
-            <Image
-              height={200}
-              width={200}
-              alt=''
-              className='self-center flex-shrink-0 w-24 h-24 mb-4 bg-center bg-cover rounded-full dark:bg-gray-500'
-              src={member1.image}
-            />
-            <p className='text-xl font-semibold leading-tight'>
-              {member1.name}
-            </p>
-            <p className='dark:text-gray-400'>{member1.dept}</p>
-            <p className='dark:text-gray-400'>{member1.position}</p>
-          </div>
-          <div className='flex flex-col justify-center m-8 text-center'>
-            <Image
-              height={200}
-              width={200}
-              alt=''
-              className='self-center flex-shrink-0 w-24 h-24 mb-4 bg-center bg-cover rounded-full dark:bg-gray-500'
-              src={member2.image}
-            />
-            <p className='text-xl font-semibold leading-tight'>
-              {member2.name}
-            </p>
-            <p className='dark:text-gray-400'>{member2.dept}</p>
-            <p className='dark:text-gray-400'>{member2.position}</p>
-          </div>
-          <div className='flex flex-col justify-center m-8 text-center'>
-            <Image
-              height={200}
-              width={200}
-              alt=''
-              className='self-center flex-shrink-0 w-24 h-24 mb-4 bg-center bg-cover rounded-full dark:bg-gray-500'
-              src={member3.image}
-            />
-            <p className='text-xl font-semibold leading-tight'>
-              {member3.name}
-            </p>
-            <p className='dark:text-gray-400'>{member3.dept}</p>
-            <p className='dark:text-gray-400'>{member3.position}</p>
-          </div>
-          <div className='flex flex-col justify-center m-8 text-center'>
-            <Image
-              height={200}
-              width={200}
-              alt=''
-              className='self-center flex-shrink-0 w-24 h-24 mb-4 bg-center bg-cover rounded-full dark:bg-gray-500'
-              src={member4.image}
-            />
-            <p className='text-xl font-semibold leading-tight'>
-              {member4.name}
-            </p>
-            <p className='dark:text-gray-400'>{member4.dept}</p>
-            <p className='dark:text-gray-400'>{member4.position}</p>
-          </div>
+        {clubheading && (
+          <p className='max-w-2xl mx-auto text-center text-base sm:text-lg font-medium text-gray-300'>
+            {clubheading}
+          </p>
+        )}
+        <div className='grid gap-8 sm:grid-cols-2 lg:grid-cols-3 justify-items-center'>
+          {[
+            { ...cordinator, role: 'Coordinator' },
+            { ...jointCordinator, role: 'Joint Coordinator' },
+            { ...member1 },
+            { ...member2 },
+            { ...member3 },
+            { ...member4 },
+          ].map((member, index) => (
+            <div
+              key={index}
+              className='flex flex-col items-center p-6 bg-gray-800 rounded-lg shadow-md hover:shadow-lg transition-shadow'
+            >
+              <Image
+                height={200}
+                width={200}
+                alt={member.name || 'Member'}
+                className='w-20 h-20 sm:w-24 sm:h-24 rounded-full mb-4 object-cover shadow'
+                src={member.image}
+              />
+              <p className='text-base sm:text-lg font-semibold text-teal-400'>
+                {member.name}
+              </p>
+              <p className='text-sm font-medium text-gray-400'>{member.dept}</p>
+              {member.position && (
+                <p className='text-sm font-medium text-teal-500'>
+                  {member.position}
+                </p>
+              )}
+              {member.role && (
+                <p className='text-sm text-gray-500'>{member.role}</p>
+              )}
+            </div>
+          ))}
         </div>
       </div>
     </section>

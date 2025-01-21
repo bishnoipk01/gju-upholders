@@ -1,17 +1,20 @@
+import { useState } from 'react';
+
 export default function ErrorCard({ message }) {
+  const [isVisible, setIsVisible] = useState(true);  // Manage visibility of the error card
+
+  if (!isVisible) return null;  // If not visible, don't render the card
+
   return (
     <div
-      className='bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative w-1/2'
-      id='error-card'
+      className='bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative w-full sm:w-1/2 mx-auto mb-4 transition-opacity duration-300 ease-in-out'
       role='alert'
     >
-      <strong className='font-bold'>oops!</strong>
+      <strong className='font-bold'>Oops!</strong>
       <span className='block sm:inline'>{message}</span>
       <span
-        className='absolute top-0 bottom-0 right-0 px-4 py-3'
-        onClick={() => {
-          document.getElementById('error-card').style.display = 'none';
-        }}
+        className='absolute top-0 bottom-0 right-0 px-4 py-3 cursor-pointer'
+        onClick={() => setIsVisible(false)}  // Close the error card on click
       >
         <svg
           className='fill-current h-6 w-6 text-red-500'

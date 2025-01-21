@@ -6,12 +6,12 @@ import ClubWork from '@/components/clubWork';
 
 export default function Udbhavna() {
   return (
-    <section>
+    <section className='m-0 p-0 flex flex-col items-stretch'>
       <ClubHeader clubName={'UDBHAVNA CLUB'} />
 
       <div
         id='recent-work'
-        className=' border-pink-200 p-8 flex-1 bg-violet-300'
+        className=' p-8 flex-1'
       >
         <ClubMembers
           clubheading={''}
@@ -51,7 +51,7 @@ export default function Udbhavna() {
           }}
         />
       </div>
-      <div className='flex  flex-col xl:flex-row border-2 border-pink-200 justify-between gap-4 mb-10 '>
+      <div className='flex  flex-col xl:flex-row justify-between gap-4 mb-10 '>
         <div id='club-activities' className=' flex-1 '>
           <ClubActivity
             clubname={'UDBHAVNA'}
@@ -91,18 +91,6 @@ export default function Udbhavna() {
                 July 2023.
                 `,
               },
-              // {
-              //   date: '16th - 25th January 2023',
-              //   description: `Series started by T&P Cell of GJUS&T, Hisar with the objective
-              //     of making it a practice test series for students staying at
-              //     their homes through which they can brush up their aptitude
-              //     test skills`,
-              //   description2: `As chief guest, Prof. Avnesh Verma stated that such events
-              //         should be held on a regular basis for the benefit of
-              //         students. He went on to say that success is the
-              //         consequence of our continual efforts and that learners
-              //         should study hard to acquire aptitude abilities.`,
-              // },
             ]}
           />
         </div>
@@ -124,7 +112,11 @@ export default function Udbhavna() {
               name: `Good Fitness for Good Health`,
               date: `Sept 28 2022`,
             }}
-            poster4={{ image: '/udbhavna.png', name: ``, date: `` }}
+            poster4={{
+              image: '/UDBHAVANA Club-3.jpeg',
+              name: `Soft Skill Training`,
+              date: `Oct 13-16 2022`,
+            }}
           />
         </div>
       </div>

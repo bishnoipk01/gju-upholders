@@ -1,104 +1,88 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
+const ClubCard = ({ href, imgSrc, altText, clubName }) => (
+  <Link href={href} aria-label={`View ${clubName}`} className="group">
+    <div className="relative overflow-hidden transition-all duration-300 transform rounded-lg shadow-lg hover:scale-105 hover:shadow-2xl">
+      <div className="w-full h-80 md:h-96 xl:h-80 relative">
+        <Image
+          src={imgSrc}
+          alt={altText}
+          layout="fill" // Ensure the image fills the container
+          objectFit="cover" // Keeps aspect ratio intact
+          className="transition-all duration-300"
+        />
+      </div>
+      {/* Add a darker overlay */}
+      <div className="absolute inset-0 bg-black bg-opacity-30 group-hover:bg-opacity-50 transition-all duration-300"></div>
+      <div className="absolute inset-x-0 bottom-0 px-6 py-3 bg-black bg-opacity-70">
+        <p className="text-center text-white text-sm font-semibold uppercase tracking-wide">
+          {clubName}
+        </p>
+      </div>
+    </div>
+  </Link>
+);
+
+
+
 export default function ClubsShort() {
   return (
-    <div className='bg-sky-50'>
-      <div className='px-4 pb-10 pt-14 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-16 lg:px-2 lg:py-10'>
-        <div className='flex flex-col mb-6 lg:justify-between lg:flex-row md:mb-8'>
-          <h2 className='max-w-lg mb-5 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl sm:leading-none md:mb-6 group'>
-            <span className='inline-block mb-1 sm:mb-4'>
-              Clubs
-              <br className='hidden md:block' />
-              for your growth
-            </span>
-            <div className='h-1 ml-auto duration-300 origin-left transform bg-sky-400 scale-x-30 group-hover:scale-x-100' />
-          </h2>
-          <p className='text-gray-800 lg:text-base  lg:max-w-md'>
-            Explore all the clubs and interact. A online platform where we pull
-            together all kinds of students under a shared mission and provide
-            information
+    <div className="bg-gray-800 text-white">
+      <div className="px-6 py-14 mx-auto max-w-7xl">
+        <div className="flex flex-col lg:flex-row justify-between items-center lg:items-start mb-10">
+          <div>
+            <h2 className="text-4xl font-extrabold tracking-tight text-gray-200 sm:text-5xl">
+              Clubs <br />
+              <span className="text-teal-600">for your growth</span>
+            </h2>
+            <div className="h-1 w-20 mt-2 bg-teal-400"></div>
+          </div>
+          <p className="mt-4 lg:mt-0 text-lg text-teal-100 lg:max-w-md">
+            Explore all the clubs and interact with peers. This platform brings
+            students together under shared missions and provides all the
+            information you need.
           </p>
         </div>
-        <div className='grid gap-4  mb-8 xl:grid-cols-4 sm:row-gap-6 md:grid-cols-2'>
-          <a href='/clubs/industry-interaction' aria-label='View Item'>
-            <div className='relative overflow-hidden transition duration-200 transform rounded shadow-lg hover:-translate-y-2 hover:shadow-2xl'>
-              <Image
-                height={400}
-                width={400}
-                className=' w-full h-96 xl:h-80 object-center '
-                src={'/interaction_club.png'}
-                alt=''
-              />
-              <div className='absolute inset-x-0 bottom-0 px-6 py-2 bg-black bg-opacity-60'>
-                <p className='font-bold text-base text-center uppercase tracking-wide text-white'>
-                  industry-interaction
-                </p>
-              </div>
-            </div>
-          </a>
-          <a href='/clubs/aptitude' aria-label='View Item'>
-            <div className='relative overflow-hidden transition duration-200 transform rounded shadow-lg hover:-translate-y-2 hover:shadow-2xl'>
-              <Image
-                height={500}
-                width={400}
-                className='object-cover w-full h-96 xl:h-80'
-                src={'/aptitude-2.png'}
-                alt=''
-              />
-              <div className='absolute inset-x-0 bottom-0 px-6 py-2 bg-black bg-opacity-60'>
-                <p className='font-bold text-base text-center uppercase tracking-wide text-white'>
-                  Aptitude Club
-                </p>
-              </div>
-            </div>
-          </a>
-          <a href='/clubs/udbhavna' aria-label='View Item'>
-            <div className='relative overflow-hidden transition duration-200 transform rounded shadow-lg hover:-translate-y-2 hover:shadow-2xl'>
-              <Image
-                height={400}
-                width={400}
-                className='object-cover w-full h-96 xl:h-80'
-                src={'/udbhavna.png'}
-                alt=''
-              />
-              <div className='absolute inset-x-0 bottom-0 px-6 py-2 bg-black bg-opacity-60'>
-                <p className='font-bold text-base text-center uppercase tracking-wide text-white'>
-                  Udbhavna club
-                </p>
-              </div>
-            </div>
-          </a>
-          <a href='/clubs/speakathon' aria-label='View Item'>
-            <div className='relative overflow-hidden transition duration-200 transform rounded shadow-lg hover:-translate-y-2 hover:shadow-2xl'>
-              <Image
-                height={400}
-                width={400}
-                className='object-cover w-full h-96 xl:h-80'
-                src={'/speakathon.png'}
-                alt=''
-              />
-              <div className='absolute inset-x-0 bottom-0 px-6 py-2 bg-black bg-opacity-60'>
-                <p className='font-bold text-base text-center uppercase tracking-wide text-white'>
-                  Speakathon club
-                </p>
-              </div>
-            </div>
-          </a>
+        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+          <ClubCard
+            href="/clubs/industry-interaction"
+            imgSrc="/interaction_club.png"
+            altText="Industry Interaction Club"
+            clubName="Industry Interaction"
+          />
+          <ClubCard
+            href="/clubs/aptitude"
+            imgSrc="/aptitude-2.png"
+            altText="Aptitude Club"
+            clubName="Aptitude Club"
+          />
+          <ClubCard
+            href="/clubs/udbhavna"
+            imgSrc="/udbhavna.png"
+            altText="Udbhavna Club"
+            clubName="Udbhavna Club"
+          />
+          <ClubCard
+            href="/clubs/speakathon"
+            imgSrc="/speakathon.png"
+            altText="Speakathon Club"
+            clubName="Speakathon Club"
+          />
         </div>
-        <div className='text-center'>
+        <div className="text-center mt-10">
           <Link
-            href='/clubs'
-            aria-label=''
-            className='inline-flex items-center font-semibold transition-colors duration-200 text-sky-400 hover:text-sky-800'
+            href="/clubs"
+            aria-label="Explore all clubs"
+            className="inline-flex items-center px-6 py-3 text-sm font-medium text-white bg-teal-600 rounded-lg shadow hover:bg-teal-700 transition duration-200"
           >
-            See more
+            See More Clubs
             <svg
-              className='inline-block w-3 ml-2'
-              fill='currentColor'
-              viewBox='0 0 12 12'
+              className="ml-2 w-4 h-4"
+              fill="currentColor"
+              viewBox="0 0 20 20"
             >
-              <path d='M9.707,5.293l-5-5A1,1,0,0,0,3.293,1.707L7.586,6,3.293,10.293a1,1,0,1,0,1.414,1.414l5-5A1,1,0,0,0,9.707,5.293Z' />
+              <path d="M12.293 9.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 15H4a1 1 0 010-2h10.586l-2.293-2.293a1 1 0 010-1.414z" />
             </svg>
           </Link>
         </div>

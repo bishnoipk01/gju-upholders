@@ -1,9 +1,7 @@
 'use client';
-import { useSession, signOut } from 'next-auth/react';
-
+import { useSession } from 'next-auth/react';
 import Image from 'next/image';
 import Link from 'next/link';
-import Header from './header';
 import { useEffect, useState } from 'react';
 
 export default function NavBar() {
@@ -18,7 +16,7 @@ export default function NavBar() {
           {
             method: 'POST',
             headers: {
-              'content-type': 'application/json',
+              'Content-Type': 'application/json',
             },
             body: JSON.stringify({ uid: session.user.id }),
           }
@@ -30,53 +28,55 @@ export default function NavBar() {
       console.error(err);
     }
   };
+
   useEffect(() => {
     getAvatar();
-  });
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [session]);
+
   return (
-    <nav className=' px-2 sm:px-4 py-3.5 rounded  bg-gradient-to-tr  bg-opacity-60 backdrop-blur-md  shadow-md  sticky bg-white z-10'>
-      <div className='container flex flex-wrap items-center justify-between mx-auto'>
-        <Link href='/' className='flex items-center'>
+    <nav className="absolute top-0 left-0 w-full flex items-center justify-between px-8 py-4 bg-transparent text-white z-10">
+      <div className="container flex items-center justify-between mx-auto">
+        {/* Logo Section */}
+        <Link href="/" className="flex items-center">
           <Image
-            src='/logo.png'
+            src="/logo.png"
             width={40}
             height={40}
-            className='h-6 mr-3 sm:h-9'
-            alt='Logo'
+            className="mr-3"
+            alt="Logo"
           />
-          <span className='self-center text-xl font-semibold whitespace-nowrap uppercase'>
-            gju-upholders
+          <span className="text-md md:text-lg font-bold uppercase tracking-wide">
+            GJU-Upholders
           </span>
         </Link>
-        <div className='flex items-center md:order-2'>
+
+        {/* Right Section */}
+        <div
+          className={`items-center space-x-4 lg:flex hidden sm:block`}
+        >
           {session?.user ? (
-            <>
-              <Link
-                className=' flex items-center text-sm font-medium text-gray-900 rounded-full  hover:scale-[.98] transition'
-                href={'/user/dashboard/questions/'}
-              >
-                <Image
-                  className='w-8 h-8 mr-2 rounded-full'
-                  src={`/users/${avatar}`}
-                  alt='user photo'
-                  width={50}
-                  height={50}
-                />
-                <span className='font-semibold text-base space-x-2 text-gray-800 hover:text-gray-600'>
-                  {session.user.name}
-                </span>
-              </Link>
-            </>
-          ) : (
-            <a
-              href={'/user/register'}
-              className='text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-3 md:mr-0 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800'
+            <Link
+              href="/user/dashboard/questions/"
+              className="flex items-center space-x-3 hover:scale-105 transition-transform duration-300"
             >
-              Get started
-            </a>
+              <Image
+                src={`/users/${avatar}`}
+                alt="User Avatar"
+                width={40}
+                height={40}
+                className="w-10 h-10 rounded-full transition-all duration-300 hover:border-teal-400"
+              />
+              <span className="font-medium hover:text-teal-300">
+                {session.user.name}
+              </span>
+            </Link>
+          ) : (
+           ""
           )}
         </div>
       </div>
     </nav>
+
   );
 }

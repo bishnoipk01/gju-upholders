@@ -1,6 +1,5 @@
 'use client';
 import ErrorCard from '@/components/errorCard';
-
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 
@@ -31,7 +30,7 @@ export default function Questions() {
     getQuestions();
   }, []);
 
-  //Our search filter function
+  // Our search filter function
   const searchFilter = (array) => {
     if (array.length > 0 && query) {
       return array.filter((el) => el.tags.includes(query));
@@ -39,101 +38,67 @@ export default function Questions() {
   };
 
   const filtered = searchFilter(ques);
-
   return (
-    <section className='container mx-auto mt-10'>
-      <div className='flex justify-between'>
-        <h1 className='heading-3'>All Questions</h1>
-        <Link href={'/questions/new-question'} className='btn-1'>
-          Ask a Question
-        </Link>
-      </div>
-      <span className='text-lg mt-2 mr-4'>Filter:</span>
-      <ul className='grid grid-cols-2 w-3/4 md:grid-cols-3 lg:flex'>
-        <button onClick={(e) => setQuery('')}>
-          <li
-            className={`inline-flex items-center gap-x-2.5 py-3 px-4 text-sm font-medium border text-gray-800 -mt-px first:rounded-t-lg first:mt-0 last:rounded-b-lg sm:-ml-px sm:mt-0 sm:first:rounded-tr-none sm:first:rounded-bl-lg sm:last:rounded-bl-none sm:last:rounded-tr-lg dark:bg-gray-800 dark:border-gray-700 dark:text-white ${
-              query === '' ? 'bg-green-100' : ''
-            }`}
-          >
-            All
-          </li>
-        </button>
-        <button>
-          <li
-            className={`inline-flex items-center gap-x-2.5 py-3 px-4 text-sm font-medium  border text-gray-800 -mt-px first:rounded-t-lg first:mt-0 last:rounded-b-lg sm:-ml-px sm:mt-0 sm:first:rounded-tr-none sm:first:rounded-bl-lg sm:last:rounded-bl-none sm:last:rounded-tr-lg dark:bg-gray-800 dark:border-gray-700 dark:text-white  ${
-              query === '#Programming' ? 'bg-green-100' : ''
-            }`}
-            onClick={(e) => setQuery(e.target.textContent)}
-          >
-            #Programming
-          </li>
-        </button>
-        <button onClick={(e) => setQuery(e.target.textContent)}>
-          <li
-            className={`inline-flex items-center gap-x-2.5 py-3 px-4 text-sm font-medium  border text-gray-800 -mt-px first:rounded-t-lg first:mt-0 last:rounded-b-lg sm:-ml-px sm:mt-0 sm:first:rounded-tr-none sm:first:rounded-bl-lg sm:last:rounded-bl-none sm:last:rounded-tr-lg dark:bg-gray-800 dark:border-gray-700 dark:text-white  ${
-              query === '#Technology' ? 'bg-green-100' : ''
-            }`}
-          >
-            #Technology
-          </li>
-        </button>
-        <button onClick={(e) => setQuery(e.target.textContent)}>
-          <li
-            className={`inline-flex items-center gap-x-2.5 py-3 px-4 text-sm font-medium  border text-gray-800 -mt-px first:rounded-t-lg first:mt-0 last:rounded-b-lg sm:-ml-px sm:mt-0 sm:first:rounded-tr-none sm:first:rounded-bl-lg sm:last:rounded-bl-none sm:last:rounded-tr-lg dark:bg-gray-800 dark:border-gray-700 dark:text-white  ${
-              query === '#Placement' ? 'bg-green-100' : ''
-            }`}
-          >
-            #Placement
-          </li>
-        </button>
-        <button onClick={(e) => setQuery(e.target.textContent)}>
-          <li
-            className={`inline-flex items-center gap-x-2.5 py-3 px-4 text-sm font-medium  border text-gray-800 -mt-px first:rounded-t-lg first:mt-0 last:rounded-b-lg sm:-ml-px sm:mt-0 sm:first:rounded-tr-none sm:first:rounded-bl-lg sm:last:rounded-bl-none sm:last:rounded-tr-lg dark:bg-gray-800 dark:border-gray-700 dark:text-white  ${
-              query === '#CodingQuestion' ? 'bg-green-100' : ''
-            }`}
-          >
-            #CodingQuestion
-          </li>
-        </button>
-        <button onClick={(e) => setQuery(e.target.textContent)}>
-          <li
-            className={`inline-flex items-center gap-x-2.5 py-3 px-4 text-sm font-medium  border text-gray-800 -mt-px first:rounded-t-lg first:mt-0 last:rounded-b-lg sm:-ml-px sm:mt-0 sm:first:rounded-tr-none sm:first:rounded-bl-lg sm:last:rounded-bl-none sm:last:rounded-tr-lg dark:bg-gray-800 dark:border-gray-700 dark:text-white  ${
-              query === '#T&PCell' ? 'bg-green-100' : ''
-            }`}
-          >
-            #T&PCell
-          </li>
-        </button>
-      </ul>
-      {ques === null ? (
-        <ErrorCard message={`\tUnable to load data try again..`} />
-      ) : (
-        ''
-      )}
+<section className="container mx-auto mt-12 px-4 sm:px-6 lg:px-8 bg-gray-800 ">
+  <div className="flex justify-between items-center mb-8">
+    <h1 className="text-3xl font-semibold text-white">All Questions</h1>
+    <Link
+      href={'/questions/new-question'}
+      className="btn-1 px-6 py-3 bg-teal-500 text-white font-semibold rounded-lg shadow-md hover:bg-teal-600 transition-all"
+    >
+      Ask a Question
+    </Link>
+  </div>
 
-      {ques.length ? (
-        filtered.map((question) => {
-          return (
-            <Link
-              href={`/questions/${question.id}`}
-              key={question.id}
-              className='block p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 my-6'
-            >
-              <h5 className='mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white'>
-                {question.title}
-              </h5>
-              <p className='font-normal text-gray-700 dark:text-gray-400'>
-                {question.description?.substring(0, 100)}
-              </p>
-            </Link>
-          );
-        })
-      ) : loading ? (
-        'loading...'
-      ) : (
-        <ErrorCard message={`\tNo data found..`} />
-      )}
-    </section>
+  <div className="mb-8">
+    <span className="text-lg font-medium text-gray-300">Filter by Tags:</span>
+    <ul className="flex flex-wrap gap-4 mt-4">
+      {['All', '#Programming', '#Technology', '#Placement', '#CodingQuestion', '#T&PCell'].map((tag) => (
+        <button
+          key={tag}
+          onClick={() => setQuery(tag === 'All' ? '' : tag)}
+          className={`inline-flex items-center gap-2.5 px-4 py-2 text-sm font-medium border rounded-full ${
+            query === tag
+              ? 'bg-teal-500 text-white border-teal-600'
+              : 'bg-gray-700 text-white border-gray-600'
+          } hover:bg-teal-600 hover:text-white transition-all`}
+        >
+          {tag}
+        </button>
+      ))}
+    </ul>
+  </div>
+
+  {/* Error handling */}
+  {ques === null ? (
+    <ErrorCard message="Unable to load data. Please try again later." />
+  ) : (
+    ''
+  )}
+
+  {/* Display questions or loading/error message */}
+  {ques.length ? (
+    filtered.map((question) => {
+      return (
+        <Link
+          href={`/questions/${question.id}`}
+          key={question.id}
+          className="block bg-gray-800 text-white p-6 mb-6 rounded-lg shadow-lg hover:shadow-xl transition-all hover:bg-gray-700"
+        >
+          <h5 className="text-xl font-semibold text-white mb-2">{question.title}</h5>
+          <p className="text-gray-400">{question.description?.substring(0, 100)}...</p>
+          <div className="mt-4 flex items-center space-x-3">
+            <span className="text-sm text-teal-500"># {question.tags.join(' #')}</span>
+          </div>
+        </Link>
+      );
+    })
+  ) : loading ? (
+    <div className="text-lg text-gray-400">Loading...</div>
+  ) : (
+    <ErrorCard message="No questions found." />
+  )}
+</section>
+
   );
 }

@@ -1,13 +1,14 @@
 'use client';
 
+import { useState } from 'react';
+import { signIn } from 'next-auth/react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { signIn } from 'next-auth/react';
-import { useState } from 'react';
 
 export default function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  
   const onSubmit = async () => {
     await signIn('credentials', {
       email,
@@ -16,94 +17,91 @@ export default function Login() {
       callbackUrl: '/',
     });
   };
+
   return (
-    <section className='bg-slate-200 dark:bg-gray-900'>
-      <div className='flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0 h-full'>
-        <Link
-          href='#'
-          className='flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white'
-        >
+    <section className="bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 min-h-screen flex items-center justify-center px-4">
+      <div className="w-full max-w-md bg-gray-800 rounded-lg shadow-lg p-6 sm:p-8">
+        {/* Logo */}
+        <div className="flex justify-center mb-6">
           <Image
-            className='w-8 h-8 mr-2'
-            src='https://flowbite.s3.amazonaws.com/blocks/marketing-ui/logo.svg'
-            alt='logo'
-            width={100}
-            height={100}
+            src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/logo.svg"
+            alt="Logo"
+            width={50}
+            height={50}
+            className="rounded-full"
           />
-          gju-upholders
-        </Link>
-        <div className='w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700'>
-          <div className='p-6 space-y-4 md:space-y-6 sm:p-8'>
-            <h1 className='text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white'>
-              Sign in to your account
-            </h1>
-            <form
-              className='space-y-4 md:space-y-6'
-              onSubmit={(e) => {
-                e.preventDefault();
-                onSubmit();
-              }}
-            >
-              <div>
-                <label
-                  htmlFor='email'
-                  className='block mb-2 text-sm font-medium text-gray-900 dark:text-white'
-                >
-                  Your email
-                </label>
-                <input
-                  type='email'
-                  name='email'
-                  id='email'
-                  className='bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500'
-                  placeholder='username@host.com'
-                  required=''
-                  onChange={(e) => setEmail(e.target.value)}
-                />
-              </div>
-              <div>
-                <label
-                  htmlFor='password'
-                  className='block mb-2 text-sm font-medium text-gray-900 dark:text-white'
-                >
-                  Password
-                </label>
-                <input
-                  type='password'
-                  name='password'
-                  id='password'
-                  placeholder='••••••••'
-                  className='bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500'
-                  required=''
-                  onChange={(e) => setPassword(e.target.value)}
-                />
-              </div>
-              {/* <div className='flex items-center justify-between'>
-                <Link
-                  href='#'
-                  className='text-sm font-medium text-primary-600 hover:underline dark:text-primary-500'
-                >
-                  Forgot password?
-                </Link>
-              </div> */}
-              <button
-                type='submit'
-                className='w-full text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800'
-              >
-                Sign in
-              </button>
-              <p className='text-sm font-light text-gray-500 dark:text-gray-400'>
-                Don’t have an account yet?{' '}
-                <Link
-                  href='/user/register'
-                  className='font-medium text-blue-600 hover:underline dark:text-primary-500'
-                >
-                  Sign up
-                </Link>
-              </p>
-            </form>
-          </div>
         </div>
+        
+        {/* Header */}
+        <h1 className="text-2xl font-bold text-center text-white mb-4">
+          Welcome Back
+        </h1>
+        <p className="text-center text-gray-400 mb-8">
+          Login to your account to continue
+        </p>
+
+        {/* Login Form */}
+        <form
+          onSubmit={(e) => {
+            e.preventDefault();
+            onSubmit();
+          }}
+          className="space-y-6"
+        >
+          {/* Email Input */}
+          <div>
+            <label
+              htmlFor="email"
+              className="block text-sm font-medium text-gray-300 mb-2"
+            >
+              Email Address
+            </label>
+            <input
+              type="email"
+              id="email"
+              placeholder="username@example.com"
+              required
+              onChange={(e) => setEmail(e.target.value)}
+              className="w-full bg-gray-700 text-gray-300 rounded-lg border border-gray-600 focus:ring-teal-500 focus:border-teal-500 p-3 placeholder-gray-500"
+            />
+          </div>
+
+          {/* Password Input */}
+          <div>
+            <label
+              htmlFor="password"
+              className="block text-sm font-medium text-gray-300 mb-2"
+            >
+              Password
+            </label>
+            <input
+              type="password"
+              id="password"
+              placeholder="••••••••"
+              required
+              onChange={(e) => setPassword(e.target.value)}
+              className="w-full bg-gray-700 text-gray-300 rounded-lg border border-gray-600 focus:ring-teal-500 focus:border-teal-500 p-3 placeholder-gray-500"
+            />
+          </div>
+
+          {/* Login Button */}
+          <button
+            type="submit"
+            className="w-full bg-teal-600 hover:bg-teal-700 text-white font-semibold py-3 rounded-lg shadow-lg transition-all focus:outline-none focus:ring-4 focus:ring-teal-500 focus:ring-opacity-50"
+          >
+            Sign In
+          </button>
+        </form>
+        {/* Footer */}
+        <p className="text-sm text-gray-400 mt-6 text-center">
+          Don’t have an account?{' '}
+          <Link
+            href="/user/register"
+            className="text-teal-500 hover:underline"
+          >
+            Sign up
+          </Link>
+        </p>
       </div>
     </section>
   );
